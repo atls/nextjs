@@ -1,8 +1,6 @@
 {
   "private": true,
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+  "license": "MIT",
   "scripts": {
     "lint": "mctl lint",
     "test": "mctl test",
