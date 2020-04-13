@@ -25,6 +25,7 @@
   },
   "publishConfig": {
     "main": "dist/index.js",
-    "typings": "dist/index.d.ts"
+    "typings": "dist/index.d.ts",
+    "registry": "https://npm.pkg.github.com/"
   }
 }
