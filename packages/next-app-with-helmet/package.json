@@ -1,6 +1,6 @@
 {
   "name": "@atlantis-lab/next-app-with-helmet",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
