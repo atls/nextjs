@@ -2,7 +2,7 @@
   "name": "@atlantis-lab/next-document-with-helmet",
   "version": "0.0.1",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -33,5 +33,9 @@
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
     "registry": "https://npm.pkg.github.com/"
+  },
+  "typings": "dist/index.d.ts",
+  "pubflowConfig": {
+    "main": "src/index.ts"
   }
 }
