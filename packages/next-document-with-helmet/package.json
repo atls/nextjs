@@ -1,5 +1,6 @@
 {
   "name": "@atlantis-lab/next-document-with-helmet",
+  "repository": "git://github.com/Atlantis-Lab/next.git",
   "version": "0.0.2",
   "license": "MIT",
   "main": "dist/index.js",
@@ -32,10 +33,7 @@
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "typings": "dist/index.d.ts",
-  "pubflowConfig": {
-    "main": "src/index.ts"
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
   }
 }
