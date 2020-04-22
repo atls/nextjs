@@ -1,5 +1,6 @@
 {
   "name": "@atlantis-lab/next-app-with-emotion",
+  "repository": "git://github.com/Atlantis-Lab/next.git",
   "version": "0.0.2",
   "license": "MIT",
   "main": "src/index.ts",
@@ -34,6 +35,7 @@
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts",
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/",
+    "access": "public"
   }
 }
