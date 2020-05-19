@@ -31,8 +31,6 @@
     "react-helmet": "^5.2.1"
   },
   "publishConfig": {
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
     "registry": "https://npm.pkg.github.com/",
     "access": "public"
   }
