@@ -2,7 +2,7 @@
   "name": "@atlantis-lab/next-app-with-user",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -20,14 +20,9 @@
     "@types/node": "12.12.21",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.5",
-    "next": "9.2.2",
+    "next": "9.3.2",
     "react": "16.13.0",
     "typescript": "3.8.3"
-  },
-  "peerDependencies": {
-    "@monstrs/react-user": "^0.1.0",
-    "next": "^9.1.2",
-    "react": "^16.12.0"
   },
   "publishConfig": {
     "access": "public"
