@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/next-config-with-workspaces",
   "repository": "git://github.com/Atlantis-Lab/next.git",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -25,9 +25,6 @@
     "typescript": "3.8.3"
   },
   "publishConfig": {
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "registry": "https://npm.pkg.github.com/",
     "access": "public"
   }
 }
