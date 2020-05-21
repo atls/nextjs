@@ -1,6 +1,5 @@
 {
   "name": "@atlantis-lab/next-document-with-helmet",
-  "repository": "git://github.com/Atlantis-Lab/next.git",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
