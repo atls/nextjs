@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/next-app-with-intl",
   "repository": "git://github.com/Atlantis-Lab/next.git",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "license": "MIT",
   "main": "src/index.ts",
   "files": [
@@ -35,9 +35,6 @@
     "universal-cookie": "^4.0.0"
   },
   "publishConfig": {
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "registry": "https://npm.pkg.github.com/",
     "access": "public"
   }
 }
