@@ -2,7 +2,7 @@
   "name": "@atlantis-lab/next-app-with-provider",
   "version": "0.1.0",
   "license": "MIT",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
