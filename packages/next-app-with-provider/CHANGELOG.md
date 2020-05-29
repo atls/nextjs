@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/Atlantis-Lab/next/compare/@atlantis-lab/next-app-with-provider@0.1.1...@atlantis-lab/next-app-with-provider@0.1.2) (2020-05-29)
+
+### Bug Fixes
+
+- **packages/package.json:** src/index.ts -> dist/index.js ([a74f3f7](https://github.com/Atlantis-Lab/next/commit/a74f3f7b03222e3bcd072d18321e6fbe6023e540))
+
 ## [0.1.1](https://github.com/Atlantis-Lab/next/compare/@atlantis-lab/next-app-with-provider@0.1.0...@atlantis-lab/next-app-with-provider@0.1.1) (2020-05-21)
 
 **Note:** Version bump only for package @atlantis-lab/next-app-with-provider
