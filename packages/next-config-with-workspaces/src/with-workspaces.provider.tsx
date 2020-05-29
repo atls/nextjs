@@ -29,6 +29,13 @@ export const withWorkspaces = (nextConfig: any = {}) => ({
       if (rule.use && rule.use.loader === 'next-babel-loader') {
         rule.include = rule.include.concat(includes) // eslint-disable-line no-param-reassign
       }
+      if (rule.use && Array.isArray(rule.use)) {
+        rule.use.forEach(useItem => {
+          if (useItem.loader === 'next-babel-loader') {
+            rule.include = rule.include.concat(includes) // eslint-disable-line no-param-reassign
+          }
+        })
+      }
     })
 
     if (typeof nextConfig.webpack === 'function') {
