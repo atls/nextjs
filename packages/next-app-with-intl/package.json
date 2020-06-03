@@ -23,7 +23,7 @@
     "@types/react-dom": "16.9.5",
     "next": "9.3.2",
     "react": "16.13.0",
-    "react-intl": "3.12.1",
+    "react-intl": "4.6.4",
     "typescript": "3.8.3",
     "universal-cookie": "4.0.3"
   },
