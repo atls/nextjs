@@ -1,5 +1,6 @@
 {
   "name": "@atlantis-lab/next-app-with-provider",
+  "repository": "git@github.com:Atlantis-Lab/nextjs.git",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
