@@ -26,6 +26,10 @@
     "react": "16.13.1",
     "typescript": "3.9.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Atlantis-Lab/nextjs.git"
+  },
   "publishConfig": {
     "access": "public"
   }
