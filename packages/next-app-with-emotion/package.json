@@ -1,5 +1,6 @@
 {
   "name": "@atlantis-lab/next-app-with-emotion",
+  "repository": "git@github.com:Atlantis-Lab/nextjs.git",
   "version": "0.1.1",
   "license": "MIT",
   "main": "dist/index.js",
