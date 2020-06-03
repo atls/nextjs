@@ -23,8 +23,8 @@
     "@types/react-dom": "16.9.5",
     "next": "9.3.2",
     "react": "16.13.0",
+    "react-intl": "4.6.4",
     "typescript": "3.9.3",
-    "react-intl": "3.12.1",
     "universal-cookie": "4.0.3"
   },
   "publishConfig": {
