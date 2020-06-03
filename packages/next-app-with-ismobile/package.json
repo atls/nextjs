@@ -1,7 +1,7 @@
 {
-  "name": "@atlantis-lab/next-document-with-emotion",
+  "name": "@atlantis-lab/next-app-with-ismobile",
   "repository": "git@github.com:Atlantis-Lab/nextjs.git",
-  "version": "0.1.1",
+  "version": "0.0.0",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
@@ -15,15 +15,17 @@
     "prepack": "pubflow store",
     "postpack": "pubflow restore"
   },
+  "dependencies": {
+    "ismobilejs": "^1.1.1"
+  },
   "devDependencies": {
     "@monstrs/publish-flow": "0.1.3",
-    "@types/node": "12.12.21",
-    "@types/react": "16.9.11",
-    "@types/react-dom": "16.9.5",
-    "emotion-server": "10.0.27",
-    "next": "9.3.2",
-    "react": "16.13.0",
-    "typescript": "3.8.3"
+    "@types/node": "^14.0.9",
+    "@types/react": "16.9.35",
+    "@types/react-dom": "16.9.8",
+    "next": "9.4.4",
+    "react": "16.13.1",
+    "typescript": "3.9.3"
   },
   "publishConfig": {
     "access": "public"
