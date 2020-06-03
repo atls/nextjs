@@ -1,6 +1,7 @@
-import Project  from '@lerna/project'
 import path     from 'path'
 import { sync } from 'globby'
+
+import Project  from '@lerna/project'
 
 export const withWorkspaces = (nextConfig: any = {}) => ({
   ...nextConfig,
