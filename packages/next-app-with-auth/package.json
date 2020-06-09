@@ -15,9 +15,11 @@
     "prepack": "pubflow store",
     "postpack": "pubflow restore"
   },
+  "dependencies": {
+    "@atlantis-lab/react-auth": "^0.1.4"
+  },
   "devDependencies": {
     "@monstrs/publish-flow": "0.1.3",
-    "@monstrs/react-auth": "0.1.0",
     "@types/node": "12.12.43",
     "@types/react": "16.9.35",
     "@types/react-dom": "16.9.5",
