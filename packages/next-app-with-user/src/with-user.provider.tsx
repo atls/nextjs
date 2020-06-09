@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react'
-import { UserProvider }     from '@monstrs/react-user'
+import { UserProvider }     from '@atlantis-lab/react-user'
 
 declare global {
   interface Window {
