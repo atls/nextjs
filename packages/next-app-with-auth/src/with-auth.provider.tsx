@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react'
-import { AuthProvider }     from '@monstrs/react-auth'
+import { AuthProvider }     from '@atlantis-lab/react-auth'
 
 declare global {
   interface Window {
