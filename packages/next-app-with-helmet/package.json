@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/next-app-with-helmet",
   "repository": "git@github.com:Atlantis-Lab/nextjs.git",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
@@ -23,7 +23,7 @@
     "next": "9.4.4",
     "react": "16.13.1",
     "react-helmet": "6.1.0",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "publishConfig": {
     "access": "public"
