@@ -35,7 +35,10 @@ export const withHelmet = () => TargetComponent =>
     render() {
       return (
         <Html {...this.helmetHtmlAttrComponents}>
-          <Head />
+          <Head>
+            <link rel='shortcut icon' href='/favicon.png' />
+            <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+          </Head>
           <body {...this.helmetBodyAttrComponents}>
             <Main />
             <NextScript />
