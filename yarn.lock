@@ -7977,6 +7977,7 @@ intl-format-cache@^4.3.0:
 intl-messageformat-parser@^5.3.5:
   version "5.3.5"
   resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-5.3.5.tgz#fbbd27ca82780edda786d8edf59567ba1daa1f50"
+  integrity sha512-gOy7796eyQFb8GafFMH7QqiFAG5oafvQWR9XbfV1rfsQ9lWWf/5xZpK0XPyxIgZRwLDmJP9PyaGgzqCFXlmOaQ==
   dependencies:
     "@formatjs/intl-numberformat" "^5.3.1"
 
