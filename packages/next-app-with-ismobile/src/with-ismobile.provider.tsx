@@ -1,6 +1,12 @@
 import isMobile                   from 'ismobilejs'
 import React, { ElementType, FC } from 'react'
 
+declare global {
+  interface Window {
+    __NEXT_DATA__: any
+  }
+}
+
 type Props = {
   Component?: ElementType
   isMobileVersion?: boolean
@@ -45,6 +51,18 @@ export const withIsMobile = () => WrapperComponent => {
     render() {
       const { Component, isMobileVersion, isTabletVersion } = this.props
 
+      let isMobileDevice = isMobileVersion
+      let isTabletDevice = isTabletVersion
+
+      /* eslint-disable */
+
+      if ((process as any).browser) {
+        isMobileDevice = window.__NEXT_DATA__.props.isMobileVersion
+        isTabletDevice = window.__NEXT_DATA__.props.isTabletVersion
+      }
+
+      /* eslint-enable */
+
       return (
         <WrapperComponent
           {...this.props}
@@ -52,8 +70,8 @@ export const withIsMobile = () => WrapperComponent => {
             <ClientContainer
               {...wrapperProps}
               Component={Component}
-              isMobile={isMobileVersion}
-              isTablet={isTabletVersion}
+              isMobile={isMobileDevice}
+              isTablet={isTabletDevice}
             />
           )}
         />
