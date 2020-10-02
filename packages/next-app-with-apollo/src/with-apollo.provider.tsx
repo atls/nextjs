@@ -1,8 +1,8 @@
 /* eslint-disable max-classes-per-file */
 import Head                from 'next/head'
 import React               from 'react'
-import { ApolloProvider }  from '@apollo/react-common'
-import { getDataFromTree } from '@apollo/react-ssr'
+import { ApolloProvider }  from '@apollo/client'
+import { getDataFromTree } from '@apollo/client/react/ssr'
 
 import initApollo          from './init-apollo'
 
