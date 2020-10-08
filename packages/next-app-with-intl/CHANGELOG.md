@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.19](https://github.com/Atlantis-Lab/nextjs/compare/@atlantis-lab/next-app-with-intl@0.2.18...@atlantis-lab/next-app-with-intl@0.2.19) (2020-10-08)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-intl
+
+
+
+
+
+## [0.2.18](https://github.com/Atlantis-Lab/nextjs/compare/@atlantis-lab/next-app-with-intl@0.2.17...@atlantis-lab/next-app-with-intl@0.2.18) (2020-10-08)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-intl
+
+
+
+
+
+## [0.2.17](https://github.com/Atlantis-Lab/nextjs/compare/@atlantis-lab/next-app-with-intl@0.2.16...@atlantis-lab/next-app-with-intl@0.2.17) (2020-10-08)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-intl
+
+
+
+
+
 ## [0.2.16](https://github.com/Atlantis-Lab/nextjs/compare/@atlantis-lab/next-app-with-intl@0.2.15...@atlantis-lab/next-app-with-intl@0.2.16) (2020-09-15)
 
 **Note:** Version bump only for package @atlantis-lab/next-app-with-intl

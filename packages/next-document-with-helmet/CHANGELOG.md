@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.15](https://github.com/Atlantis-Lab/nextjs/compare/@atlantis-lab/next-document-with-helmet@0.2.14...@atlantis-lab/next-document-with-helmet@0.2.15) (2020-10-08)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
 ## [0.2.14](https://github.com/Atlantis-Lab/nextjs/compare/@atlantis-lab/next-document-with-helmet@0.2.13...@atlantis-lab/next-document-with-helmet@0.2.14) (2020-09-15)
 
 **Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
