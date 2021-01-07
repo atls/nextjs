@@ -1,9 +1,9 @@
 name: Checks
 
 on:
-  pull_request:
-    types: [closed]
-    branches: [master]
+ pull_request:
+   paths:
+     - '**'
 
 jobs:
   check:
