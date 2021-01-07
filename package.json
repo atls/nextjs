@@ -1,6 +1,6 @@
 {
   "private": true,
-  "license": "MIT",
+  "license": "BSD 3-Clause",
   "scripts": {
     "lint": "mctl lint",
     "test": "mctl test",
