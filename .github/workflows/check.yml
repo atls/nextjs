@@ -4,13 +4,9 @@ on:
   pull_request:
     types: [closed]
     branches: [master]
-    paths-ignore:
-      - '!**package.json'
-      - '!**yarn.lock'
 
 jobs:
-  run:
-    name: Run
+  check:
     runs-on: ubuntu-latest
 
     steps:
