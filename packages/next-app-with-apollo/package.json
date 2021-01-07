@@ -16,7 +16,7 @@
     "postpack": "pubflow restore"
   },
   "dependencies": {
-    "@apollo/client": "3.3.4",
+    "@apollo/client": "3.3.6",
     "isomorphic-unfetch": "^3.0.0"
   },
   "devDependencies": {
