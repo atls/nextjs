@@ -1,5 +1,3 @@
-// eslint-disable-next-line
-import App                   from 'next/app'
 import React          from 'react'
 import TestRenderer   from 'react-test-renderer'
 import { compose }    from 'recompose'
