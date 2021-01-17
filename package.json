@@ -13,6 +13,7 @@
   "devDependencies": {
     "@monstrs/mctl": "0.1.82",
     "husky": "4.3.0",
+    "jest": "^26.6.3",
     "lerna": "3.22.1",
     "typescript": "4.1.3"
   },
