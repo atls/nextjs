@@ -5,7 +5,7 @@ import { compose }           from 'recompose'
 
 import { withApollo }        from '../src/index'
 
-describe('TestMessage suit for next-app-with-apollo', function describer() {
+describe('test suit for next-app-with-apollo', function describer() {
   test('should start data fetching using provided ApolloClient', function tester() {
     const withProviders = compose(
       withApollo({
