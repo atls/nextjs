@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/next-app-with-intl",
   "repository": "git@github.com:Atlantis-Lab/nextjs.git",
-  "version": "0.2.26",
+  "version": "0.2.27",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
