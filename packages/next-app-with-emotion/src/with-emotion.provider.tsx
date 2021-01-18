@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
-import { ThemeProvider }    from 'emotion-theming'
+import { ThemeProvider }    from '@emotion/react'
 import { hydrate }          from 'emotion'
 
 declare global {
@@ -11,16 +11,14 @@ declare global {
 }
 
 type Options = {
-  Provider: any
+  // Provider: any
+  theme: {}
   injectGlobalStyles?: () => void
 }
 
 type Props = {}
 
-export const withEmotion = ({
-  Provider = ThemeProvider,
-  injectGlobalStyles,
-}: Options) => WrapperComponent =>
+export const withEmotion = ({ theme, injectGlobalStyles }: Options) => WrapperComponent =>
   class WithEmotion extends Component<Props> {
     static async getInitialProps(context) {
       if (WrapperComponent.getInitialProps) {
@@ -42,9 +40,9 @@ export const withEmotion = ({
 
     render() {
       return (
-        <Provider>
+        <ThemeProvider theme={theme}>
           <WrapperComponent {...this.props} />
-        </Provider>
+        </ThemeProvider>
       )
     }
   }
