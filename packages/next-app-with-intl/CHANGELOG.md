@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.29 (2021-01-18)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-intl
+
+
+
+
+
 ## 0.2.28 (2021-01-17)
 
 **Note:** Version bump only for package @atlantis-lab/next-app-with-intl
