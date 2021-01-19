@@ -13,18 +13,25 @@
     "prebuild": "yarn clean",
     "build": "tsc -p tsconfig.json",
     "prepack": "pubflow store",
-    "postpack": "pubflow restore"
+    "postpack": "pubflow restore",
+    "test": "jest"
   },
   "dependencies": {
     "ismobilejs": "^1.1.1"
   },
   "devDependencies": {
+    "@atlantis-lab/jest-config": "^0.1.2",
     "@monstrs/publish-flow": "0.1.3",
+    "@types/jest": "^26.0.20",
     "@types/node": "14.14.10",
     "@types/react": "16.14.2",
     "@types/react-dom": "16.9.10",
     "next": "10.0.5",
     "react": "16.14.0",
+    "react-test-renderer": "16.14.0",
+    "recompose": "^0.30.0",
+    "ts-jest": "^26.4.4",
+    "ts-node": "^9.1.1",
     "typescript": "4.1.3"
   },
   "publishConfig": {
