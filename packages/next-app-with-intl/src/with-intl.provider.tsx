@@ -94,11 +94,11 @@ export const withIntl = ({
       super(props)
 
       this.state = {
-        locale: props.locale,
+        locale: props.locale || defaultLocale,
         messages: props.messages,
       }
 
-      this.store = new LocaleStore(props.locale, supportedLocales)
+      this.store = new LocaleStore(props.locale || defaultLocale, supportedLocales)
     }
 
     onChange = async locale => {
