@@ -1,6 +1,6 @@
 import React           from 'react'
 import TestRenderer    from 'react-test-renderer'
-import { useTheme }    from '@emotion/react'
+import { ThemeProvider, useTheme }    from '@emotion/react'
 import { compose }     from 'recompose'
 
 import { withEmotion } from '../src/index'
@@ -16,7 +16,9 @@ describe('test suit for next-app-with-emotion', function describer() {
       },
     }
 
-    const withProviders = compose(withEmotion({ theme: appTheme }))
+    const Provider = ({ children }) => <ThemeProvider theme={appTheme}>{children}</ThemeProvider>
+
+    const withProviders = compose(withEmotion({Provider}))
 
     function Consumer() {
       const theme = useTheme()
