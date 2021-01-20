@@ -11,14 +11,16 @@ declare global {
 }
 
 type Options = {
-  // Provider: any
-  theme: {}
+  Provider: any
   injectGlobalStyles?: () => void
 }
 
 type Props = {}
 
-export const withEmotion = ({ theme, injectGlobalStyles }: Options) => WrapperComponent =>
+export const withEmotion = ({
+  Provider = ThemeProvider,
+  injectGlobalStyles,
+}: Options) => WrapperComponent =>
   class WithEmotion extends Component<Props> {
     static async getInitialProps(context) {
       if (WrapperComponent.getInitialProps) {
@@ -40,9 +42,9 @@ export const withEmotion = ({ theme, injectGlobalStyles }: Options) => WrapperCo
 
     render() {
       return (
-        <ThemeProvider theme={theme}>
+        <Provider>
           <WrapperComponent {...this.props} />
-        </ThemeProvider>
+        </Provider>
       )
     }
   }
