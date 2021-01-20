@@ -17,7 +17,10 @@ type Options = {
 
 type Props = {}
 
-export const withEmotion = ({ Provider = ThemeProvider, injectGlobalStyles }: Options) => WrapperComponent =>
+export const withEmotion = ({
+  Provider = ThemeProvider,
+  injectGlobalStyles,
+}: Options) => WrapperComponent =>
   class WithEmotion extends Component<Props> {
     static async getInitialProps(context) {
       if (WrapperComponent.getInitialProps) {
