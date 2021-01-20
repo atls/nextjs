@@ -5,7 +5,7 @@ import { compose }  from 'recompose'
 
 import { withUser } from '../src/index'
 
-describe('test suit for next-app-with-provider', function describer() {
+describe('test suit for next-app-with-user', function describer() {
   test("should check user's existence", function tester() {
     const withProviders = compose(withUser())
 
