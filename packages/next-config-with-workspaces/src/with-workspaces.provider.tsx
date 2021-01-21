@@ -5,7 +5,10 @@ import Project  from '@lerna/project'
 
 export const withWorkspaces = (nextConfig: any = {}) => ({
   ...nextConfig,
-  webpack(config, options) {
+  webpack(
+    config = process.env.wpStubConfig ? JSON.parse(process.env.wpStubConfig) : null,
+    options = process.env.optionsStub ? process.env.optionsStub : null
+  ) {
     const cwd = process.cwd()
     const project = new Project(cwd)
 
