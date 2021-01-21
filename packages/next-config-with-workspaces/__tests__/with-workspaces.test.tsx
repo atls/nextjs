@@ -4,7 +4,7 @@ import { sync }               from 'globby'
 import Project                from '@lerna/project'
 
 import { withWorkspaces }     from '../src/index'
-import { nxConfig, wpConfig } from './stub'
+import { nextConfig, webpackConfig } from './stub'
 
 describe('test suit for next-config-with-workspaces', function describer() {
   test('should initialize the config', function tester() {
@@ -28,17 +28,17 @@ describe('test suit for next-config-with-workspaces', function describer() {
       .map(pkg => path.dirname(pkg))
       .map(dirname => new RegExp(`${dirname}(?!.*node_modules)`))
 
-    process.env.wpStubConfig = JSON.stringify(wpConfig)
+    process.env.webpackStubConfig = JSON.stringify(webpackConfig)
     process.env.optionsStub = 'stub'
 
-    const configResult = { ...withWorkspaces(nxConfig), ...withWorkspaces(nxConfig).webpack() }
+    const configResult = { ...withWorkspaces(nextConfig), ...withWorkspaces(nextConfig).webpack() }
 
     delete configResult.webpack
 
-    const expectedWebpack = wpConfig
+    const expectedWebpack = webpackConfig
 
     expectedWebpack.module.rules[0].include = includes
 
-    expect(configResult).toMatchObject({ ...nxConfig, ...expectedWebpack })
+    expect(configResult).toMatchObject({ ...nextConfig, ...expectedWebpack })
   })
 })
