@@ -3,7 +3,7 @@
   "license": "BSD 3-Clause",
   "scripts": {
     "lint": "mctl lint",
-    "test": "mctl test",
+    "test": "lerna run test",
     "commit": "mctl commit",
     "format": "mctl format",
     "typecheck": "mctl typecheck",
