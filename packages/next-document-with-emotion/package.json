@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/next-document-with-emotion",
   "repository": "git@github.com:Atlantis-Lab/nextjs.git",
-  "version": "0.2.31",
+  "version": "0.2.32",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
@@ -26,7 +26,6 @@
     "emotion-server": "10.0.27",
     "next": "10.0.5",
     "react": "16.14.0",
-    "react-test-renderer": "16.14.0",
     "recompose": "^0.30.0",
     "ts-jest": "^26.4.4",
     "ts-node": "^9.1.1",
