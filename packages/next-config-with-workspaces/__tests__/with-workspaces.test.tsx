@@ -1,9 +1,9 @@
-import path                   from 'path'
-import { sync }               from 'globby'
+import path                          from 'path'
+import { sync }                      from 'globby'
 
-import Project                from '@lerna/project'
+import Project                       from '@lerna/project'
 
-import { withWorkspaces }     from '../src/index'
+import { withWorkspaces }            from '../src/index'
 import { nextConfig, webpackConfig } from './stub'
 
 describe('test suit for next-config-with-workspaces', function describer() {
