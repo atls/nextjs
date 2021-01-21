@@ -6,7 +6,7 @@ import Project  from '@lerna/project'
 export const withWorkspaces = (nextConfig: any = {}) => ({
   ...nextConfig,
   webpack(
-    config = process.env.wpStubConfig ? JSON.parse(process.env.wpStubConfig) : null,
+    config = process.env.webpackStubConfig ? JSON.parse(process.env.webpackStubConfig) : null,
     options = process.env.optionsStub ? process.env.optionsStub : null
   ) {
     const cwd = process.cwd()

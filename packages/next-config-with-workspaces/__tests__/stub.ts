@@ -1,6 +1,6 @@
 import path from 'path'
 
-export const nxConfig = {
+export const nextConfig = {
   env: [],
   distDir: '.nextCustom',
   assetPrefix: '',
@@ -9,7 +9,7 @@ export const nxConfig = {
   pageExtensions: ['tsx', 'ts'],
 }
 
-export const wpConfig = {
+export const webpackConfig = {
   mode: 'production',
   entry: './app/entry',
   output: {
