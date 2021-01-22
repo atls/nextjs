@@ -1,23 +1,41 @@
 # NextJS Custom Workshop
 
-## [Next App With Apollo](packages/next-app-with-apollo/README.md)
+This is a bunch of workups you may use to set up your __NextJS__ app really quickly and comfortable
 
-## [Next App With Auth](packages/next-app-with-auth/README.md)
+# Installation
 
-## [Next App With Emotion](packages/next-app-with-emotion/README.md)
+First of all, choose the package that matches your requirements
 
-## [Next App With Helmet](packages/next-app-with-helmet/README.md)
+Then do the following:
 
-## [Next App With Intl](packages/next-app-with-intl/README.md)
+`npm install @atlantis-lab/[package-name]`
 
-## [Next App With IsMobile](packages/next-app-with-ismobile/README.md)
+Or with yarn:
 
-## [Next App With Provider](packages/next-app-with-provider/README.md)
+`yarn add @atlantis-lab/[package-name]`
 
-## [Next App With User](packages/next-app-with-user/README.md)
+If you are not sure about command you are going to execute to install the right package - just go to the `README.md` file in your package's directory and copy the script from there
 
-## [Next Config With Workspaces](packages/next-config-with-workspaces/README.md)
+# Fast travel to package's README
 
-## [Next Document With Emotion](packages/next-document-with-emotion/README.md)
+### [Next App With Apollo](packages/next-app-with-apollo)
 
-## [Next Document With Helmet](packages/next-document-with-helmet/README.md)
+### [Next App With Auth](packages/next-app-with-auth)
+
+### [Next App With Emotion](packages/next-app-with-emotion)
+
+### [Next App With Helmet](packages/next-app-with-helmet)
+
+### [Next App With Intl](packages/next-app-with-intl)
+
+### [Next App With IsMobile](packages/next-app-with-ismobile)
+
+### [Next App With Provider](packages/next-app-with-provider)
+
+### [Next App With User](packages/next-app-with-user)
+
+### [Next Config With Workspaces](packages/next-config-with-workspaces)
+
+### [Next Document With Emotion](packages/next-document-with-emotion)
+
+### [Next Document With Helmet](packages/next-document-with-helmet)
