@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
-import { ThemeProvider }    from 'emotion-theming'
+import { ThemeProvider }    from '@emotion/react'
 import { hydrate }          from 'emotion'
 
 declare global {
