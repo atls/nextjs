@@ -3,6 +3,150 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.39 (2021-01-22)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.38 (2021-01-22)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.37 (2021-01-22)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.36 (2021-01-22)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.35 (2021-01-21)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.34 (2021-01-21)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.33 (2021-01-21)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.32 (2021-01-21)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.31 (2021-01-20)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.30 (2021-01-20)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.29 (2021-01-20)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.28 (2021-01-19)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.27 (2021-01-19)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.26 (2021-01-19)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.25 (2021-01-18)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.24 (2021-01-17)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.23 (2021-01-17)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
+## 0.2.22 (2021-01-15)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-auth
+
+
+
+
+
 ## 0.2.21 (2021-01-08)
 
 **Note:** Version bump only for package @atlantis-lab/next-app-with-auth
