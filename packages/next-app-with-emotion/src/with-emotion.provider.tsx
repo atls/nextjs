@@ -2,7 +2,7 @@
 /* eslint-disable react/no-deprecated */
 import React, { Component } from 'react'
 import { ThemeProvider }    from '@emotion/react'
-import { hydrate }          from 'emotion'
+import { hydrate }          from '@emotion/css'
 
 declare global {
   interface Window {

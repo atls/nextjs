@@ -18,13 +18,11 @@
   },
   "devDependencies": {
     "@atlantis-lab/jest-config": "^0.1.2",
-    "@emotion/react": "^11.0.0",
     "@monstrs/publish-flow": "0.1.3",
     "@types/jest": "^26.0.20",
     "@types/node": "14.14.22",
     "@types/react": "17.0.0",
     "@types/react-dom": "17.0.0",
-    "emotion": "10.0.27",
     "next": "10.0.6",
     "react": "17.0.1",
     "react-test-renderer": "17.0.1",
@@ -36,5 +34,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "eea0f59861dd994aa83d6ca096ba429b8841296c"
+  "gitHead": "eea0f59861dd994aa83d6ca096ba429b8841296c",
+  "dependencies": {
+    "@emotion/css": "^11.1.3",
+    "@emotion/react": "^11.1.5"
+  }
 }
