@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.52 (2021-03-10)
+
+**Note:** Version bump only for package @atlantis-lab/next-app-with-apollo
+
+
+
+
+
 ## 0.2.51 (2021-03-10)
 
 **Note:** Version bump only for package @atlantis-lab/next-app-with-apollo
