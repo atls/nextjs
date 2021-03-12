@@ -342,20 +342,26 @@
     import-sort-parser-typescript "^6.0.0"
     import-sort-style "^6.0.0"
 
-"@atlantis-lab/react-auth@^0.1.4":
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/@atlantis-lab/react-auth/-/react-auth-0.1.4.tgz#b42bd1c69ebe04a41b9b56821418d92d1fd60c4c"
-  integrity sha512-fuVFNgcDFeDY/5PHioGo1NwV5RTFklkH/BUxR8GpdU21EOoicH9z3YKTmaL4Wql661puZNiKaZuqVz5XBvCrGQ==
+"@atlantis-lab/react-auth@^0.1.30":
+  version "0.1.30"
+  resolved "https://registry.yarnpkg.com/@atlantis-lab/react-auth/-/react-auth-0.1.30.tgz#eeb5d8ea1df834f0bfbe77847ed66c2cd21d63b1"
+  integrity sha512-hLrvUZAc0Zsmq+m72j4IhyjvwN5PQcdxQVa9qHuufhc9Y3av7FIFpxu1VzkU4MmIoExlRDZ53axzPIiFoi8pew==
+  dependencies:
+    react "16.14.0"
 
-"@atlantis-lab/react-locale@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@atlantis-lab/react-locale/-/react-locale-0.1.2.tgz#179cdfc73f6890185bdfe5342bfe9d1ec9c68a37"
-  integrity sha512-Iwf8cp7IGVS/P8jQKe8NuwhlGd5q+4IEallxQiTxUCGXStVrhh39ClowLwc4uHGRTHxpFfw/MxR8JrSxjCiK2A==
+"@atlantis-lab/react-locale@^0.1.28":
+  version "0.1.28"
+  resolved "https://registry.yarnpkg.com/@atlantis-lab/react-locale/-/react-locale-0.1.28.tgz#4c250b3f9844e91b88abd2e15714ae96660387a8"
+  integrity sha512-BIQOcToi5TJFEb4iR4KcWOLHiXoETTNou3ToQPv6QKPP4bo0AtENFNB8lgndUJ8vnejQQ4S1onn8Tb5N/1nUlg==
+  dependencies:
+    react "16.14.0"
 
-"@atlantis-lab/react-user@^0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@atlantis-lab/react-user/-/react-user-0.1.2.tgz#64fab3a153ad41bedecbbba9e38b09b8f770fda2"
-  integrity sha512-ymwRbR5oZP/33ZNwEoo7yE8u9gBRWs9jpiz+W45bvTqL1loISe+3CLnwzKYgKRUhValNrgGZhHKdBvgHM+HnOQ==
+"@atlantis-lab/react-user@^0.1.28":
+  version "0.1.28"
+  resolved "https://registry.yarnpkg.com/@atlantis-lab/react-user/-/react-user-0.1.28.tgz#2cb17c795cd881a5efa5a1b72184f3bcc9366bf0"
+  integrity sha512-LFxITC5EXJQ4MBEGwyVL1w4AcNxIfziOrSWeOtygeMB8grw45oSusp/usl5gEvf/5e+bpN/2y/T819LPv0krsw==
+  dependencies:
+    react "16.14.0"
 
 "@atlantis-lab/tsconfig@0.1.10":
   version "0.1.10"
@@ -4224,9 +4230,9 @@ caniuse-lite@^1.0.30001173, caniuse-lite@^1.0.30001179:
   integrity sha512-m5ul/ARCX50JB8BSNM+oiPmQrR5UmngaQ3QThTTp5HcIIQGP/nPBs82BYLE+tigzm3VW+F4BJIhUyaVtEweelQ==
 
 caniuse-lite@^1.0.30001181:
-  version "1.0.30001197"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001197.tgz#47ad15b977d2f32b3ec2fe2b087e0c50443771db"
-  integrity sha512-8aE+sqBqtXz4G8g35Eg/XEaFr2N7rd/VQ6eABGBmNtcB8cN6qNJhMi6oSFy4UWWZgqgL3filHT8Nha4meu3tsw==
+  version "1.0.30001199"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001199.tgz#062afccaad21023e2e647d767bac4274b8b8fd7f"
+  integrity sha512-ifbK2eChUCFUwGhlEzIoVwzFt1+iriSjyKKFYNfv6hN34483wyWpLLavYQXhnR036LhkdUYaSDpHg1El++VgHQ==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -5444,9 +5450,9 @@ electron-to-chromium@^1.3.634:
   integrity sha512-ojGDupQ3UMkvPWcTICe4JYe17+o9OLiFMPoduoR72Zp2ILt1mRVeqnxBEd6s/ptekrnsFU+0A4lStfBe/wyG/A==
 
 electron-to-chromium@^1.3.649:
-  version "1.3.683"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.683.tgz#2c9ab53ff5275cf3dd49278af714d0f8975204f7"
-  integrity sha512-8mFfiAesXdEdE0DhkMKO7W9U6VU/9T3VTWwZ+4g84/YMP4kgwgFtQgUxuu7FUMcvSeKSNhFQNU+WZ68BQTLT5A==
+  version "1.3.687"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.687.tgz#c336184b7ab70427ffe2ee79eaeaedbc1ad8c374"
+  integrity sha512-IpzksdQNl3wdgkzf7dnA7/v10w0Utf1dF2L+B4+gKrloBrxCut+au+kky3PYvle3RMdSxZP+UiCZtLbcYRxSNQ==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -9705,9 +9711,9 @@ node-notifier@^5.4.2:
     which "^1.3.0"
 
 node-notifier@^8.0.0:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/node-notifier/-/node-notifier-8.0.1.tgz#f86e89bbc925f2b068784b31f382afdc6ca56be1"
-  integrity sha512-BvEXF+UmsnAfYfoapKM9nGxnP+Wn7P91YfXmrKnfcYCx6VBeoN5Ez5Ogck6I8Bi5k4RlpqRYaw75pAwzX9OphA==
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/node-notifier/-/node-notifier-8.0.2.tgz#f3167a38ef0d2c8a866a83e318c1ba0efeb702c5"
+  integrity sha512-oJP/9NAdd9+x2Q+rfphB2RJCHjod70RcRLjosiPMMu5gjIfwVnOUGq2nbTjTUbmy0DJ/tFIVT30+Qe3nzl4TJg==
   dependencies:
     growly "^1.3.0"
     is-wsl "^2.2.0"
@@ -10619,7 +10625,7 @@ promzard@^0.3.0:
   dependencies:
     read "1"
 
-prop-types@15.7.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -10852,13 +10858,14 @@ react-test-renderer@17.0.1:
     react-shallow-renderer "^16.13.1"
     scheduler "^0.20.1"
 
-react@17.0.1:
-  version "17.0.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
-  integrity sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==
+react@16.14.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 read-cmd-shim@^1.0.1:
   version "1.0.5"
