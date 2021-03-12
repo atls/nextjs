@@ -20,7 +20,7 @@ describe('test suit for next-config-with-workspaces', function describer() {
           absolute: true,
         }),
       ],
-      []
+      [],
     )
 
     const includes = packageConfigPaths
@@ -31,7 +31,10 @@ describe('test suit for next-config-with-workspaces', function describer() {
     process.env.webpackStubConfig = JSON.stringify(webpackConfig)
     process.env.optionsStub = 'stub'
 
-    const configResult = { ...withWorkspaces(nextConfig), ...withWorkspaces(nextConfig).webpack() }
+    const configResult = {
+      ...withWorkspaces(nextConfig),
+      ...withWorkspaces(nextConfig).webpack(),
+    }
 
     delete configResult.webpack
 
