@@ -3,7 +3,7 @@
   "license": "BSD 3-Clause",
   "scripts": {
     "lint": "actl lint",
-    "test": "lerna run test",
+    "test": "actl test",
     "commit": "actl commit",
     "format": "actl format",
     "typecheck": "actl typecheck",
@@ -11,7 +11,7 @@
     "build": "lerna run build"
   },
   "devDependencies": {
-    "@atlantis-lab/actl": "^0.4.23",
+    "@atlantis-lab/actl": "^0.4.31",
     "@atlantis-lab/config": "^0.1.10",
     "husky": "4.3.8",
     "jest": "^26.6.3",

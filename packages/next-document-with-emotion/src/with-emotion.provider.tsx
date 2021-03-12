@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import Document            from 'next/document'
 import React               from 'react'
 import { extractCritical } from 'emotion-server'
@@ -21,7 +23,6 @@ export const withEmotion = () => TargetComponent =>
 
     constructor(props) {
       super(props)
-
       const { __NEXT_DATA__, ids } = props
 
       if (ids) {

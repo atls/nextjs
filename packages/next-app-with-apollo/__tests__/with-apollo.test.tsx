@@ -10,7 +10,7 @@ describe('test suit for next-app-with-apollo', function describer() {
     const withProviders = compose(
       withApollo({
         uri: 'https://48p1r2roz4.sse.codesandbox.io',
-      })
+      }),
     )
 
     const EXCHANGE_RATES = gql`
