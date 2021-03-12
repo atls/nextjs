@@ -7,7 +7,7 @@ export const withWorkspaces = (nextConfig: any = {}) => ({
   ...nextConfig,
   webpack(
     config = process.env.webpackStubConfig ? JSON.parse(process.env.webpackStubConfig) : null,
-    options = process.env.optionsStub ? process.env.optionsStub : null
+    options = process.env.optionsStub ? process.env.optionsStub : null,
   ) {
     const cwd = process.cwd()
     const project = new Project(cwd)
@@ -21,7 +21,7 @@ export const withWorkspaces = (nextConfig: any = {}) => ({
           absolute: true,
         }),
       ],
-      []
+      [],
     )
 
     const includes = packageConfigPaths

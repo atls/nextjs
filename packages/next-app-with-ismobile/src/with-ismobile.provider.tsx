@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import isMobile                   from 'ismobilejs'
 import React, { ElementType, FC } from 'react'
 
@@ -57,8 +59,8 @@ export const withIsMobile = () => WrapperComponent => {
       /* eslint-disable */
 
       if ((process as any).browser) {
-        isMobileDevice = window.__NEXT_DATA__.props.isMobileVersion
-        isTabletDevice = window.__NEXT_DATA__.props.isTabletVersion
+        isMobileDevice = window.__NEXT_DATA__.props.isMobileVersion;
+        isTabletDevice = window.__NEXT_DATA__.props.isTabletVersion;
       }
 
       /* eslint-enable */
