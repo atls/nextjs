@@ -38,7 +38,7 @@ export const withApollo = ({
             window.location.href = '/logout'
           },
         },
-        () => this.props
+        () => this.props,
       )
     }
 
@@ -98,7 +98,7 @@ export const withApollo = ({
             res.end()
           },
         },
-        () => props
+        () => props,
       )
 
       ctx.ctx.apolloClient = apollo
