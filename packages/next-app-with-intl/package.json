@@ -17,7 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@atlantis-lab/react-locale": "^0.1.2"
+    "@atlantis-lab/react-locale": "^0.1.28"
   },
   "devDependencies": {
     "@atlantis-lab/jest-config": "^0.1.2",

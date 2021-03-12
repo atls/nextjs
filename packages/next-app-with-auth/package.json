@@ -17,7 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@atlantis-lab/react-auth": "^0.1.4"
+    "@atlantis-lab/react-auth": "^0.1.30"
   },
   "devDependencies": {
     "@atlantis-lab/jest-config": "^0.1.2",
