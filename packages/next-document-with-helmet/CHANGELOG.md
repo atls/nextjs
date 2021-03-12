@@ -3,6 +3,86 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.51 (2021-03-10)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.50 (2021-03-10)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.49 (2021-03-10)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.48 (2021-03-10)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.47 (2021-03-10)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.46 (2021-03-10)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.45 (2021-03-10)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.44 (2021-03-09)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.43 (2021-03-09)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
+## 0.2.42 (2021-03-09)
+
+**Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
+
+
+
+
+
 ## 0.2.41 (2021-02-09)
 
 **Note:** Version bump only for package @atlantis-lab/next-document-with-helmet
