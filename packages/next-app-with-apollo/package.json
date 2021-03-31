@@ -17,7 +17,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@apollo/client": "3.3.11",
+    "@apollo/client": "3.3.13",
     "isomorphic-unfetch": "^3.0.0"
   },
   "devDependencies": {
