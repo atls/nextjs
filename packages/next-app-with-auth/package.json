@@ -1,7 +1,7 @@
 {
   "name": "@atlantis-lab/next-app-with-auth",
   "repository": "git@github.com:Atlantis-Lab/nextjs.git",
-  "version": "0.2.55",
+  "version": "0.2.56",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [
