@@ -1,7 +1,7 @@
-import fetch                                       from 'isomorphic-unfetch'
-import { ApolloClient, ApolloLink, InMemoryCache } from '@apollo/client'
-import { onError }                                 from '@apollo/client/link/error'
-import { createHttpLink }                          from '@apollo/client/link/http'
+import fetch                                        from 'isomorphic-unfetch'
+import { ApolloClient, ApolloLink, createHttpLink } from '@apollo/client'
+import { InMemoryCache }                            from '@apollo/client'
+import { onError }                                  from '@apollo/link-error'
 
 interface Fetch {
   (uri, options: any, props: any): Promise<any>
@@ -15,9 +15,7 @@ interface Options {
 
 let client = null
 
-const defaultFetch = (uri, options: any, props: any) => {
-  return fetch(uri, options)
-}
+const defaultFetch = (uri, options: any, props: any) => fetch(uri, options)
 
 // prettier-ignore
 if (!(process as any).browser) {
@@ -29,7 +27,7 @@ if (!(process as any).browser) {
 function create(initialState = {}, options: Options, getProps) {
   const errorLink = onError(({ graphQLErrors }) => {
     if (graphQLErrors) {
-      graphQLErrors.forEach(graphQLError => {
+      graphQLErrors.forEach((graphQLError) => {
         if (graphQLError.extensions && graphQLError.extensions.code === 'UNAUTHENTICATED') {
           options.onUnauthenticated()
         }

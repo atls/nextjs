@@ -1,43 +1,35 @@
 {
-  "name": "@atlantis-lab/next-app-with-intl",
-  "repository": "git@github.com:Atlantis-Lab/nextjs.git",
+  "name": "@atls/next-app-with-intl",
+  "repository": "git@github.com:atls/nextjs.git",
   "version": "0.2.67",
-  "license": "MIT",
+  "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "clean": "rm -r -f dist",
-    "prepublishOnly": "yarn run build",
-    "prebuild": "yarn clean",
-    "build": "tsc -p tsconfig.json",
-    "prepack": "pubflow store",
-    "postpack": "pubflow restore",
-    "test": "jest"
-  },
-  "dependencies": {
-    "@atlantis-lab/react-locale": "^0.1.28"
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@atlantis-lab/jest-config": "^0.1.2",
-    "@monstrs/publish-flow": "0.1.3",
-    "@types/jest": "^26.0.20",
-    "@types/node": "14.14.37",
-    "@types/react": "17.0.3",
-    "@types/react-dom": "17.0.3",
-    "next": "10.1.2",
-    "react": "16.14.0",
-    "react-intl": "5.15.5",
-    "react-test-renderer": "17.0.2",
-    "recompose": "^0.30.0",
-    "ts-jest": "^26.4.4",
-    "ts-node": "^9.1.1",
-    "typescript": "4.2.3",
+    "@atlantis-lab/react-locale": "0.1.36",
+    "@types/node": "14.14.41",
+    "@types/react": "^16.14.5",
+    "@types/react-dom": "^16.9.12",
+    "next": "^9.4.2",
+    "react": "16.13.1",
+    "react-intl": "4.5.11",
     "universal-cookie": "4.0.4"
   },
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "@atlantis-lab/react-locale": "^0.1.0",
+    "react": "^16.12.0",
+    "react-intl": "^3.1.6 || ^4.0.0",
+    "universal-cookie": "^4.0.0"
   },
-  "gitHead": "eea0f59861dd994aa83d6ca096ba429b8841296c"
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
 }
