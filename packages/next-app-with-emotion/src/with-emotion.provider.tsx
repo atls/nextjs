@@ -4,12 +4,6 @@ import React, { Component } from 'react'
 import { ThemeProvider }    from '@emotion/react'
 import { hydrate }          from '@emotion/css'
 
-declare global {
-  interface Window {
-    __NEXT_DATA__: any
-  }
-}
-
 type Options = {
   Provider: any
   injectGlobalStyles?: () => void
@@ -31,8 +25,8 @@ export const withEmotion = ({
     }
 
     componentWillMount() {
-      if (typeof window !== 'undefined' && window.__NEXT_DATA__.ids) {
-        hydrate(window.__NEXT_DATA__.ids)
+      if (typeof window !== 'undefined' && (window as any).__NEXT_DATA__.ids) {
+        hydrate((window as any).__NEXT_DATA__.ids)
       }
 
       if (injectGlobalStyles) {

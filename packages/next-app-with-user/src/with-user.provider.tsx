@@ -2,12 +2,6 @@
 import React, { Component } from 'react'
 import { UserProvider }     from '@atlantis-lab/react-user'
 
-declare global {
-  interface Window {
-    __NEXT_DATA__: any
-  }
-}
-
 type Props = {
   user?: string
 }
@@ -30,7 +24,7 @@ export const withUser = () => WrapperComponent =>
       if (req && req.get('x-user')) {
         user = req.get('x-user')
       } else if ((process as any).browser) {
-        user = window.__NEXT_DATA__.props.user // eslint-disable-line prefer-destructuring
+        user = (window as any).__NEXT_DATA__.props.user // eslint-disable-line prefer-destructuring
       }
 
       return {
