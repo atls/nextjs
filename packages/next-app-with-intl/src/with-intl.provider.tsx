@@ -7,12 +7,6 @@ import { IntlProvider }                from 'react-intl'
 
 const DEFAULT_LOCALE = 'ru'
 
-declare global {
-  interface Window {
-    __NEXT_DATA__: any
-  }
-}
-
 type Props = {
   messages: any
 }
@@ -85,8 +79,8 @@ export const withIntl = ({
 
       return {
         ...props,
-        locale: window.__NEXT_DATA__.props.locale,
-        messages: window.__NEXT_DATA__.props.messages,
+        locale: (window as any).__NEXT_DATA__.props.locale,
+        messages: (window as any).__NEXT_DATA__.props.messages,
       }
     }
 
