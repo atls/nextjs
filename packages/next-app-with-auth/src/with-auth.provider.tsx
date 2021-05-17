@@ -2,12 +2,6 @@
 import React, { Component } from 'react'
 import { AuthProvider }     from '@atlantis-lab/react-auth'
 
-declare global {
-  interface Window {
-    __NEXT_DATA__: any
-  }
-}
-
 type Props = {
   token?: string
 }
@@ -30,7 +24,7 @@ export const withAuth = () => WrapperComponent =>
       if (req && req.get('authorization')) {
         token = req.get('authorization')
       } else if ((process as any).browser) {
-        token = window.__NEXT_DATA__.props.token // eslint-disable-line prefer-destructuring
+        token = (window as any).__NEXT_DATA__.props.token // eslint-disable-line prefer-destructuring
       }
 
       return {
