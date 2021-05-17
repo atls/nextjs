@@ -8,7 +8,7 @@ import { withEmotion }             from '../src/index'
 describe('test suit for next-app-with-emotion', function describer() {
   test('theme options should be provided to the component', function tester() {
     // eslint-disable-next-line
-    window.__NEXT_DATA__ = { ids: [] }
+    (window as any).__NEXT_DATA__ = { ids: [] }
 
     const appTheme = {
       colors: {
