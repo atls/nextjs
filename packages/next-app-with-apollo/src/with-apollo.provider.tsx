@@ -2,7 +2,7 @@
 import Head                from 'next/head'
 import React               from 'react'
 import { ApolloProvider }  from '@apollo/client'
-import { getDataFromTree } from '@apollo/client/react/ssr'
+import { getDataFromTree } from '@apollo/react-ssr'
 
 import initApollo          from './init-apollo'
 
@@ -17,152 +17,149 @@ type Props = {
   Component: any
 }
 
-export const withApollo = ({
-  uri,
-  fetch,
-  wrapApp,
-  resetStoreKeys = ['locale'],
-}: Options) => WrapperComponent => {
-  class ClientContainer extends React.Component<Props> {
-    apolloClient: any
+export const withApollo =
+  ({ uri, fetch, wrapApp, resetStoreKeys = ['locale'] }: Options) =>
+  (WrapperComponent) => {
+    class ClientContainer extends React.Component<Props> {
+      apolloClient: any
 
-    constructor(props) {
-      super(props)
+      constructor(props) {
+        super(props)
 
-      this.apolloClient = initApollo(
-        props.apolloState,
-        {
-          uri,
-          fetch,
-          onUnauthenticated: () => {
-            window.location.href = '/logout'
+        this.apolloClient = initApollo(
+          props.apolloState,
+          {
+            uri,
+            fetch,
+            onUnauthenticated: () => {
+              window.location.href = '/logout'
+            },
           },
-        },
-        () => this.props,
-      )
+          () => this.props
+        )
+      }
+
+      componentDidUpdate(prevProps) {
+        const reset = resetStoreKeys.reduce((result, key) => {
+          // eslint-disable-next-line react/destructuring-assignment
+          if (prevProps[key] !== this.props[key]) {
+            return true
+          }
+
+          return result
+        }, false)
+
+        if (reset) {
+          this.apolloClient.resetStore()
+        }
+      }
+
+      render() {
+        const { Component } = this.props
+
+        return (
+          <ApolloProvider client={this.apolloClient}>
+            <Component {...this.props} />
+          </ApolloProvider>
+        )
+      }
     }
 
-    componentDidUpdate(prevProps) {
-      const reset = resetStoreKeys.reduce((result, key) => {
-        // eslint-disable-next-line react/destructuring-assignment
-        if (prevProps[key] !== this.props[key]) {
-          return true
+    return class WithApollo extends React.Component<Props> {
+      apolloState: any
+
+      static async getInitialProps(ctx) {
+        const {
+          Component,
+          AppTree,
+          router,
+          ctx: { res },
+        } = ctx
+
+        let props = {}
+
+        if (WrapperComponent.getInitialProps) {
+          props = await WrapperComponent.getInitialProps(ctx)
         }
 
-        return result
-      }, false)
+        const apollo = initApollo(
+          {},
+          {
+            uri,
+            fetch,
+            onUnauthenticated: () => {
+              res.writeHead(302, {
+                Location: '/logout',
+              })
 
-      if (reset) {
-        this.apolloClient.resetStore()
-      }
-    }
-
-    render() {
-      const { Component } = this.props
-
-      return (
-        <ApolloProvider client={this.apolloClient}>
-          <Component {...this.props} />
-        </ApolloProvider>
-      )
-    }
-  }
-
-  return class WithApollo extends React.Component<Props> {
-    apolloState: any
-
-    static async getInitialProps(ctx) {
-      const {
-        Component,
-        AppTree,
-        router,
-        ctx: { res },
-      } = ctx
-
-      let props = {}
-
-      if (WrapperComponent.getInitialProps) {
-        props = await WrapperComponent.getInitialProps(ctx)
-      }
-
-      const apollo = initApollo(
-        {},
-        {
-          uri,
-          fetch,
-          onUnauthenticated: () => {
-            res.writeHead(302, {
-              Location: '/logout',
-            })
-
-            res.end()
+              res.end()
+            },
           },
-        },
-        () => props,
-      )
+          () => props
+        )
 
-      ctx.ctx.apolloClient = apollo
+        ctx.ctx.apolloClient = apollo
 
-      if (res && res.finished) {
-        return {}
-      }
-
-      if (!(process as any).browser) {
-        try {
-          const tree = wrapApp ? (
-            <AppTree {...props} />
-          ) : (
-            <WrapperComponent
-              {...props}
-              router={router}
-              Component={wrapperProps => (
-                <ApolloProvider client={apollo}>
-                  <Component {...props} {...wrapperProps} />
-                </ApolloProvider>
-              )}
-            />
-          )
-
-          await getDataFromTree(tree)
-        } catch (error) {
-          console.error('Error while running `getDataFromTree`', error) // eslint-disable-line no-console
+        if (res && res.finished) {
+          return {}
         }
 
-        Head.rewind()
+        if (!(process as any).browser) {
+          try {
+            const tree = wrapApp ? (
+              <AppTree {...props} />
+            ) : (
+              <WrapperComponent
+                {...props}
+                router={router}
+                Component={(wrapperProps) => (
+                  <ApolloProvider client={apollo}>
+                    <Component {...props} {...wrapperProps} />
+                  </ApolloProvider>
+                )}
+              />
+            )
+
+            await getDataFromTree(tree)
+          } catch (error) {
+            console.error('Error while running `getDataFromTree`', error) // eslint-disable-line no-console
+          }
+
+          Head.rewind()
+        }
+
+        const apolloState = apollo.cache.extract()
+
+        return {
+          ...props,
+          apolloState,
+          apolloUrl: uri,
+        }
       }
 
-      const apolloState = apollo.cache.extract()
+      public apolloClient: any
 
-      return {
-        ...props,
-        apolloState,
-        apolloUrl: uri,
+      constructor(props) {
+        super(props)
+
+        this.apolloState = props.apolloState
       }
-    }
 
-    public apolloClient: any
+      render() {
+        const { Component } = this.props
 
-    constructor(props) {
-      super(props)
-
-      this.apolloState = props.apolloState
-    }
-
-    render() {
-      const { Component } = this.props
-
-      return (
-        <WrapperComponent
-          {...this.props}
-          Component={wrapperProps => (
-            <ClientContainer
-              {...wrapperProps}
-              Component={Component}
-              apolloState={this.apolloState}
-            />
-          )}
-        />
-      )
+        return (
+          <WrapperComponent
+            {...this.props}
+            Component={(wrapperProps) => (
+              <ClientContainer
+                {...wrapperProps}
+                Component={Component}
+                apolloState={this.apolloState}
+              />
+            )}
+          />
+        )
+      }
     }
   }
-}

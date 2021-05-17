@@ -1,17 +1,17 @@
 import Document                         from 'next/document'
 import React                            from 'react'
-import Helmet                           from 'react-helmet'
 import { Head, Html, Main, NextScript } from 'next/document'
+import { Helmet }                       from 'react-helmet'
 
-export const withHelmet = () => TargetComponent =>
+export const withHelmet = () => (TargetComponent) =>
   class WithHelmet extends TargetComponent {
     static async getInitialProps(context) {
       const props = await TargetComponent.getInitialProps(context)
 
       const helmet = Helmet.renderStatic()
       const helmetHead = Object.keys(helmet)
-        .filter(el => el !== 'htmlAttributes' && el !== 'bodyAttributes')
-        .map(el => helmet[el].toComponent())
+        .filter((el) => el !== 'htmlAttributes' && el !== 'bodyAttributes')
+        .map((el) => helmet[el].toComponent())
         .flat()
 
       props.head = [...props.head, ...helmetHead]
@@ -35,10 +35,7 @@ export const withHelmet = () => TargetComponent =>
     render() {
       return (
         <Html {...this.helmetHtmlAttrComponents}>
-          <Head>
-            <link rel='shortcut icon' href='/favicon.png' />
-            <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-          </Head>
+          <Head />
           <body {...this.helmetBodyAttrComponents}>
             <Main />
             <NextScript />

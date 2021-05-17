@@ -1,37 +1,27 @@
 {
-  "name": "@atlantis-lab/next-config-with-workspaces",
-  "repository": "git@github.com:Atlantis-Lab/nextjs.git",
+  "name": "@atls/next-config-with-workspaces",
+  "repository": "git@github.com:atls/nextjs.git",
   "version": "0.2.52",
-  "license": "MIT",
+  "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "clean": "rm -r -f dist",
-    "prepublishOnly": "yarn run build",
-    "prebuild": "yarn clean",
-    "build": "tsc -p tsconfig.json",
-    "prepack": "pubflow store",
-    "postpack": "pubflow restore",
-    "test": "jest"
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
   },
   "dependencies": {
     "@lerna/project": "^3.16.0",
-    "globby": "^11.0.0"
+    "globby": "^11.0.3"
   },
   "devDependencies": {
-    "@atlantis-lab/jest-config": "^0.1.2",
-    "@monstrs/publish-flow": "0.1.3",
-    "@types/jest": "^26.0.20",
-    "@types/node": "14.14.37",
-    "react": "16.14.0",
-    "ts-jest": "^26.4.4",
-    "ts-node": "^9.1.1",
-    "typescript": "4.2.3"
+    "@types/node": "14.14.41",
+    "next": "^9.4.2"
   },
   "publishConfig": {
-    "access": "public"
-  },
-  "gitHead": "eea0f59861dd994aa83d6ca096ba429b8841296c"
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
 }
