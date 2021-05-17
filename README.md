@@ -1,18 +1,14 @@
 # NextJS Custom Workshop
 
-This is a bunch of workups you may use to set up your __NextJS__ app really quickly and comfortable
+This is a bunch of workups you may use to set up your **NextJS** app really quickly and comfortable
 
 # Installation
 
-First of all, choose the package that matches your requirements
+First, choose the package that matches your requirements
 
 Then do the following:
 
-`npm install @atlantis-lab/[package-name]`
-
-Or with yarn:
-
-`yarn add @atlantis-lab/[package-name]`
+`yarn add @atls/[package-name]`
 
 If you are not sure about command you are going to execute to install the right package - just go to the `README.md` file in your package's directory and copy the script from there
 
@@ -27,8 +23,6 @@ If you are not sure about command you are going to execute to install the right 
 ### [Next App With Helmet](packages/next-app-with-helmet)
 
 ### [Next App With Intl](packages/next-app-with-intl)
-
-### [Next App With IsMobile](packages/next-app-with-ismobile)
 
 ### [Next App With Provider](packages/next-app-with-provider)
 
