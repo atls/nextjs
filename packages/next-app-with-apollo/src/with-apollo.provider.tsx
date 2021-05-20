@@ -1,165 +1,95 @@
-/* eslint-disable max-classes-per-file */
-import Head                from 'next/head'
-import React               from 'react'
-import { ApolloProvider }  from '@apollo/client'
-import { getDataFromTree } from '@apollo/react-ssr'
+import App                  from 'next/app'
+import Head                 from 'next/head'
+import React                from 'react'
+import { ApolloProvider }   from '@apollo/client'
 
-import initApollo          from './init-apollo'
+import { initApolloClient } from './apollo.client'
+import { initOnContext }    from './apollo.context'
+import { extractHeaders }   from './headers'
 
 interface Options {
   uri: string
-  fetch?: any
+  headers?: any
   resetStoreKeys?: string[]
-  wrapApp?: boolean
-}
-
-type Props = {
-  Component: any
+  onUnauthenticated: () => void
 }
 
 export const withApollo =
-  ({ uri, fetch, wrapApp, resetStoreKeys = ['locale'] }: Options) =>
-  (WrapperComponent) => {
-    class ClientContainer extends React.Component<Props> {
-      apolloClient: any
-
-      constructor(props) {
-        super(props)
-
-        this.apolloClient = initApollo(
-          props.apolloState,
-          {
-            uri,
-            fetch,
-            onUnauthenticated: () => {
-              window.location.href = '/logout'
-            },
-          },
-          () => this.props
-        )
+  ({ uri, headers = [], resetStoreKeys = [], onUnauthenticated }: Options) =>
+  (PageComponent) => {
+    const WithApollo = ({ apolloClient, apolloState, apolloOptions, ...pageProps }) => {
+      let client
+      if (apolloClient) {
+        client = apolloClient
+      } else {
+        client = initApolloClient(apolloState, { ...apolloOptions, onUnauthenticated })
       }
 
-      componentDidUpdate(prevProps) {
-        const reset = resetStoreKeys.reduce((result, key) => {
-          // eslint-disable-next-line react/destructuring-assignment
-          if (prevProps[key] !== this.props[key]) {
-            return true
-          }
-
-          return result
-        }, false)
-
-        if (reset) {
-          this.apolloClient.resetStore()
-        }
-      }
-
-      render() {
-        const { Component } = this.props
-
-        return (
-          <ApolloProvider client={this.apolloClient}>
-            <Component {...this.props} />
-          </ApolloProvider>
-        )
-      }
+      return (
+        <ApolloProvider client={client}>
+          <PageComponent {...pageProps} />
+        </ApolloProvider>
+      )
     }
 
-    return class WithApollo extends React.Component<Props> {
-      apolloState: any
+    if (process.env.NODE_ENV !== 'production') {
+      const displayName = PageComponent.displayName || PageComponent.name || 'Component'
+      WithApollo.displayName = `withApollo(${displayName})`
+    }
 
-      static async getInitialProps(ctx) {
-        const {
-          Component,
-          AppTree,
-          router,
-          ctx: { res },
-        } = ctx
+    WithApollo.getInitialProps = async (ctx) => {
+      const inAppContext = Boolean(ctx.ctx)
 
-        let props = {}
+      const apolloOptions = {
+        uri,
+        headers: extractHeaders(ctx, headers),
+      }
 
-        if (WrapperComponent.getInitialProps) {
-          props = await WrapperComponent.getInitialProps(ctx)
+      let pageProps = {}
+
+      const { apolloClient } = initOnContext(ctx, apolloOptions)
+
+      if (PageComponent.getInitialProps) {
+        pageProps = await PageComponent.getInitialProps(ctx)
+      } else if (inAppContext) {
+        pageProps = await App.getInitialProps(ctx)
+      }
+
+      if (typeof window === 'undefined') {
+        const { AppTree } = ctx
+
+        if (ctx.res && ctx.res.finished) {
+          return pageProps
         }
 
-        const apollo = initApollo(
-          {},
-          {
-            uri,
-            fetch,
-            onUnauthenticated: () => {
-              res.writeHead(302, {
-                Location: '/logout',
-              })
-
-              res.end()
-            },
-          },
-          () => props
-        )
-
-        ctx.ctx.apolloClient = apollo
-
-        if (res && res.finished) {
-          return {}
-        }
-
-        if (!(process as any).browser) {
+        if (AppTree) {
           try {
-            const tree = wrapApp ? (
-              <AppTree {...props} />
-            ) : (
-              <WrapperComponent
-                {...props}
-                router={router}
-                Component={(wrapperProps) => (
-                  <ApolloProvider client={apollo}>
-                    <Component {...props} {...wrapperProps} />
-                  </ApolloProvider>
-                )}
-              />
-            )
+            const { getDataFromTree } = await import('@apollo/react-ssr')
 
-            await getDataFromTree(tree)
+            let props
+            if (inAppContext) {
+              props = { ...pageProps, apolloClient }
+            } else {
+              props = { pageProps: { ...pageProps, apolloClient } }
+            }
+
+            await getDataFromTree(<AppTree {...props} />)
           } catch (error) {
-            console.error('Error while running `getDataFromTree`', error) // eslint-disable-line no-console
+            // eslint-disable-next-line
+            console.error('Error while running `getDataFromTree`', error)
           }
 
           Head.rewind()
         }
-
-        const apolloState = apollo.cache.extract()
-
-        return {
-          ...props,
-          apolloState,
-          apolloUrl: uri,
-        }
       }
 
-      public apolloClient: any
-
-      constructor(props) {
-        super(props)
-
-        this.apolloState = props.apolloState
-      }
-
-      render() {
-        const { Component } = this.props
-
-        return (
-          <WrapperComponent
-            {...this.props}
-            Component={(wrapperProps) => (
-              <ClientContainer
-                {...wrapperProps}
-                Component={Component}
-                apolloState={this.apolloState}
-              />
-            )}
-          />
-        )
+      return {
+        ...pageProps,
+        apolloOptions,
+        apolloState: apolloClient.cache.extract(),
+        apolloClient: ctx.apolloClient,
       }
     }
+
+    return WithApollo
   }

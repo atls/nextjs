@@ -1,7 +1,7 @@
-import fetch                                        from 'isomorphic-unfetch'
-import { ApolloClient, ApolloLink, createHttpLink } from '@apollo/client'
-import { InMemoryCache }                            from '@apollo/client'
-import { onError }                                  from '@apollo/link-error'
+import fetch                                                               from 'isomorphic-unfetch'
+import { ApolloClient, ApolloLink, createHttpLink, NormalizedCacheObject } from '@apollo/client'
+import { InMemoryCache }                                                   from '@apollo/client'
+import { onError }                                                         from '@apollo/link-error'
 
 interface Fetch {
   (uri, options: any, props: any): Promise<any>
@@ -13,7 +13,7 @@ interface Options {
   onUnauthenticated: () => void
 }
 
-let client = null
+let client: ApolloClient<NormalizedCacheObject> | null = null
 
 const defaultFetch = (uri, options: any, props: any) => fetch(uri, options)
 
