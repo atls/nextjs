@@ -1,0 +1,12 @@
+releases:
+  "@atls/next-app-with-apollo": patch
+  "@atls/next-app-with-auth": patch
+  "@atls/next-app-with-emotion": patch
+  "@atls/next-app-with-helmet": patch
+  "@atls/next-app-with-intl": patch
+  "@atls/next-app-with-provider": patch
+  "@atls/next-app-with-user": patch
+  "@atls/next-config-with-pnp-workspaces": patch
+  "@atls/next-config-with-workspaces": patch
+  "@atls/next-document-with-emotion": patch
+  "@atls/next-document-with-helmet": patch
