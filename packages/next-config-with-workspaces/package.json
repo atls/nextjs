@@ -1,6 +1,6 @@
 {
   "name": "@atls/next-config-with-workspaces",
-  "version": "0.2.52",
+  "version": "0.2.53",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "files": [
