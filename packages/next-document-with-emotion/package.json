@@ -1,6 +1,5 @@
 {
   "name": "@atls/next-document-with-emotion",
-  "repository": "git@github.com:atls/nextjs.git",
   "version": "0.2.62",
   "license": "BSD-3 Clause",
   "main": "src/index.ts",

@@ -1,6 +1,5 @@
 {
   "name": "@atls/next-config-with-workspaces",
-  "repository": "git@github.com:atls/nextjs.git",
   "version": "0.2.52",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
