@@ -1,6 +1,5 @@
 {
   "name": "@atls/next-document-with-helmet",
-  "repository": "git@github.com:atls/nextjs.git",
   "version": "0.2.63",
   "license": "BSD-3 Clause",
   "main": "src/index.ts",
