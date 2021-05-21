@@ -1,6 +1,5 @@
 {
   "name": "@atls/next-app-with-intl",
-  "repository": "git@github.com:atls/nextjs.git",
   "version": "0.2.67",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
