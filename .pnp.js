@@ -51,6 +51,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:packages/next-app-with-user"
       },
       {
+        "name": "next-config-with-extract-intl-messages-195a57",
+        "reference": "workspace:packages/next-config-with-extract-intl-messages"
+      },
+      {
         "name": "@atls/next-config-with-pnp-workspaces",
         "reference": "workspace:packages/next-config-with-pnp-workspaces"
       },
@@ -81,6 +85,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@atls/next-config-with-workspaces", ["workspace:packages/next-config-with-workspaces"]],
       ["@atls/next-document-with-emotion", ["workspace:packages/next-document-with-emotion"]],
       ["@atls/next-document-with-helmet", ["workspace:packages/next-document-with-helmet"]],
+      ["next-config-with-extract-intl-messages-195a57", ["workspace:packages/next-config-with-extract-intl-messages"]],
       ["nextjs", ["workspace:."]]
     ],
     "fallbackPool": [
@@ -13242,6 +13247,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "react"
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["next-config-with-extract-intl-messages-195a57", [
+        ["workspace:packages/next-config-with-extract-intl-messages", {
+          "packageLocation": "./packages/next-config-with-extract-intl-messages/",
+          "packageDependencies": [
+            ["next-config-with-extract-intl-messages-195a57", "workspace:packages/next-config-with-extract-intl-messages"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["next-tick", [

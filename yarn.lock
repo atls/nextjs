@@ -10378,6 +10378,12 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"next-config-with-extract-intl-messages-195a57@workspace:packages/next-config-with-extract-intl-messages":
+  version: 0.0.0-use.local
+  resolution: "next-config-with-extract-intl-messages-195a57@workspace:packages/next-config-with-extract-intl-messages"
+  languageName: unknown
+  linkType: soft
+
 "next-tick@npm:~1.0.0":
   version: 1.0.0
   resolution: "next-tick@npm:1.0.0"
