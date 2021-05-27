@@ -136,33 +136,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atlantis-lab/react-auth@npm:0.1.36":
-  version: 0.1.36
-  resolution: "@atlantis-lab/react-auth@npm:0.1.36"
-  dependencies:
-    react: 16.14.0
-  checksum: 2d50f2c77767de0ea095442d57283bf6b40c10ad36c3e1751ff975e72b5fd428276b21244970856b5b04a68d0794f61289b6cf820661355cd34b9c9c1cfbe22d
-  languageName: node
-  linkType: hard
-
-"@atlantis-lab/react-locale@npm:0.1.36":
-  version: 0.1.36
-  resolution: "@atlantis-lab/react-locale@npm:0.1.36"
-  dependencies:
-    react: 16.14.0
-  checksum: 452c0775c51e9082752046aeb8b48af67b06bbc315cfe160ca37aed04a22046b09a818d89ca04319bd76bc649c33d14718550987e0edaedd2cc15fd59dcb47d2
-  languageName: node
-  linkType: hard
-
-"@atlantis-lab/react-user@npm:0.1.36":
-  version: 0.1.36
-  resolution: "@atlantis-lab/react-user@npm:0.1.36"
-  dependencies:
-    react: 16.14.0
-  checksum: 5a20dc1cc49021b9dedc09ab9d1b312564779257ba7374160fb1052f0daac4a653202439ffc00a02d6efae2f9b3e5a8df5f1b25d99a77bf9ba906e5c0eaf9144
-  languageName: node
-  linkType: hard
-
 "@atls/actl-cli@npm:^0.4.40":
   version: 0.4.40
   resolution: "@atls/actl-cli@npm:0.4.40"
@@ -370,14 +343,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/next-app-with-auth@workspace:packages/next-app-with-auth"
   dependencies:
-    "@atlantis-lab/react-auth": 0.1.36
+    "@atls/react-auth": 0.1.39
     "@types/node": 14.14.41
     "@types/react": ^16.14.5
     "@types/react-dom": ^16.9.12
     next: ^9.4.2
-    react: 16.13.1
-  peerDependencies:
-    "@atlantis-lab/react-auth": ^0.1.0
     react: ^16.12.0
   languageName: unknown
   linkType: soft
@@ -422,19 +392,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/next-app-with-intl@workspace:packages/next-app-with-intl"
   dependencies:
-    "@atlantis-lab/react-locale": 0.1.36
+    "@atls/react-locale": 0.1.37
     "@types/node": 14.14.41
     "@types/react": ^16.14.5
     "@types/react-dom": ^16.9.12
     next: ^9.4.2
-    react: 16.13.1
-    react-intl: 4.5.11
-    universal-cookie: 4.0.4
-  peerDependencies:
-    "@atlantis-lab/react-locale": ^0.1.0
     react: ^16.12.0
-    react-intl: ^3.1.6 || ^4.0.0
-    universal-cookie: ^4.0.0
+    react-intl: ^4.0.0
+    universal-cookie: 4.0.4
   languageName: unknown
   linkType: soft
 
@@ -456,14 +421,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/next-app-with-user@workspace:packages/next-app-with-user"
   dependencies:
-    "@atlantis-lab/react-user": 0.1.36
+    "@atls/react-user": ^0.1.38
     "@types/node": 14.14.41
     "@types/react": ^16.14.5
     "@types/react-dom": ^16.9.12
     next: ^9.4.2
-    react: 16.13.1
-  peerDependencies:
-    "@atlantis-lab/react-user": ^0.1.0
     react: ^16.12.0
   languageName: unknown
   linkType: soft
@@ -555,6 +517,33 @@ __metadata:
     globby: "*"
     prettier: "*"
   checksum: 05d1d6ae03856fc68e94e00e2025390b3d75b3f77fed48ef280c51926f02323bb228e2a4418c36ca19c2e67808feae554634630c7425765cf410a49528a07a0f
+  languageName: node
+  linkType: hard
+
+"@atls/react-auth@npm:0.1.39":
+  version: 0.1.39
+  resolution: "@atls/react-auth@npm:0.1.39"
+  dependencies:
+    react: 16.14.0
+  checksum: 6953d35c97194f74bd4cca59837c5313cab2cb3205689fe4b892f0b5376df667840c51146b6f4772540c06a48128fab440f59491bc75e601a357ee97dfe061fc
+  languageName: node
+  linkType: hard
+
+"@atls/react-locale@npm:0.1.37":
+  version: 0.1.37
+  resolution: "@atls/react-locale@npm:0.1.37"
+  dependencies:
+    react: 16.14.0
+  checksum: 788d232f790e1df98cc1c1081556c8564e8ef8983178cd6b64ed936ad9a0849bf59b112e85edb2bd83cc801c29368ba3ab423f9c23ead5230ed5cecd53ce8cba
+  languageName: node
+  linkType: hard
+
+"@atls/react-user@npm:^0.1.38":
+  version: 0.1.38
+  resolution: "@atls/react-user@npm:0.1.38"
+  dependencies:
+    react: 16.14.0
+  checksum: cd2f21762c2b972d43901c3a32b86b622b64acc9d6f9c42d80f65796cced9344458938b5a873c196f26b1bc8950c8014f20b2f6d9bc976066f7c4c438e649e22
   languageName: node
   linkType: hard
 
@@ -2342,30 +2331,50 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formatjs/intl-displaynames@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@formatjs/intl-displaynames@npm:2.0.1"
+"@formatjs/intl-datetimeformat@npm:^1.3.3":
+  version: 1.3.3
+  resolution: "@formatjs/intl-datetimeformat@npm:1.3.3"
   dependencies:
-    "@formatjs/intl-utils": ^3.0.1
-  checksum: 54ef3cbfe7878638d08c3d77da40b09d9801ff1e229d580ae828894fd60c3436a65f56a8bc9730aae56a273e872f441e3cdcb5dec51af8a68440f5936fa28316
+    "@formatjs/intl-getcanonicallocales": ^1.2.7
+    "@formatjs/intl-utils": ^3.5.0
+  checksum: 9f6a1f1a609c46d9da810ee978e9382bbb8353d72b63ea493e886e3a106bfbca9df269518bd4fb2365fe4bec5c0a1c580615c890a1d06bfdc5db9a6d8448445b
   languageName: node
   linkType: hard
 
-"@formatjs/intl-listformat@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@formatjs/intl-listformat@npm:2.0.1"
+"@formatjs/intl-displaynames@npm:^2.2.9":
+  version: 2.2.9
+  resolution: "@formatjs/intl-displaynames@npm:2.2.9"
   dependencies:
-    "@formatjs/intl-utils": ^3.0.1
-  checksum: d052fe26b12026a0328198d0a0c2156401b326369c2c2444e8a8dd758483781da8414302d659845ced3e299bbc4d4dcd24ba0321a7790674cf909e5b787f5aa9
+    "@formatjs/intl-utils": ^3.5.0
+  checksum: 8f2acece6d6e02af2896f92ae32d2e01b04cbd885fddb8c288c1ce150d50741de5c838494d222b9e98a27c6d34e6ad9a9932056085b57359eee814eb2eee9736
   languageName: node
   linkType: hard
 
-"@formatjs/intl-numberformat@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "@formatjs/intl-numberformat@npm:4.0.1"
+"@formatjs/intl-getcanonicallocales@npm:^1.2.7":
+  version: 1.7.0
+  resolution: "@formatjs/intl-getcanonicallocales@npm:1.7.0"
   dependencies:
-    "@formatjs/intl-utils": ^3.0.1
-  checksum: 05e074744587c83dc4e2d3cbe5bf4d72ecbca91da4d78625a55d7c2cfd6ec0e7ac3e8fa66582a2bd8d4b76743277e769e75228acfcfecd9a42d5415a401871a0
+    cldr-core: 38
+    tslib: ^2.1.0
+  checksum: e15099254351362f491c71af1665ca38e41395e230ad9c950e7f36202d7e4e878e9ca3c54abbae1d9cb0746e8f6d6df1fbefde4f37edee264cb5386825554544
+  languageName: node
+  linkType: hard
+
+"@formatjs/intl-listformat@npm:^2.2.9":
+  version: 2.2.9
+  resolution: "@formatjs/intl-listformat@npm:2.2.9"
+  dependencies:
+    "@formatjs/intl-utils": ^3.5.0
+  checksum: 51bd5290b1db9656e1bf9b6d301de7f0bae7b6fefaefff1660a56c3fc3f5cd6ce211b95d04d77345d7e1004b581589af184915eb9c365d8cb25eacc3ea8340bb
+  languageName: node
+  linkType: hard
+
+"@formatjs/intl-numberformat@npm:^4.2.11":
+  version: 4.2.11
+  resolution: "@formatjs/intl-numberformat@npm:4.2.11"
+  dependencies:
+    "@formatjs/intl-utils": ^3.5.0
+  checksum: caddd5205f89bf6377a3c27a25004ffd0125fa1e527e824713ef86fcb69b3d1f814c2e4e358d0becc642c9b98356cc9168c4b5d62b6d5118b16e7b250add5c0c
   languageName: node
   linkType: hard
 
@@ -2379,19 +2388,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formatjs/intl-relativetimeformat@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "@formatjs/intl-relativetimeformat@npm:5.0.1"
+"@formatjs/intl-relativetimeformat@npm:^5.2.11":
+  version: 5.2.11
+  resolution: "@formatjs/intl-relativetimeformat@npm:5.2.11"
   dependencies:
-    "@formatjs/intl-utils": ^3.0.1
-  checksum: 0ab41aac4ea5ecf8e02212922a8f1d859911f641da1fd4cec0602643db8109da7e209e0720dfa137a9f25c2af96e219f99f73a2f90c22ba1df291ce4d5efa0a2
+    "@formatjs/intl-utils": ^3.5.0
+  checksum: b81ae39f976dd38734c5175acc0bbb1f0b82768c911a00ce5c8512cfe6261ecfdb64f2c2ccd06e0060f7d0009cd30ad5ebab5832afdbfd9516bf55879955b557
   languageName: node
   linkType: hard
 
-"@formatjs/intl-utils@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@formatjs/intl-utils@npm:3.0.1"
-  checksum: 5dca9552b8065dd0363db33eff0ffeb287c051c2c693b5038a8dedd380076d18770524aeb63ebb6c58b8bcb75d44f641e26038e4bdb58e0d0d1de4db93decf20
+"@formatjs/intl-utils@npm:^3.5.0":
+  version: 3.8.4
+  resolution: "@formatjs/intl-utils@npm:3.8.4"
+  dependencies:
+    emojis-list: ^3.0.0
+  checksum: 00d9d14667c752dd43dd536a0628fc5b5403a86afbce699de14f20b405e61df4e50de3dcbc3947ca285259c2f216a57d7cb2467ab5d388d6719b9a16ec5c23e8
   languageName: node
   linkType: hard
 
@@ -5070,6 +5081,13 @@ __metadata:
   version: 2.2.6
   resolution: "classnames@npm:2.2.6"
   checksum: 490eaeca5931846737ffd33e472a701d268d5b8bc5717dd4cf108a127b06e86e05350e06799abbbe763a0e4c945b4217f6700b7ae00ddc703505682c370e5cf2
+  languageName: node
+  linkType: hard
+
+"cldr-core@npm:38":
+  version: 38.1.0
+  resolution: "cldr-core@npm:38.1.0"
+  checksum: 1210ed72ae104aee8b1b82ebbc37a0901eb3315ee5831e69eb6f1402369cb261984e875bf314deb628843aa0146f2b6ee336f6f3f2399190661fa478f39affe4
   languageName: node
   linkType: hard
 
@@ -8006,11 +8024,11 @@ fsevents@~2.3.1:
   linkType: hard
 
 "graphql@npm:^14.5.0":
-  version: 14.6.0
-  resolution: "graphql@npm:14.6.0"
+  version: 14.7.0
+  resolution: "graphql@npm:14.7.0"
   dependencies:
     iterall: ^1.2.2
-  checksum: 24cab2758cea2ce592c59af28cac0fc80d2f2eac2f2441ce0152ce3c5a3a2416394aadf71b2d8db58f46c44ca3d20747eb168f58502f6eadafab0f11dea13791
+  checksum: 3b7d50f98f5c66db36327d6dd331367c6da166d701b5bad669664e8602a180ee50dcb5ae3e1f9874e7fa59c1217f50a52a922fc77b5a1e04276426e67815b0ed
   languageName: node
   linkType: hard
 
@@ -8612,10 +8630,10 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"intl-format-cache@npm:^4.2.30":
-  version: 4.2.30
-  resolution: "intl-format-cache@npm:4.2.30"
-  checksum: cab15596161a66e8cf3977d1794c5b8628874d8bd7c8bcea28674826ebb52a6f6717db98f1ea9b64789acc08bcac124483c6bdab84799779c00a8910e7fb925d
+"intl-format-cache@npm:^4.2.43":
+  version: 4.3.1
+  resolution: "intl-format-cache@npm:4.3.1"
+  checksum: c8ec11fa5e5ec189f83e151a991a860d55fb96a681e37f1698de16cce55e09c42b2d5611f4c1901282c5cd4f537e833b093f87ecee4c6fcd1dffa7f784c1dd32
   languageName: node
   linkType: hard
 
@@ -8629,16 +8647,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"intl-messageformat-parser@npm:^5.0.8":
-  version: 5.0.8
-  resolution: "intl-messageformat-parser@npm:5.0.8"
-  dependencies:
-    "@formatjs/intl-numberformat": ^4.0.1
-  checksum: ebf7ff623097a0e9be3cf64a9c8d3cda28a1dc1e7aa58b782c16e5bfc43832c16514f560d16a2de14040bf3851e0506686ea73dcc05768038f71e7dc5f4c0900
-  languageName: node
-  linkType: hard
-
-"intl-messageformat-parser@npm:^5.3.7":
+"intl-messageformat-parser@npm:^5.2.1, intl-messageformat-parser@npm:^5.3.7":
   version: 5.5.1
   resolution: "intl-messageformat-parser@npm:5.5.1"
   dependencies:
@@ -8647,13 +8656,13 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"intl-messageformat@npm:^8.3.15":
-  version: 8.3.15
-  resolution: "intl-messageformat@npm:8.3.15"
+"intl-messageformat@npm:^8.4.1":
+  version: 8.4.1
+  resolution: "intl-messageformat@npm:8.4.1"
   dependencies:
-    intl-format-cache: ^4.2.30
-    intl-messageformat-parser: ^5.0.8
-  checksum: c523ab60f12addcbbcedfda6ced6503c7e48ed6fd3772c6ad906586b782e4e6b099bc9dcea4d345f9d091256e9fc5d85f1261f82e6099fed2f756589018a19eb
+    intl-format-cache: ^4.2.43
+    intl-messageformat-parser: ^5.2.1
+  checksum: 27d57f9850ae0cec2baff5bde35796a23d2112c4b618862507a5ff8e514c1d1ba8ac873500a87fd2fa3318aa2bd20f006168e5944ab193c0fe52951520d0ea72
   languageName: node
   linkType: hard
 
@@ -12592,25 +12601,26 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"react-intl@npm:4.5.11":
-  version: 4.5.11
-  resolution: "react-intl@npm:4.5.11"
+"react-intl@npm:^4.0.0":
+  version: 4.7.6
+  resolution: "react-intl@npm:4.7.6"
   dependencies:
-    "@formatjs/intl-displaynames": ^2.0.1
-    "@formatjs/intl-listformat": ^2.0.1
-    "@formatjs/intl-numberformat": ^4.0.1
-    "@formatjs/intl-relativetimeformat": ^5.0.1
-    "@formatjs/intl-utils": ^3.0.1
+    "@formatjs/intl-datetimeformat": ^1.3.3
+    "@formatjs/intl-displaynames": ^2.2.9
+    "@formatjs/intl-listformat": ^2.2.9
+    "@formatjs/intl-numberformat": ^4.2.11
+    "@formatjs/intl-relativetimeformat": ^5.2.11
+    "@formatjs/intl-utils": ^3.5.0
     "@types/hoist-non-react-statics": ^3.3.1
     "@types/invariant": ^2.2.31
     hoist-non-react-statics: ^3.3.2
-    intl-format-cache: ^4.2.30
-    intl-messageformat: ^8.3.15
-    intl-messageformat-parser: ^5.0.8
+    intl-format-cache: ^4.2.43
+    intl-messageformat: ^8.4.1
+    intl-messageformat-parser: ^5.2.1
     shallow-equal: ^1.2.1
   peerDependencies:
     react: ^16.3.0
-  checksum: 4d712cd6859edcbc5e3f43acf15f564eb408e7759b1a3c969c5c006d4f92fc2407799c68f6bfbf32fd2a999923ba6f9b257f120b7d64050a1aa500320f74e4ae
+  checksum: ac3e5b1cc3c8a3ad598919c355aa3fadff929280cb83f808f009da1a73c7903d70fac296d8638a9aa9e8a687d82143cb38e61b1d4c25eb5fcef3777dec399379
   languageName: node
   linkType: hard
 
@@ -12662,7 +12672,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"react@npm:16.14.0":
+"react@npm:16.14.0, react@npm:^16.12.0":
   version: 16.14.0
   resolution: "react@npm:16.14.0"
   dependencies:
@@ -14821,7 +14831,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.1":
+"tslib@npm:^2.0.1, tslib@npm:^2.1.0":
   version: 2.2.0
   resolution: "tslib@npm:2.2.0"
   checksum: 2d35468c470410871c5246e43f12dcb6d0fc363b617c176f26443b9530e5c5ee8448966892a42956168d8f495da7865bda33dfe82c26c91991e28999974a618f
