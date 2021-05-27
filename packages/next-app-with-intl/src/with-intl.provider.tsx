@@ -2,7 +2,8 @@ import Cookies                         from 'universal-cookie'
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/sort-comp */
 import React, { Component }            from 'react'
-import { LocaleProvider, LocaleStore } from '@atlantis-lab/react-locale'
+// @ts-ignore
+import { LocaleProvider, LocaleStore } from '@atls/react-locale'
 import { IntlProvider }                from 'react-intl'
 
 const DEFAULT_LOCALE = 'ru'
