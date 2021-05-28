@@ -18,7 +18,7 @@
     "next": "^9.4.2"
   },
   "dependencies": {
-    "@atls/react-user": "^0.1.38",
+    "@atls/react-user": "^0.1.39",
     "react": "^16.12.0"
   },
   "publishConfig": {
