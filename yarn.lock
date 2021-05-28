@@ -471,7 +471,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/next-app-with-auth@workspace:packages/next-app-with-auth"
   dependencies:
-    "@atls/react-auth": 0.1.39
+    "@atls/react-auth": 0.1.41
     "@types/node": 14.14.41
     "@types/react": ^16.14.5
     "@types/react-dom": ^16.9.12
@@ -520,7 +520,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/next-app-with-intl@workspace:packages/next-app-with-intl"
   dependencies:
-    "@atls/react-locale": 0.1.37
+    "@atls/react-locale": 0.1.39
     "@types/node": 14.14.41
     "@types/react": ^16.14.5
     "@types/react-dom": ^16.9.12
@@ -549,7 +549,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/next-app-with-user@workspace:packages/next-app-with-user"
   dependencies:
-    "@atls/react-user": ^0.1.38
+    "@atls/react-user": ^0.1.39
     "@types/node": 14.14.41
     "@types/react": ^16.14.5
     "@types/react-dom": ^16.9.12
@@ -648,30 +648,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/react-auth@npm:0.1.39":
+"@atls/react-auth@npm:0.1.41":
+  version: 0.1.41
+  resolution: "@atls/react-auth@npm:0.1.41"
+  dependencies:
+    react: 16.14.0
+  checksum: 6eb8c1069153b7dd86243c5b6637cafa652405e4ae9354068aba863e3a113c4e88e38c97a0aacc2434f5081ab6a8bf3f749689c456859ec85003af718cf80ca0
+  languageName: node
+  linkType: hard
+
+"@atls/react-locale@npm:0.1.39":
   version: 0.1.39
-  resolution: "@atls/react-auth@npm:0.1.39"
+  resolution: "@atls/react-locale@npm:0.1.39"
   dependencies:
     react: 16.14.0
-  checksum: 6953d35c97194f74bd4cca59837c5313cab2cb3205689fe4b892f0b5376df667840c51146b6f4772540c06a48128fab440f59491bc75e601a357ee97dfe061fc
+  checksum: 086947dc630d762251a79c447041f9810fe33b667252e9360fb9ba2081c2404e06d472860d423e0d7c053ae22a55893a5b6f4a4c3e51d41d71227850270357ad
   languageName: node
   linkType: hard
 
-"@atls/react-locale@npm:0.1.37":
-  version: 0.1.37
-  resolution: "@atls/react-locale@npm:0.1.37"
+"@atls/react-user@npm:^0.1.39":
+  version: 0.1.40
+  resolution: "@atls/react-user@npm:0.1.40"
   dependencies:
     react: 16.14.0
-  checksum: 788d232f790e1df98cc1c1081556c8564e8ef8983178cd6b64ed936ad9a0849bf59b112e85edb2bd83cc801c29368ba3ab423f9c23ead5230ed5cecd53ce8cba
-  languageName: node
-  linkType: hard
-
-"@atls/react-user@npm:^0.1.38":
-  version: 0.1.38
-  resolution: "@atls/react-user@npm:0.1.38"
-  dependencies:
-    react: 16.14.0
-  checksum: cd2f21762c2b972d43901c3a32b86b622b64acc9d6f9c42d80f65796cced9344458938b5a873c196f26b1bc8950c8014f20b2f6d9bc976066f7c4c438e649e22
+  checksum: 40b85c6603da2fba4fff331c73e878286bd0c2dbe8e2a1a2e23bd808d83f43f4d0d5f104664249fd7b814ea12fe1a4237b33fdfbe7c2df59e71f1dd14d244645
   languageName: node
   linkType: hard
 
