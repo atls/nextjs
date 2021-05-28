@@ -1,6 +1,6 @@
 {
   "name": "@atls/next-app-with-user",
-  "version": "0.2.65",
+  "version": "0.2.66",
   "license": "BSD-3 Clause",
   "main": "src/index.ts",
   "files": [
