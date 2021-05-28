@@ -721,7 +721,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/next-app-with-auth/",
           "packageDependencies": [
             ["@atls/next-app-with-auth", "workspace:packages/next-app-with-auth"],
-            ["@atls/react-auth", "npm:0.1.39"],
+            ["@atls/react-auth", "npm:0.1.41"],
             ["@types/node", "npm:14.14.41"],
             ["@types/react", "npm:16.14.5"],
             ["@types/react-dom", "npm:16.9.12"],
@@ -768,7 +768,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/next-app-with-intl/",
           "packageDependencies": [
             ["@atls/next-app-with-intl", "workspace:packages/next-app-with-intl"],
-            ["@atls/react-locale", "npm:0.1.37"],
+            ["@atls/react-locale", "npm:0.1.39"],
             ["@types/node", "npm:14.14.41"],
             ["@types/react", "npm:16.14.5"],
             ["@types/react-dom", "npm:16.9.12"],
@@ -799,7 +799,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/next-app-with-user/",
           "packageDependencies": [
             ["@atls/next-app-with-user", "workspace:packages/next-app-with-user"],
-            ["@atls/react-user", "npm:0.1.38"],
+            ["@atls/react-user", "npm:0.1.40"],
             ["@types/node", "npm:14.14.41"],
             ["@types/react", "npm:16.14.5"],
             ["@types/react-dom", "npm:16.9.12"],
@@ -930,30 +930,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@atls/react-auth", [
-        ["npm:0.1.39", {
-          "packageLocation": "./.yarn/cache/@atls-react-auth-npm-0.1.39-a77c6321de-6953d35c97.zip/node_modules/@atls/react-auth/",
+        ["npm:0.1.41", {
+          "packageLocation": "./.yarn/cache/@atls-react-auth-npm-0.1.41-4c2b0d4d16-6eb8c10691.zip/node_modules/@atls/react-auth/",
           "packageDependencies": [
-            ["@atls/react-auth", "npm:0.1.39"],
+            ["@atls/react-auth", "npm:0.1.41"],
             ["react", "npm:16.14.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@atls/react-locale", [
-        ["npm:0.1.37", {
-          "packageLocation": "./.yarn/cache/@atls-react-locale-npm-0.1.37-be1f405b9f-788d232f79.zip/node_modules/@atls/react-locale/",
+        ["npm:0.1.39", {
+          "packageLocation": "./.yarn/cache/@atls-react-locale-npm-0.1.39-e5e69606c8-086947dc63.zip/node_modules/@atls/react-locale/",
           "packageDependencies": [
-            ["@atls/react-locale", "npm:0.1.37"],
+            ["@atls/react-locale", "npm:0.1.39"],
             ["react", "npm:16.14.0"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@atls/react-user", [
-        ["npm:0.1.38", {
-          "packageLocation": "./.yarn/cache/@atls-react-user-npm-0.1.38-12caaa1d97-cd2f21762c.zip/node_modules/@atls/react-user/",
+        ["npm:0.1.40", {
+          "packageLocation": "./.yarn/cache/@atls-react-user-npm-0.1.40-d7d292c030-40b85c6603.zip/node_modules/@atls/react-user/",
           "packageDependencies": [
-            ["@atls/react-user", "npm:0.1.38"],
+            ["@atls/react-user", "npm:0.1.40"],
             ["react", "npm:16.14.0"]
           ],
           "linkType": "HARD",

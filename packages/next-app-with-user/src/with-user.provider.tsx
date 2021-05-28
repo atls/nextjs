@@ -1,6 +1,5 @@
 /* eslint-disable no-underscore-dangle */
 import React, { Component } from 'react'
-// @ts-ignore
 import { UserProvider }     from '@atls/react-user'
 
 declare global {
