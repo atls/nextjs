@@ -19,7 +19,7 @@
     "universal-cookie": "4.0.4"
   },
   "dependencies": {
-    "@atls/react-locale": "0.1.37",
+    "@atls/react-locale": "0.1.39",
     "react": "^16.12.0",
     "react-intl": "^5.18.1",
     "universal-cookie": "^4.0.0"

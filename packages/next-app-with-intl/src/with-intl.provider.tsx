@@ -2,7 +2,6 @@ import Cookies                         from 'universal-cookie'
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/sort-comp */
 import React, { Component }            from 'react'
-// @ts-ignore
 import { LocaleProvider, LocaleStore } from '@atls/react-locale'
 import { IntlProvider }                from 'react-intl'
 
