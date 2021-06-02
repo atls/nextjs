@@ -29,7 +29,7 @@ const createApolloClient = (initialState = {}, options: Options) => {
 
     const { response } = operation.getContext()
 
-    if (response.status === 401 && options.onUnauthenticated) {
+    if (response && response.status === 401 && options.onUnauthenticated) {
       options.onUnauthenticated()
     }
   })
