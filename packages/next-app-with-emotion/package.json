@@ -12,19 +12,17 @@
     "prepack": "yarn run build"
   },
   "devDependencies": {
-    "@emotion/core": "10.0.28",
+    "@emotion/cache": "^11.4.0",
+    "@emotion/react": "^11.4.0",
     "@types/node": "14.14.41",
     "@types/react": "^16.14.5",
     "@types/react-dom": "^16.9.12",
-    "emotion": "10.0.27",
-    "emotion-theming": "10.0.27",
     "next": "^9.4.2",
     "react": "16.13.1"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.0.17",
-    "emotion": "^10.0.17",
-    "emotion-theming": "^10.0.19",
+    "@emotion/cache": "^11.4.0",
+    "@emotion/react": "^11.4.0",
     "react": "^16.12.0"
   },
   "publishConfig": {
