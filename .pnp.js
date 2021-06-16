@@ -853,6 +853,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/next-document-with-emotion/",
           "packageDependencies": [
             ["@atls/next-document-with-emotion", "workspace:packages/next-document-with-emotion"],
+            ["@emotion/server", "virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:11.4.0"],
             ["@types/node", "npm:14.14.41"],
             ["@types/react", "npm:16.14.5"],
             ["@types/react-dom", "npm:16.9.12"],
@@ -3786,6 +3787,32 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@emotion/server", [
+        ["npm:11.4.0", {
+          "packageLocation": "./.yarn/cache/@emotion-server-npm-11.4.0-14759e567e-240b96e7f3.zip/node_modules/@emotion/server/",
+          "packageDependencies": [
+            ["@emotion/server", "npm:11.4.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:11.4.0", {
+          "packageLocation": "./.yarn/$$virtual/@emotion-server-virtual-7cfd279aa5/0/cache/@emotion-server-npm-11.4.0-14759e567e-240b96e7f3.zip/node_modules/@emotion/server/",
+          "packageDependencies": [
+            ["@emotion/server", "virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:11.4.0"],
+            ["@emotion/css", null],
+            ["@emotion/utils", "npm:1.0.0"],
+            ["@types/emotion__css", null],
+            ["html-tokenize", "npm:2.0.1"],
+            ["multipipe", "npm:1.0.2"],
+            ["through", "npm:2.3.8"]
+          ],
+          "packagePeers": [
+            "@emotion/css",
+            "@types/emotion__css"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@emotion/sheet", [
         ["npm:0.9.4", {
           "packageLocation": "./.yarn/cache/@emotion-sheet-npm-0.9.4-de430f41b2-48baa183e5.zip/node_modules/@emotion/sheet/",
@@ -3818,6 +3845,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@emotion-utils-npm-0.11.3-5aea83fd8c-b5c3a22204.zip/node_modules/@emotion/utils/",
           "packageDependencies": [
             ["@emotion/utils", "npm:0.11.3"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/@emotion-utils-npm-1.0.0-7f9809289c-56b2c5a45f.zip/node_modules/@emotion/utils/",
+          "packageDependencies": [
+            ["@emotion/utils", "npm:1.0.0"]
           ],
           "linkType": "HARD",
         }]
