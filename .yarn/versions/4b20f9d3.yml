@@ -1,0 +1,3 @@
+releases:
+  "@atls/next-app-with-emotion": patch
+  "@atls/next-document-with-emotion": patch
