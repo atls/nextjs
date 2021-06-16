@@ -1,9 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-deprecated */
-import React, { Component } from 'react'
-import { CacheProvider }    from '@emotion/core'
-import { ThemeProvider }    from 'emotion-theming'
-import { cache }            from 'emotion'
+import React             from 'react'
+import { Component }     from 'react'
+import { CacheProvider } from '@emotion/react'
+import { ThemeProvider } from '@emotion/react'
+import createCache       from '@emotion/cache'
 
 declare global {
   interface Window {
@@ -17,6 +18,10 @@ type Options = {
 }
 
 type Props = {}
+
+const cache = createCache({
+  key: 'emotion',
+})
 
 export const withEmotion =
   ({ Provider = ThemeProvider, injectGlobalStyles }: Options) =>
