@@ -595,6 +595,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/next-document-with-emotion@workspace:packages/next-document-with-emotion"
   dependencies:
+    "@emotion/server": ^11.4.0
     "@types/node": 14.14.41
     "@types/react": ^16.14.5
     "@types/react-dom": ^16.9.12
@@ -2459,6 +2460,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@emotion/server@npm:^11.4.0":
+  version: 11.4.0
+  resolution: "@emotion/server@npm:11.4.0"
+  dependencies:
+    "@emotion/utils": ^1.0.0
+    html-tokenize: ^2.0.0
+    multipipe: ^1.0.2
+    through: ^2.3.8
+  peerDependencies:
+    "@emotion/css": ^11.0.0-rc.0
+  peerDependenciesMeta:
+    "@emotion/css":
+      optional: true
+  checksum: 240b96e7f3e719f98694b03dd662aea6e2cf15d3647914e3d9097f551fbd8ccdf746b504fc5a78b0ac30a585d41eb47032d9bf75b82ef12569493e1f3ac1a14e
+  languageName: node
+  linkType: hard
+
 "@emotion/sheet@npm:0.9.4":
   version: 0.9.4
   resolution: "@emotion/sheet@npm:0.9.4"
@@ -2484,6 +2502,13 @@ __metadata:
   version: 0.11.3
   resolution: "@emotion/utils@npm:0.11.3"
   checksum: b5c3a22204a878eafa8deb362493b48c3f3a7f7ec3e5a18634d14aa8d5c9d8274db0a9d0206b3c124fa170640880fbcda987971699a1cf69355f2cec994da487
+  languageName: node
+  linkType: hard
+
+"@emotion/utils@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@emotion/utils@npm:1.0.0"
+  checksum: 56b2c5a45f1d9fed3f666fe921347ba8755827bdf9471fe768ec5cbec353bef70072a6890768c0f22a43f54c6af1c3aaa3512913c1a6af862c479dbe3e3b45b1
   languageName: node
   linkType: hard
 

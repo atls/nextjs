@@ -1,6 +1,6 @@
 import Document            from 'next/document'
 import React               from 'react'
-import { extractCritical } from 'emotion-server'
+import { extractCritical } from '@emotion/server'
 
 export const withEmotion = () => (TargetComponent) =>
   class WithEmotion extends TargetComponent {
