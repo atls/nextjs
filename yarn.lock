@@ -480,6 +480,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/next-app-with-body-parser@workspace:packages/next-app-with-body-parser":
+  version: 0.0.0-use.local
+  resolution: "@atls/next-app-with-body-parser@workspace:packages/next-app-with-body-parser"
+  dependencies:
+    "@types/node": 14.14.41
+    "@types/react": ^16.14.5
+    "@types/react-dom": ^16.9.12
+    content-type: ^1.0.4
+    next: ^9.4.2
+    querystring: ^0.2.1
+    raw-body: ^2.4.1
+    react: 16.13.1
+  languageName: unknown
+  linkType: soft
+
 "@atls/next-app-with-emotion@workspace:packages/next-app-with-emotion":
   version: 0.0.0-use.local
   resolution: "@atls/next-app-with-emotion@workspace:packages/next-app-with-emotion"
@@ -606,6 +621,21 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/next-document-with-gtag@workspace:packages/next-document-with-gtag":
+  version: 0.0.0-use.local
+  resolution: "@atls/next-document-with-gtag@workspace:packages/next-document-with-gtag"
+  dependencies:
+    "@types/node": 14.14.41
+    "@types/react": ^16.14.5
+    "@types/react-dom": ^16.9.12
+    next: ^9.4.2
+    react: 16.13.1
+  peerDependencies:
+    next: ^9.1.2
+    react: ^16.12.0
+  languageName: unknown
+  linkType: soft
+
 "@atls/next-document-with-helmet@workspace:packages/next-document-with-helmet":
   version: 0.0.0-use.local
   resolution: "@atls/next-document-with-helmet@workspace:packages/next-document-with-helmet"
@@ -620,6 +650,66 @@ __metadata:
     next: ^9.1.2
     react: ^16.12.0
     react-helmet: ^6.0.0
+  languageName: unknown
+  linkType: soft
+
+"@atls/next-document-with-icons@workspace:packages/next-document-with-icons":
+  version: 0.0.0-use.local
+  resolution: "@atls/next-document-with-icons@workspace:packages/next-document-with-icons"
+  dependencies:
+    "@types/node": 14.14.41
+    "@types/react": ^16.14.5
+    "@types/react-dom": ^16.9.12
+    next: ^9.4.2
+    react: 16.13.1
+  peerDependencies:
+    next: ^9.1.2
+    react: ^16.12.0
+  languageName: unknown
+  linkType: soft
+
+"@atls/next-document-with-manifest@workspace:packages/next-document-with-manifest":
+  version: 0.0.0-use.local
+  resolution: "@atls/next-document-with-manifest@workspace:packages/next-document-with-manifest"
+  dependencies:
+    "@types/node": 14.14.41
+    "@types/react": ^16.14.5
+    "@types/react-dom": ^16.9.12
+    next: ^9.4.2
+    react: 16.13.1
+  peerDependencies:
+    next: ^9.1.2
+    react: ^16.12.0
+  languageName: unknown
+  linkType: soft
+
+"@atls/next-document-with-opengraph@workspace:packages/next-document-with-opengraph":
+  version: 0.0.0-use.local
+  resolution: "@atls/next-document-with-opengraph@workspace:packages/next-document-with-opengraph"
+  dependencies:
+    "@types/node": 14.14.41
+    "@types/react": ^16.14.5
+    "@types/react-dom": ^16.9.12
+    next: ^9.4.2
+    react: 16.13.1
+  peerDependencies:
+    next: ^9.1.2
+    react: ^16.12.0
+  languageName: unknown
+  linkType: soft
+
+"@atls/next-document-with-viewport@workspace:packages/next-document-with-viewport":
+  version: 0.0.0-use.local
+  resolution: "@atls/next-document-with-viewport@workspace:packages/next-document-with-viewport"
+  dependencies:
+    "@types/node": 14.14.41
+    "@types/react": ^16.14.5
+    "@types/react-dom": ^16.9.12
+    next: ^9.4.2
+    react: 16.13.1
+  peerDependencies:
+    next: ^9.1.2
+    react: ^16.12.0
   languageName: unknown
   linkType: soft
 
@@ -6428,6 +6518,13 @@ __metadata:
   version: 1.0.0
   resolution: "constants-browserify@npm:1.0.0"
   checksum: 108cd8ebfaf3c7fa77c443ca89ec63e41411e341d8b066b1c68d992598f1b75891fbd5370d67a1929a7813be71605884c40c107c1e760d12ebcedf49d31b0c44
+  languageName: node
+  linkType: hard
+
+"content-type@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "content-type@npm:1.0.4"
+  checksum: ff6e19cbf281c23d5608723a6dc60ac97e2280bd4d21602511283112321e6c1555895e395555e367672b54a0f1585276284b7c3c8be313aca73902ac2f2609fd
   languageName: node
   linkType: hard
 
@@ -14212,6 +14309,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"querystring@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "querystring@npm:0.2.1"
+  checksum: 59d27ec60ed6f9cd4d8ddf6413c1b8dc624ff3f148ed085267e714c08d931d3dae987bfd1ecc5d75cf8d6708bc1d081341b8745c4383c0e8525c8eb3125959cd
+  languageName: node
+  linkType: hard
+
 "quick-format-unescaped@npm:^4.0.3":
   version: 4.0.3
   resolution: "quick-format-unescaped@npm:4.0.3"
@@ -14252,7 +14356,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"raw-body@npm:2.4.1":
+"raw-body@npm:2.4.1, raw-body@npm:^2.4.1":
   version: 2.4.1
   resolution: "raw-body@npm:2.4.1"
   dependencies:
