@@ -1,9 +1,13 @@
-// eslint-disable-next-line
-import pnpApi from 'pnpapi'
+// @ts-ignore
+import pnpApi from 'pnpapi' // eslint-disable-line
+
+const isNextBabelLoaderRuleUse = (use) =>
+  use?.loader === 'next-babel-loader' || use?.loader?.includes('/next/dist/build/babel/loader')
 
 const isNextBabelLoaderRule = (rule) =>
-  (rule.use && rule.use.loader === 'next-babel-loader') ||
-  (Array.isArray(rule.use) && rule.use.some((use) => use && use.loader === 'next-babel-loader'))
+  Array.isArray(rule.use)
+    ? rule.use.some(isNextBabelLoaderRuleUse)
+    : isNextBabelLoaderRuleUse(rule.use)
 
 export const withWorkspaces = (nextConfig) => ({
   ...nextConfig,
