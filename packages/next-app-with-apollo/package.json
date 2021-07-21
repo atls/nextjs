@@ -1,6 +1,6 @@
 {
   "name": "@atls/next-app-with-apollo",
-  "version": "0.2.68",
+  "version": "0.2.69",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "files": [
