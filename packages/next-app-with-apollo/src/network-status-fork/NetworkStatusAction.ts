@@ -1,3 +1,4 @@
+// @ts-ignore
 import { ExecutionResult, Operation, ServerError, ServerParseError } from '@apollo/client'
 
 import ActionTypes                                                   from './ActionTypes'

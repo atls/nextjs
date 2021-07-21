@@ -7,6 +7,7 @@ import { cache }            from 'emotion'
 
 declare global {
   interface Window {
+    // @ts-ignore
     __NEXT_DATA__: any
   }
 }
