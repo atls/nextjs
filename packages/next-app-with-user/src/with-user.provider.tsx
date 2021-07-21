@@ -4,6 +4,7 @@ import { UserProvider }     from '@atls/react-user'
 
 declare global {
   interface Window {
+    // @ts-ignore
     __NEXT_DATA__: any
   }
 }
