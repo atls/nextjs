@@ -1,7 +1,8 @@
-import fs                from 'fs'
-import { types as t }    from '@babel/core'
-import { declare }       from '@babel/helper-plugin-utils'
-import { dirname, join } from 'path'
+import fs             from 'fs'
+import { types as t } from '@babel/core'
+import { declare }    from '@babel/helper-plugin-utils'
+import { dirname }    from 'path'
+import { join }       from 'path'
 
 const getPackageName = (filename, packagePath) => {
   try {

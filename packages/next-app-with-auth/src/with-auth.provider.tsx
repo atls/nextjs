@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
-import React, { Component } from 'react'
-import { AuthProvider }     from '@atls/react-auth'
+import React            from 'react'
+import { Component }    from 'react'
+import { AuthProvider } from '@atls/react-auth'
 
 declare global {
   interface Window {

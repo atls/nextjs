@@ -1,9 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-deprecated */
-import React, { Component } from 'react'
-import { CacheProvider }    from '@emotion/core'
-import { ThemeProvider }    from 'emotion-theming'
-import { cache }            from 'emotion'
+import React             from 'react'
+import { Component }     from 'react'
+import { CacheProvider } from '@emotion/core'
+import { ThemeProvider } from 'emotion-theming'
+import { cache }         from 'emotion'
 
 declare global {
   interface Window {

@@ -1,9 +1,11 @@
-import fetch                                        from 'isomorphic-unfetch'
-import { ApolloClient, ApolloLink, createHttpLink } from '@apollo/client'
-import { InMemoryCache }                            from '@apollo/client'
-import { onError }                                  from '@apollo/link-error'
+import fetch                 from 'isomorphic-unfetch'
+import { ApolloClient }      from '@apollo/client'
+import { ApolloLink }        from '@apollo/client'
+import { createHttpLink }    from '@apollo/client'
+import { InMemoryCache }     from '@apollo/client'
+import { onError }           from '@apollo/link-error'
 
-import { networkStatusLink }                        from './network-status'
+import { networkStatusLink } from './network-status'
 
 interface Options {
   uri: string
