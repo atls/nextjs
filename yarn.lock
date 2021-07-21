@@ -102,8 +102,8 @@ __metadata:
   linkType: hard
 
 "@apollo/client@npm:^3.0.0-beta.23, @apollo/client@npm:^3.0.0-beta.24, @apollo/client@npm:^3.0.0-james.33.0":
-  version: 3.3.20
-  resolution: "@apollo/client@npm:3.3.20"
+  version: 3.3.21
+  resolution: "@apollo/client@npm:3.3.21"
   dependencies:
     "@graphql-typed-document-node/core": ^3.0.0
     "@types/zen-observable": ^0.8.0
@@ -115,7 +115,7 @@ __metadata:
     optimism: ^0.16.0
     prop-types: ^15.7.2
     symbol-observable: ^4.0.0
-    ts-invariant: ^0.7.0
+    ts-invariant: ^0.8.0
     tslib: ^1.10.0
     zen-observable: ^0.8.14
   peerDependencies:
@@ -127,7 +127,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: 1ec7b2beb95a6302f6f91faeccfc1b1d52acdfcf132303fa46c77408d54c9c2e5ffaed82e3df36ae25ee59ea474ab27b03cbb25a0d41bb3b17ad363599ec092e
+  checksum: cdb501045ce8154fadd2cc38d10e92b90c789f58c1960797244f114fd2ac39f535895228545521407ef6b3e7cea64dc8e7050980ca47df7f54d36cb4ecef35df
   languageName: node
   linkType: hard
 
@@ -16270,12 +16270,12 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ts-invariant@npm:^0.7.0":
-  version: 0.7.5
-  resolution: "ts-invariant@npm:0.7.5"
+"ts-invariant@npm:^0.8.0":
+  version: 0.8.2
+  resolution: "ts-invariant@npm:0.8.2"
   dependencies:
     tslib: ^2.1.0
-  checksum: 596b78152de009ddb1f3c689c3cbf8b3a48900038fccf9915c0dc91901378a69f3134cc80a63705ef24ddb40692d82077577634623716672cc336d22f361a280
+  checksum: 783ec7a6aff6cc7c39712f0aa40c63e4a6f1cb3d217a15a639b477251ad019dd945e740e7d769e12ada8ef8df27b2b180f04cd301aeb8df4ab66102b08bd9c87
   languageName: node
   linkType: hard
 

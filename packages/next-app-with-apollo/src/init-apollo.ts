@@ -49,6 +49,7 @@ function create(initialState = {}, options: Options, getProps) {
     connectToDevTools: (process as any).browser,
     ssrMode: !(process as any).browser,
     cache: new InMemoryCache().restore(initialState),
+    // @ts-ignore
     link: ApolloLink.from([errorLink, httpLink]),
   })
 }
