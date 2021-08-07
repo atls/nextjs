@@ -1,0 +1,18 @@
+{
+  "name": "@atls/next-config-with-aliases",
+  "version": "0.0.0",
+  "license": "BSD-3 Clause",
+  "main": "src/index.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "yarn app library build",
+    "postpack": "rm -rf dist",
+    "prepack": "yarn run build"
+  },
+  "publishConfig": {
+    "main": "dist/index.js",
+    "typings": "dist/index.d.ts"
+  }
+}
