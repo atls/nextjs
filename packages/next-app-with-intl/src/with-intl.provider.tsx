@@ -11,7 +11,6 @@ const DEFAULT_LOCALE = 'ru'
 
 declare global {
   interface Window {
-    // @ts-ignore
     __NEXT_DATA__: NEXT_DATA
   }
 }
