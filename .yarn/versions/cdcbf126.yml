@@ -1,0 +1,6 @@
+releases:
+  "@atls/next-app-with-auth": patch
+  "@atls/next-app-with-emotion": patch
+  "@atls/next-app-with-intl": patch
+  "@atls/next-app-with-user": patch
+  "@atls/next-document-with-emotion": patch
