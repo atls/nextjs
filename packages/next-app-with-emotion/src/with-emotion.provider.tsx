@@ -2,14 +2,15 @@
 /* eslint-disable react/no-deprecated */
 import React             from 'react'
 import { Component }     from 'react'
-import { CacheProvider } from '@emotion/core'
-import { ThemeProvider } from 'emotion-theming'
-import { cache }         from 'emotion'
+import { CacheProvider } from '@emotion/react'
+import { ThemeProvider } from '@emotion/react'
+import createCache       from '@emotion/cache'
+import { EmotionCache }  from '@emotion/cache'
+import { NEXT_DATA }     from 'next/dist/next-server/lib/utils'
 
 declare global {
   interface Window {
-    // @ts-ignore
-    __NEXT_DATA__: any
+    __NEXT_DATA__: NEXT_DATA
   }
 }
 
@@ -24,17 +25,21 @@ export const withEmotion =
   ({ Provider = ThemeProvider, injectGlobalStyles }: Options) =>
   (WrapperComponent) =>
     class WithEmotion extends Component<Props> {
+      cache: EmotionCache
+
       constructor(props, context) {
         super(props, context)
 
         if (injectGlobalStyles) {
           injectGlobalStyles()
         }
+
+        this.cache = createCache({ key: 'emotion' })
       }
 
       render() {
         return (
-          <CacheProvider value={cache}>
+          <CacheProvider value={this.cache}>
             <Provider>
               <WrapperComponent {...this.props} />
             </Provider>
