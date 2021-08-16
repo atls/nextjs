@@ -6,7 +6,6 @@ import { NEXT_DATA }    from 'next/dist/next-server/lib/utils'
 
 declare global {
   interface Window {
-    // @ts-ignore
     __NEXT_DATA__: NEXT_DATA
   }
 }
@@ -30,7 +29,7 @@ export const withUser = () => (WrapperComponent) =>
 
       let user = null
 
-      if (req && req.get('x-user')) {
+      if (req && typeof req.get === 'function' && req.get('x-user')) {
         user = req.get('x-user')
       } else if ((process as any).browser) {
         user = window.__NEXT_DATA__.props.user // eslint-disable-line prefer-destructuring
