@@ -2,11 +2,12 @@
 import React            from 'react'
 import { Component }    from 'react'
 import { UserProvider } from '@atls/react-user'
+import { NEXT_DATA }    from 'next/dist/next-server/lib/utils'
 
 declare global {
   interface Window {
     // @ts-ignore
-    __NEXT_DATA__: any
+    __NEXT_DATA__: NEXT_DATA
   }
 }
 
