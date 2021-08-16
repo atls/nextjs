@@ -891,12 +891,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/next-app-with-emotion/",
           "packageDependencies": [
             ["@atls/next-app-with-emotion", "workspace:packages/next-app-with-emotion"],
-            ["@emotion/core", "virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:10.0.28"],
+            ["@emotion/cache", "npm:11.4.0"],
+            ["@emotion/react", "virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:11.4.1"],
             ["@types/node", "npm:14.14.41"],
             ["@types/react", "npm:16.14.5"],
             ["@types/react-dom", "npm:16.9.12"],
-            ["emotion", "npm:10.0.27"],
-            ["emotion-theming", "virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:10.0.27"],
             ["next", "virtual:70231fae9044b24e979925a6f736fe89d0c1a0f1c1a93b62ea76f31bac196cbc3ed8903e795bdef1b05e4407eace96d8976e145cba5c0dfae6e6bac7f45eee11#npm:9.4.2"],
             ["react", "npm:16.13.1"]
           ],
@@ -1008,10 +1007,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/next-document-with-emotion/",
           "packageDependencies": [
             ["@atls/next-document-with-emotion", "workspace:packages/next-document-with-emotion"],
+            ["@emotion/server", "virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:11.4.0"],
             ["@types/node", "npm:14.14.41"],
             ["@types/react", "npm:16.14.5"],
             ["@types/react-dom", "npm:16.9.12"],
-            ["emotion-server", "virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:10.0.27"],
             ["next", "virtual:70231fae9044b24e979925a6f736fe89d0c1a0f1c1a93b62ea76f31bac196cbc3ed8903e795bdef1b05e4407eace96d8976e145cba5c0dfae6e6bac7f45eee11#npm:9.4.2"],
             ["react", "npm:16.13.1"]
           ],
@@ -3641,54 +3640,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@emotion/cache", [
-        ["npm:10.0.29", {
-          "packageLocation": "./.yarn/cache/@emotion-cache-npm-10.0.29-076efd3781-78b37fb0c2.zip/node_modules/@emotion/cache/",
+        ["npm:11.4.0", {
+          "packageLocation": "./.yarn/cache/@emotion-cache-npm-11.4.0-701cf41a62-bdef4c0ccc.zip/node_modules/@emotion/cache/",
           "packageDependencies": [
-            ["@emotion/cache", "npm:10.0.29"],
-            ["@emotion/sheet", "npm:0.9.4"],
-            ["@emotion/stylis", "npm:0.8.5"],
-            ["@emotion/utils", "npm:0.11.3"],
-            ["@emotion/weak-memoize", "npm:0.2.5"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@emotion/core", [
-        ["npm:10.0.28", {
-          "packageLocation": "./.yarn/cache/@emotion-core-npm-10.0.28-490246e9e8-bc2a1f879f.zip/node_modules/@emotion/core/",
-          "packageDependencies": [
-            ["@emotion/core", "npm:10.0.28"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:10.0.28", {
-          "packageLocation": "./.yarn/__virtual__/@emotion-core-virtual-17fa602a7e/0/cache/@emotion-core-npm-10.0.28-490246e9e8-bc2a1f879f.zip/node_modules/@emotion/core/",
-          "packageDependencies": [
-            ["@emotion/core", "virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:10.0.28"],
-            ["@babel/runtime", "npm:7.14.6"],
-            ["@emotion/cache", "npm:10.0.29"],
-            ["@emotion/css", "npm:10.0.27"],
-            ["@emotion/serialize", "npm:0.11.16"],
-            ["@emotion/sheet", "npm:0.9.4"],
-            ["@emotion/utils", "npm:0.11.3"],
-            ["@types/react", "npm:16.14.5"],
-            ["react", "npm:16.13.1"]
-          ],
-          "packagePeers": [
-            "@types/react",
-            "react"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@emotion/css", [
-        ["npm:10.0.27", {
-          "packageLocation": "./.yarn/cache/@emotion-css-npm-10.0.27-3fd4a0c157-1420f5b514.zip/node_modules/@emotion/css/",
-          "packageDependencies": [
-            ["@emotion/css", "npm:10.0.27"],
-            ["@emotion/serialize", "npm:0.11.16"],
-            ["@emotion/utils", "npm:0.11.3"],
-            ["babel-plugin-emotion", "npm:10.0.33"]
+            ["@emotion/cache", "npm:11.4.0"],
+            ["@emotion/memoize", "npm:0.7.4"],
+            ["@emotion/sheet", "npm:1.0.2"],
+            ["@emotion/utils", "npm:1.0.0"],
+            ["@emotion/weak-memoize", "npm:0.2.5"],
+            ["stylis", "npm:4.0.3"]
           ],
           "linkType": "HARD",
         }]
@@ -3751,34 +3711,84 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["@emotion/serialize", [
-        ["npm:0.11.16", {
-          "packageLocation": "./.yarn/cache/@emotion-serialize-npm-0.11.16-ffd808625b-2949832fab.zip/node_modules/@emotion/serialize/",
+      ["@emotion/react", [
+        ["npm:11.4.1", {
+          "packageLocation": "./.yarn/cache/@emotion-react-npm-11.4.1-2f2428bc17-de3c215078.zip/node_modules/@emotion/react/",
           "packageDependencies": [
-            ["@emotion/serialize", "npm:0.11.16"],
+            ["@emotion/react", "npm:11.4.1"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:11.4.1", {
+          "packageLocation": "./.yarn/__virtual__/@emotion-react-virtual-06cfecc39a/0/cache/@emotion-react-npm-11.4.1-2f2428bc17-de3c215078.zip/node_modules/@emotion/react/",
+          "packageDependencies": [
+            ["@emotion/react", "virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:11.4.1"],
+            ["@babel/core", null],
+            ["@babel/runtime", "npm:7.14.6"],
+            ["@emotion/cache", "npm:11.4.0"],
+            ["@emotion/serialize", "npm:1.0.2"],
+            ["@emotion/sheet", "npm:1.0.2"],
+            ["@emotion/utils", "npm:1.0.0"],
+            ["@emotion/weak-memoize", "npm:0.2.5"],
+            ["@types/babel__core", null],
+            ["@types/react", "npm:16.14.5"],
+            ["hoist-non-react-statics", "npm:3.3.2"],
+            ["react", "npm:16.13.1"]
+          ],
+          "packagePeers": [
+            "@babel/core",
+            "@types/babel__core",
+            "@types/react",
+            "react"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@emotion/serialize", [
+        ["npm:1.0.2", {
+          "packageLocation": "./.yarn/cache/@emotion-serialize-npm-1.0.2-a692afdb82-ff84fbe09e.zip/node_modules/@emotion/serialize/",
+          "packageDependencies": [
+            ["@emotion/serialize", "npm:1.0.2"],
             ["@emotion/hash", "npm:0.8.0"],
             ["@emotion/memoize", "npm:0.7.4"],
             ["@emotion/unitless", "npm:0.7.5"],
-            ["@emotion/utils", "npm:0.11.3"],
-            ["csstype", "npm:2.6.10"]
+            ["@emotion/utils", "npm:1.0.0"],
+            ["csstype", "npm:3.0.7"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@emotion/server", [
+        ["npm:11.4.0", {
+          "packageLocation": "./.yarn/cache/@emotion-server-npm-11.4.0-14759e567e-41ed2472c3.zip/node_modules/@emotion/server/",
+          "packageDependencies": [
+            ["@emotion/server", "npm:11.4.0"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:11.4.0", {
+          "packageLocation": "./.yarn/__virtual__/@emotion-server-virtual-7cfd279aa5/0/cache/@emotion-server-npm-11.4.0-14759e567e-41ed2472c3.zip/node_modules/@emotion/server/",
+          "packageDependencies": [
+            ["@emotion/server", "virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:11.4.0"],
+            ["@emotion/css", null],
+            ["@emotion/utils", "npm:1.0.0"],
+            ["@types/emotion__css", null],
+            ["html-tokenize", "npm:2.0.1"],
+            ["multipipe", "npm:1.0.2"],
+            ["through", "npm:2.3.8"]
+          ],
+          "packagePeers": [
+            "@emotion/css",
+            "@types/emotion__css"
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@emotion/sheet", [
-        ["npm:0.9.4", {
-          "packageLocation": "./.yarn/cache/@emotion-sheet-npm-0.9.4-de430f41b2-53bb833b4b.zip/node_modules/@emotion/sheet/",
+        ["npm:1.0.2", {
+          "packageLocation": "./.yarn/cache/@emotion-sheet-npm-1.0.2-d08c7d10ef-836b413c66.zip/node_modules/@emotion/sheet/",
           "packageDependencies": [
-            ["@emotion/sheet", "npm:0.9.4"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@emotion/stylis", [
-        ["npm:0.8.5", {
-          "packageLocation": "./.yarn/cache/@emotion-stylis-npm-0.8.5-3e9db8959f-67ff595844.zip/node_modules/@emotion/stylis/",
-          "packageDependencies": [
-            ["@emotion/stylis", "npm:0.8.5"]
+            ["@emotion/sheet", "npm:1.0.2"]
           ],
           "linkType": "HARD",
         }]
@@ -3793,10 +3803,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@emotion/utils", [
-        ["npm:0.11.3", {
-          "packageLocation": "./.yarn/cache/@emotion-utils-npm-0.11.3-5aea83fd8c-9c4204bda8.zip/node_modules/@emotion/utils/",
+        ["npm:1.0.0", {
+          "packageLocation": "./.yarn/cache/@emotion-utils-npm-1.0.0-7f9809289c-3ce8048441.zip/node_modules/@emotion/utils/",
           "packageDependencies": [
-            ["@emotion/utils", "npm:0.11.3"]
+            ["@emotion/utils", "npm:1.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -4901,15 +4911,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-normalize-package-data-npm-2.4.0-ed928aaaa8-fd22ba86a1.zip/node_modules/@types/normalize-package-data/",
           "packageDependencies": [
             ["@types/normalize-package-data", "npm:2.4.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["@types/parse-json", [
-        ["npm:4.0.0", {
-          "packageLocation": "./.yarn/cache/@types-parse-json-npm-4.0.0-298522afa6-fd6bce2b67.zip/node_modules/@types/parse-json/",
-          "packageDependencies": [
-            ["@types/parse-json", "npm:4.0.0"]
           ],
           "linkType": "HARD",
         }]
@@ -7233,25 +7234,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["babel-plugin-emotion", [
-        ["npm:10.0.33", {
-          "packageLocation": "./.yarn/cache/babel-plugin-emotion-npm-10.0.33-378fe1583f-8961c3ebab.zip/node_modules/babel-plugin-emotion/",
-          "packageDependencies": [
-            ["babel-plugin-emotion", "npm:10.0.33"],
-            ["@babel/helper-module-imports", "npm:7.10.4"],
-            ["@emotion/hash", "npm:0.8.0"],
-            ["@emotion/memoize", "npm:0.7.4"],
-            ["@emotion/serialize", "npm:0.11.16"],
-            ["babel-plugin-macros", "npm:2.8.0"],
-            ["babel-plugin-syntax-jsx", "npm:6.18.0"],
-            ["convert-source-map", "npm:1.7.0"],
-            ["escape-string-regexp", "npm:1.0.5"],
-            ["find-root", "npm:1.1.0"],
-            ["source-map", "npm:0.5.7"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["babel-plugin-istanbul", [
         ["npm:6.0.0", {
           "packageLocation": "./.yarn/cache/babel-plugin-istanbul-npm-6.0.0-2c177ffcc3-bc586cf088.zip/node_modules/babel-plugin-istanbul/",
@@ -7275,18 +7257,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/types", "npm:7.10.4"],
             ["@types/babel__core", "npm:7.1.12"],
             ["@types/babel__traverse", "npm:7.0.16"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["babel-plugin-macros", [
-        ["npm:2.8.0", {
-          "packageLocation": "./.yarn/cache/babel-plugin-macros-npm-2.8.0-451367d7e7-59b09a21cf.zip/node_modules/babel-plugin-macros/",
-          "packageDependencies": [
-            ["babel-plugin-macros", "npm:2.8.0"],
-            ["@babel/runtime", "npm:7.14.6"],
-            ["cosmiconfig", "npm:6.0.0"],
-            ["resolve", "patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=00b1ff"]
           ],
           "linkType": "HARD",
         }]
@@ -8804,18 +8774,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["parse-json", "npm:4.0.0"]
           ],
           "linkType": "HARD",
-        }],
-        ["npm:6.0.0", {
-          "packageLocation": "./.yarn/cache/cosmiconfig-npm-6.0.0-cb7d64a2b9-8eed7c854b.zip/node_modules/cosmiconfig/",
-          "packageDependencies": [
-            ["cosmiconfig", "npm:6.0.0"],
-            ["@types/parse-json", "npm:4.0.0"],
-            ["import-fresh", "npm:3.2.2"],
-            ["parse-json", "npm:5.0.0"],
-            ["path-type", "npm:4.0.0"],
-            ["yaml", "npm:1.10.0"]
-          ],
-          "linkType": "HARD",
         }]
       ]],
       ["create-ecdh", [
@@ -8825,32 +8783,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["create-ecdh", "npm:4.0.3"],
             ["bn.js", "npm:4.11.9"],
             ["elliptic", "npm:6.5.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["create-emotion", [
-        ["npm:10.0.27", {
-          "packageLocation": "./.yarn/cache/create-emotion-npm-10.0.27-54c90999e2-6838f6fe0a.zip/node_modules/create-emotion/",
-          "packageDependencies": [
-            ["create-emotion", "npm:10.0.27"],
-            ["@emotion/cache", "npm:10.0.29"],
-            ["@emotion/serialize", "npm:0.11.16"],
-            ["@emotion/sheet", "npm:0.9.4"],
-            ["@emotion/utils", "npm:0.11.3"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["create-emotion-server", [
-        ["npm:10.0.27", {
-          "packageLocation": "./.yarn/cache/create-emotion-server-npm-10.0.27-7c01b325aa-93113b4c5f.zip/node_modules/create-emotion-server/",
-          "packageDependencies": [
-            ["create-emotion-server", "npm:10.0.27"],
-            ["@emotion/utils", "npm:0.11.3"],
-            ["html-tokenize", "npm:2.0.1"],
-            ["multipipe", "npm:1.0.2"],
-            ["through", "npm:2.3.8"]
           ],
           "linkType": "HARD",
         }]
@@ -9281,13 +9213,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["csstype", [
-        ["npm:2.6.10", {
-          "packageLocation": "./.yarn/cache/csstype-npm-2.6.10-2ca7df665c-c2803b8f0b.zip/node_modules/csstype/",
-          "packageDependencies": [
-            ["csstype", "npm:2.6.10"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:3.0.7", {
           "packageLocation": "./.yarn/cache/csstype-npm-3.0.7-10cebfb3bb-2f30c993be.zip/node_modules/csstype/",
           "packageDependencies": [
@@ -9993,69 +9918,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/emojis-list-npm-3.0.0-7faa48e6fd-ddaaa02542.zip/node_modules/emojis-list/",
           "packageDependencies": [
             ["emojis-list", "npm:3.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["emotion", [
-        ["npm:10.0.27", {
-          "packageLocation": "./.yarn/cache/emotion-npm-10.0.27-60fd402cdc-e925a6ae32.zip/node_modules/emotion/",
-          "packageDependencies": [
-            ["emotion", "npm:10.0.27"],
-            ["babel-plugin-emotion", "npm:10.0.33"],
-            ["create-emotion", "npm:10.0.27"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["emotion-server", [
-        ["npm:10.0.27", {
-          "packageLocation": "./.yarn/cache/emotion-server-npm-10.0.27-2c6afcc5d6-786a5b07f3.zip/node_modules/emotion-server/",
-          "packageDependencies": [
-            ["emotion-server", "npm:10.0.27"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:10.0.27", {
-          "packageLocation": "./.yarn/__virtual__/emotion-server-virtual-09796f847d/0/cache/emotion-server-npm-10.0.27-2c6afcc5d6-786a5b07f3.zip/node_modules/emotion-server/",
-          "packageDependencies": [
-            ["emotion-server", "virtual:95d08717eea61f560630c0cab28a48675ea292f3a4934eed254b5c255500621c068992cfef1501266b7d232a4d6b68e162337c88604e2f79fdeae2df0acbb373#npm:10.0.27"],
-            ["@types/emotion", null],
-            ["create-emotion-server", "npm:10.0.27"],
-            ["emotion", null]
-          ],
-          "packagePeers": [
-            "@types/emotion",
-            "emotion"
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["emotion-theming", [
-        ["npm:10.0.27", {
-          "packageLocation": "./.yarn/cache/emotion-theming-npm-10.0.27-c90b72b72a-1fcabf32de.zip/node_modules/emotion-theming/",
-          "packageDependencies": [
-            ["emotion-theming", "npm:10.0.27"]
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:10.0.27", {
-          "packageLocation": "./.yarn/__virtual__/emotion-theming-virtual-ec583ddc9d/0/cache/emotion-theming-npm-10.0.27-c90b72b72a-1fcabf32de.zip/node_modules/emotion-theming/",
-          "packageDependencies": [
-            ["emotion-theming", "virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:10.0.27"],
-            ["@babel/runtime", "npm:7.14.6"],
-            ["@emotion/core", "virtual:bd0cccb44b968b6403f2458a8e2171ea9756819b5b0f0d793f599fe9a79b01fb364a2d4824fa9b76b36a7170ed4d89af835d06ec004875712ec343781f14f449#npm:10.0.28"],
-            ["@emotion/weak-memoize", "npm:0.2.5"],
-            ["@types/emotion__core", null],
-            ["@types/react", "npm:16.14.5"],
-            ["hoist-non-react-statics", "npm:3.3.2"],
-            ["react", "npm:16.13.1"]
-          ],
-          "packagePeers": [
-            "@emotion/core",
-            "@types/emotion__core",
-            "@types/react",
-            "react"
           ],
           "linkType": "HARD",
         }]
@@ -21733,15 +21595,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/yallist-npm-4.0.0-b493d9e907-343617202a.zip/node_modules/yallist/",
           "packageDependencies": [
             ["yallist", "npm:4.0.0"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["yaml", [
-        ["npm:1.10.0", {
-          "packageLocation": "./.yarn/cache/yaml-npm-1.10.0-3e2d763b45-ae81d29a82.zip/node_modules/yaml/",
-          "packageDependencies": [
-            ["yaml", "npm:1.10.0"]
           ],
           "linkType": "HARD",
         }]
