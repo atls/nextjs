@@ -1,6 +1,6 @@
 {
   "name": "@atls/next-app-with-intl",
-  "version": "0.2.73",
+  "version": "0.2.74",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "files": [
