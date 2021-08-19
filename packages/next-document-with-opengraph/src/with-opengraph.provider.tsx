@@ -1,5 +1,5 @@
-import Document from 'next/document'
 import React    from 'react'
+import Document from 'next/document'
 
 export interface OpenGraphProviderOptinos {
   image?: string

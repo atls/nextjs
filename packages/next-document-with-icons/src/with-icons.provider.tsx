@@ -1,5 +1,5 @@
-import Document from 'next/document'
 import React    from 'react'
+import Document from 'next/document'
 
 export const withIcons = () => (TargetComponent) =>
   class WithIcons extends TargetComponent {
