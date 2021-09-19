@@ -1,15 +1,17 @@
 import Cookies                         from 'universal-cookie'
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable react/sort-comp */
-import React, { Component }            from 'react'
+import React                           from 'react'
+import { Component }                   from 'react'
 import { LocaleProvider, LocaleStore } from '@atls/react-locale'
 import { IntlProvider }                from 'react-intl'
+import { NEXT_DATA }                   from 'next/dist/next-server/lib/utils'
 
 const DEFAULT_LOCALE = 'ru'
 
 declare global {
   interface Window {
-    __NEXT_DATA__: any
+    __NEXT_DATA__: NEXT_DATA
   }
 }
 

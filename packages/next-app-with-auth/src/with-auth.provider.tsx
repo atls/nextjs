@@ -1,10 +1,13 @@
 /* eslint-disable no-underscore-dangle */
-import React, { Component } from 'react'
-import { AuthProvider }     from '@atls/react-auth'
+import React            from 'react'
+import { Component }    from 'react'
+import { AuthProvider } from '@atls/react-auth'
+import { NEXT_DATA }    from 'next/dist/next-server/lib/utils'
 
 declare global {
   interface Window {
-    __NEXT_DATA__: any
+    // @ts-ignore
+    __NEXT_DATA__: NEXT_DATA
   }
 }
 
@@ -27,7 +30,7 @@ export const withAuth = () => (WrapperComponent) =>
 
       let token = null
 
-      if (req && req.get('authorization')) {
+      if (req && typeof req.get === 'function' && req.get('authorization')) {
         token = req.get('authorization')
       } else if ((process as any).browser) {
         token = window.__NEXT_DATA__.props.token // eslint-disable-line prefer-destructuring

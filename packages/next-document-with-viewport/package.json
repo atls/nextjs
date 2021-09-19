@@ -1,6 +1,6 @@
 {
   "name": "@atls/next-document-with-viewport",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "license": "BSD-3-Clause",
   "main": "src/index.ts",
   "files": [
