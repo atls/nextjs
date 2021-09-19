@@ -1,6 +1,8 @@
-import { ExecutionResult, Operation, ServerError, ServerParseError } from '@apollo/client'
+// @ts-ignore
+import { Operation, ServerError, ServerParseError } from '@apollo/client'
+import { ExecutionResult }                          from 'graphql'
 
-import ActionTypes                                                   from './ActionTypes'
+import ActionTypes                                  from './ActionTypes'
 
 interface Action {
   type: ActionTypes

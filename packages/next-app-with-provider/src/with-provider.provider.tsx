@@ -1,5 +1,6 @@
 /* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react'
+import React         from 'react'
+import { Component } from 'react'
 
 type Props = {}
 
