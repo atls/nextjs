@@ -1,6 +1,6 @@
 {
   "name": "@atls/next-app-with-helmet",
-  "version": "0.2.64",
+  "version": "0.2.65",
   "license": "BSD-3 Clause",
   "main": "dist/index.js",
   "files": [
