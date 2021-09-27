@@ -6,6 +6,8 @@ import { Component }                   from 'react'
 import { LocaleProvider, LocaleStore } from '@atls/react-locale'
 import { IntlProvider }                from 'react-intl'
 
+const DEFAULT_LOCALE = 'ru'
+
 // @ts-ignore
 // eslint-disable-next-line
 const NEXT_DATA_VAL = (require('next/dist/shared/lib/utils') || require('next/dist/next-server/lib/utils')).NEXT_DATA
