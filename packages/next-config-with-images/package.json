@@ -12,11 +12,11 @@
     "prepack": "yarn run build"
   },
   "peerDependencies": {
-    "next": "^11"
+    "next": "*"
   },
   "devDependencies": {
     "@types/node": "14.14.41",
-    "next": "^11.1.2"
+    "next": "11.1.0"
   },
   "publishConfig": {
     "access": "public",
