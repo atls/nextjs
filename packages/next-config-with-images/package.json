@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@types/node": "14.14.41",
-    "next": "^11"
+    "next": "^11.1.2"
   },
   "publishConfig": {
     "access": "public",
