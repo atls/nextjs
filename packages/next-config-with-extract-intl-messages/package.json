@@ -19,10 +19,13 @@
   },
   "devDependencies": {
     "@types/node": "14.14.41",
-    "next": "^9.4.2"
+    "next": "11.1.0"
   },
   "publishConfig": {
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
+  },
+  "peerDependencies": {
+    "next": "*"
   }
 }

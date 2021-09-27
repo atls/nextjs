@@ -79,7 +79,7 @@ export const withApollo =
             console.error('Error while running `getDataFromTree`', error)
           }
 
-          Head.rewind()
+          ;(Head as any).rewind()
         }
       }
 

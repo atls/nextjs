@@ -6,10 +6,17 @@ import { CacheProvider } from '@emotion/react'
 import { ThemeProvider } from '@emotion/react'
 import createCache       from '@emotion/cache'
 import { EmotionCache }  from '@emotion/cache'
-import { NEXT_DATA }     from 'next/dist/next-server/lib/utils'
+
+// @ts-ignore
+// eslint-disable-next-line
+const NEXT_DATA_VAL = (require('next/dist/shared/lib/utils') || require('next/dist/next-server/lib/utils')).NEXT_DATA
+
+// eslint-disable-next-line
+type NEXT_DATA = typeof NEXT_DATA_VAL
 
 declare global {
   interface Window {
+    // @ts-ignore
     __NEXT_DATA__: NEXT_DATA
   }
 }

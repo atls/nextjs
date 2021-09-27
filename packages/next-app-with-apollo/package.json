@@ -24,7 +24,7 @@
     "@types/react": "^16.14.5",
     "@types/react-dom": "^16.9.12",
     "graphql": "^14.5.0",
-    "next": "^9.4.2",
+    "next": "11.1.0",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
@@ -32,6 +32,7 @@
     "@apollo/client": "^3.0.0-james.33.0",
     "@apollo/react-ssr": "^4.0.0-beta.1",
     "graphql": "^14.5.0 || ^15.0.0",
+    "next": "*",
     "react": "^16.12.0",
     "react-dom": "^16.9.0"
   },
