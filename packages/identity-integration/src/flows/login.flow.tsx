@@ -5,8 +5,11 @@ import { FC }                   from 'react'
 import { useRouter }            from 'next/router'
 import { useState }             from 'react'
 import { useEffect }            from 'react'
+import { useMemo }              from 'react'
 
 import { FlowProvider }         from '../providers'
+import { ValuesProvider }       from '../providers'
+import { ValuesStore }          from '../providers'
 import { kratos }               from '../sdk'
 import { handleFlowError }      from './handle-errors.util'
 
@@ -17,6 +20,7 @@ export interface LoginFlowProps {
 export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
   const [flow, setFlow] = useState<SelfServiceLoginFlow>()
   const [loading, setLoading] = useState<boolean>(true)
+  const values = useMemo(() => new ValuesStore(), [])
   const router = useRouter()
 
   const { return_to: returnTo, flow: flowId, refresh, aal } = router.query
@@ -51,5 +55,15 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
       .finally(() => setLoading(false))
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
-  return <FlowProvider value={{ flow, loading }}>{children}</FlowProvider>
+  useEffect(() => {
+    if (flow) {
+      values.setFromFlow(flow)
+    }
+  }, [values, flow])
+
+  return (
+    <FlowProvider value={{ flow, loading }}>
+      <ValuesProvider value={values}>{children}</ValuesProvider>
+    </FlowProvider>
+  )
 }

@@ -1,11 +1,9 @@
-import type { UiNodeInputAttributes } from '@ory/kratos-client'
-import type { UiText }                from '@ory/kratos-client'
+import type { UiText }  from '@ory/kratos-client'
 
-import { ReactElement }               from 'react'
-import { FC }                         from 'react'
-import { useMemo }                    from 'react'
+import { ReactElement } from 'react'
+import { FC }           from 'react'
 
-import { useFlow }                    from '../providers'
+import { useFlowNode }  from '../providers'
 
 export interface FlowNodeMessagesProps {
   name: string
@@ -13,15 +11,7 @@ export interface FlowNodeMessagesProps {
 }
 
 export const FlowNodeMessages: FC<FlowNodeMessagesProps> = ({ name, children }) => {
-  const { flow } = useFlow()
-
-  const node = useMemo(
-    () =>
-      flow?.ui?.nodes?.find(
-        ({ attributes }) => (attributes as UiNodeInputAttributes).name === name
-      ),
-    [flow, name]
-  )
+  const node = useFlowNode(name)
 
   if (typeof children === 'function' && node?.messages) {
     return children(node.messages)
