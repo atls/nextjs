@@ -68,10 +68,13 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (method?: string) => {
+    (method?: string, override?: Partial<SubmitSelfServiceLoginFlowBody>) => {
       setSubmitting(true)
 
-      const body = values.getValues() as SubmitSelfServiceLoginFlowBody
+      const body = {
+        ...(values.getValues() as SubmitSelfServiceLoginFlowBody),
+        ...(override || {}),
+      }
 
       if (method) {
         body.method = method
@@ -83,7 +86,7 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
           if (flow?.return_to) {
             window.location.href = flow?.return_to
           } else {
-            router.push('/profile/settings')
+            router.push('/profile/settings').then(() => router.reload())
           }
         })
         .catch(handleFlowError(router, 'login', setFlow))
