@@ -1,5 +1,6 @@
 import { SubmitSelfServiceRegistrationFlowBody } from '@ory/kratos-client'
 import { SelfServiceRegistrationFlow }           from '@ory/kratos-client'
+import { UiNodeInputAttributes }                 from '@ory/kratos-client'
 
 import React                                     from 'react'
 import { AxiosError }                            from 'axios'
@@ -68,8 +69,25 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
     (override?: Partial<SubmitSelfServiceRegistrationFlowBody>) => {
       setSubmitting(true)
 
+      const [submitNode] = [
+        flow?.ui.nodes.filter(
+          ({ attributes, group }) =>
+            group === 'password' && (attributes as UiNodeInputAttributes).type === 'submit'
+        ),
+        flow?.ui.nodes.filter(
+          ({ attributes }) => (attributes as UiNodeInputAttributes).type === 'submit'
+        ),
+      ].flat()
+
       const body = {
         ...(values.getValues() as SubmitSelfServiceRegistrationFlowBody),
+        ...(submitNode
+          ? {
+              [(submitNode.attributes as UiNodeInputAttributes).name]: (
+                submitNode.attributes as UiNodeInputAttributes
+              ).value,
+            }
+          : {}),
         ...(override || {}),
       }
 
