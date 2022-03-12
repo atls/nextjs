@@ -55,6 +55,15 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
         setFlow(data)
       })
       .catch(handleFlowError(router, 'settings', setFlow, onError))
+      .catch((error: AxiosError) => {
+        // eslint-disable-next-line default-case
+        switch (error.response?.status) {
+          case 401:
+            return router.push('/auth/login')
+        }
+
+        return Promise.reject(error)
+      })
       .finally(() => setLoading(false))
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
@@ -75,6 +84,9 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
 
       kratos
         .submitSelfServiceSettingsFlow(String(flow?.id), undefined, body, { withCredentials: true })
+        .then(({ data }) => {
+          setFlow(data)
+        })
         .catch(handleFlowError(router, 'settings', setFlow))
         .catch((error: AxiosError) => {
           if (error.response?.status === 400) {
