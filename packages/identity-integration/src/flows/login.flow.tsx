@@ -37,7 +37,7 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
 
     if (flowId) {
       kratos
-        .getSelfServiceLoginFlow(String(flowId))
+        .getSelfServiceLoginFlow(String(flowId), undefined, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -51,7 +51,8 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
       .initializeSelfServiceLoginFlowForBrowsers(
         Boolean(refresh),
         aal ? String(aal) : undefined,
-        returnTo ? String(returnTo) : undefined
+        returnTo ? String(returnTo) : undefined,
+        { withCredentials: true }
       )
       .then(({ data }) => {
         setFlow(data)
@@ -73,16 +74,15 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
       .submitSelfServiceLoginFlow(
         String(flow?.id),
         undefined,
-        values.getValues() as SubmitSelfServiceLoginFlowBody
+        values.getValues() as SubmitSelfServiceLoginFlowBody,
+        { withCredentials: true }
       )
       .then(() => {
         if (flow?.return_to) {
           window.location.href = flow?.return_to
-
-          return
+        } else {
+          router.push('/profile/settings')
         }
-
-        router.push('/auth/settings')
       })
       .catch(handleFlowError(router, 'login', setFlow))
       .catch((error: AxiosError) => {
