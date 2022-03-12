@@ -65,10 +65,13 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (method?: string) => {
+    (method?: string, override?: Partial<SubmitSelfServiceRegistrationFlowBody>) => {
       setSubmitting(true)
 
-      const body = values.getValues() as SubmitSelfServiceRegistrationFlowBody
+      const body = {
+        ...(values.getValues() as SubmitSelfServiceRegistrationFlowBody),
+        ...(override || {}),
+      }
 
       if (method) {
         body.method = method
@@ -80,7 +83,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
           if (flow?.return_to) {
             window.location.href = flow?.return_to
           } else {
-            router.push('/profile/settings')
+            router.push('/profile/settings').then(() => router.reload())
           }
         })
         .catch(handleFlowError(router, 'registration', setFlow))
