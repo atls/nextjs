@@ -2,6 +2,8 @@ import type { Flow }                  from './flow.interfaces'
 import type { Body }                  from './flow.interfaces'
 import type { UiNodeInputAttributes } from '@ory/kratos-client'
 
+import { isUiNodeInputAttributes }    from '@ory/integrations/ui'
+
 import { EventEmitter }               from 'events'
 
 export class ValuesStore extends EventEmitter {
@@ -28,11 +30,15 @@ export class ValuesStore extends EventEmitter {
 
   setFromFlow(flow: Flow) {
     flow?.ui?.nodes?.forEach(({ attributes }) => {
-      const { name, value = '' } = attributes as UiNodeInputAttributes
+      const { name, type, value = '' } = attributes as UiNodeInputAttributes
 
-      if (!this.#values[name]) {
-        this.#values[name] = value
-        this.emit(name, value)
+      if (isUiNodeInputAttributes(attributes)) {
+        if (type !== 'button' && type !== 'submit') {
+          if (!this.#values[name]) {
+            this.#values[name] = value
+            this.emit(name, value)
+          }
+        }
       }
     })
   }
