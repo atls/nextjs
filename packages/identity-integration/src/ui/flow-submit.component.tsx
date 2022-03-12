@@ -1,11 +1,12 @@
 import { ReactElement } from 'react'
 import { FC }           from 'react'
 
+import { Body }         from '../providers'
 import { useSubmit }    from '../providers'
 
 export interface FlowSubmitProps {
   children: (submit: {
-    onSubmit: (method?: string) => void
+    onSubmit: (override?: Partial<Body>) => void
     submitting: boolean
   }) => ReactElement<any>
   method?: string
@@ -17,7 +18,7 @@ export const FlowSubmit: FC<FlowSubmitProps> = ({ method, children }) => {
   if (typeof children === 'function') {
     return children({
       submitting,
-      onSubmit: () => onSubmit(method),
+      onSubmit: (override?: Partial<Body>) => onSubmit(method, override),
     })
   }
 
