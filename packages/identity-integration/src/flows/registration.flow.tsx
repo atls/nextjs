@@ -65,16 +65,12 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (method?: string, override?: Partial<SubmitSelfServiceRegistrationFlowBody>) => {
+    (override?: Partial<SubmitSelfServiceRegistrationFlowBody>) => {
       setSubmitting(true)
 
       const body = {
         ...(values.getValues() as SubmitSelfServiceRegistrationFlowBody),
         ...(override || {}),
-      }
-
-      if (method) {
-        body.method = method
       }
 
       kratos

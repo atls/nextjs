@@ -9,16 +9,15 @@ export interface FlowSubmitProps {
     onSubmit: (override?: Partial<Body>) => void
     submitting: boolean
   }) => ReactElement<any>
-  method?: string
 }
 
-export const FlowSubmit: FC<FlowSubmitProps> = ({ method, children }) => {
+export const FlowSubmit: FC<FlowSubmitProps> = ({ children }) => {
   const { submitting, onSubmit } = useSubmit()
 
   if (typeof children === 'function') {
     return children({
       submitting,
-      onSubmit: (override?: Partial<Body>) => onSubmit(method, override),
+      onSubmit: (override?: Partial<Body>) => onSubmit(override),
     })
   }
 

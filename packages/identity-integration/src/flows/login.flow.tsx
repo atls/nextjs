@@ -68,16 +68,12 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (method?: string, override?: Partial<SubmitSelfServiceLoginFlowBody>) => {
+    (override?: Partial<SubmitSelfServiceLoginFlowBody>) => {
       setSubmitting(true)
 
       const body = {
         ...(values.getValues() as SubmitSelfServiceLoginFlowBody),
         ...(override || {}),
-      }
-
-      if (method) {
-        body.method = method
       }
 
       kratos

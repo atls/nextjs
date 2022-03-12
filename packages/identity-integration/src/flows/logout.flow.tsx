@@ -23,10 +23,9 @@ export const LogoutFlow = ({ children }) => {
         // eslint-disable-next-line default-case
         switch (error.response?.status) {
           case 401:
-            return
+            return router.push('/auth/login')
         }
 
-        // eslint-disable-next-line consistent-return
         return Promise.reject(error)
       })
   }, [router, router.isReady])
