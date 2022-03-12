@@ -1,5 +1,6 @@
 import { SubmitSelfServiceRegistrationFlowBody } from '@ory/kratos-client'
 import { SelfServiceRegistrationFlow }           from '@ory/kratos-client'
+import { UiNodeInputAttributes }                 from '@ory/kratos-client'
 
 import React                                     from 'react'
 import { AxiosError }                            from 'axios'
@@ -65,16 +66,29 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (method?: string, override?: Partial<SubmitSelfServiceRegistrationFlowBody>) => {
+    (override?: Partial<SubmitSelfServiceRegistrationFlowBody>) => {
       setSubmitting(true)
+
+      const [submitNode] = [
+        flow?.ui.nodes.filter(
+          ({ attributes, group }) =>
+            group === 'password' && (attributes as UiNodeInputAttributes).type === 'submit'
+        ),
+        flow?.ui.nodes.filter(
+          ({ attributes }) => (attributes as UiNodeInputAttributes).type === 'submit'
+        ),
+      ].flat()
 
       const body = {
         ...(values.getValues() as SubmitSelfServiceRegistrationFlowBody),
+        ...(submitNode
+          ? {
+              [(submitNode.attributes as UiNodeInputAttributes).name]: (
+                submitNode.attributes as UiNodeInputAttributes
+              ).value,
+            }
+          : {}),
         ...(override || {}),
-      }
-
-      if (method) {
-        body.method = method
       }
 
       kratos
@@ -83,7 +97,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
           if (flow?.return_to) {
             window.location.href = flow?.return_to
           } else {
-            router.push('/profile/settings').then(() => router.reload())
+            router.push('/profile/settings')
           }
         })
         .catch(handleFlowError(router, 'registration', setFlow))

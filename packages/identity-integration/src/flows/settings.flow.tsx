@@ -65,13 +65,12 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (method?: string) => {
+    (override?: Partial<SubmitSelfServiceSettingsFlowBody>) => {
       setSubmitting(true)
 
-      const body = values.getValues() as SubmitSelfServiceSettingsFlowBody
-
-      if (method) {
-        body.method = method
+      const body = {
+        ...(values.getValues() as SubmitSelfServiceSettingsFlowBody),
+        ...(override || {}),
       }
 
       kratos
