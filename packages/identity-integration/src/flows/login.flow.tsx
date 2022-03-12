@@ -67,36 +67,40 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
     }
   }, [values, flow])
 
-  const onSubmit = useCallback(() => {
-    setSubmitting(true)
+  const onSubmit = useCallback(
+    (method?: string) => {
+      setSubmitting(true)
 
-    kratos
-      .submitSelfServiceLoginFlow(
-        String(flow?.id),
-        undefined,
-        values.getValues() as SubmitSelfServiceLoginFlowBody,
-        { withCredentials: true }
-      )
-      .then(() => {
-        if (flow?.return_to) {
-          window.location.href = flow?.return_to
-        } else {
-          router.push('/profile/settings')
-        }
-      })
-      .catch(handleFlowError(router, 'login', setFlow))
-      .catch((error: AxiosError) => {
-        if (error.response?.status === 400) {
-          setFlow(error.response?.data)
+      const body = values.getValues() as SubmitSelfServiceLoginFlowBody
 
-          return
-        }
+      if (method) {
+        body.method = method
+      }
 
-        // eslint-disable-next-line consistent-return
-        return Promise.reject(error)
-      })
-      .finally(() => setSubmitting(false))
-  }, [router, flow, values, setSubmitting])
+      kratos
+        .submitSelfServiceLoginFlow(String(flow?.id), undefined, body, { withCredentials: true })
+        .then(() => {
+          if (flow?.return_to) {
+            window.location.href = flow?.return_to
+          } else {
+            router.push('/profile/settings')
+          }
+        })
+        .catch(handleFlowError(router, 'login', setFlow))
+        .catch((error: AxiosError) => {
+          if (error.response?.status === 400) {
+            setFlow(error.response?.data)
+
+            return
+          }
+
+          // eslint-disable-next-line consistent-return
+          return Promise.reject(error)
+        })
+        .finally(() => setSubmitting(false))
+    },
+    [router, flow, values, setSubmitting]
+  )
 
   return (
     <FlowProvider value={{ flow, loading }}>
