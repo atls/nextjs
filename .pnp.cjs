@@ -39,6 +39,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       {\
         "name": "@atls/next-document-with-opengraph",\
         "reference": "workspace:packages/next-document-with-opengraph"\
+      },\
+      {\
+        "name": "@atls/next-sitemap-generator",\
+        "reference": "workspace:packages/next-sitemap-generator"\
       }\
     ],\
     "enableTopLevelFallback": true,\
@@ -49,6 +53,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@atls/next-document-with-icons", ["workspace:packages/next-document-with-icons"]],\
       ["@atls/next-document-with-opengraph", ["workspace:packages/next-document-with-opengraph"]],\
       ["@atls/next-identity-integration", ["workspace:packages/identity-integration"]],\
+      ["@atls/next-sitemap-generator", ["workspace:packages/next-sitemap-generator"]],\
       ["nextjs", ["workspace:."]]\
     ],\
     "fallbackPool": [\
@@ -250,6 +255,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:17.0.2"],\
             ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:17.0.2"],\
             ["tldjs", "npm:2.3.1"]\
+          ],\
+          "linkType": "SOFT"\
+        }]\
+      ]],\
+      ["@atls/next-sitemap-generator", [\
+        ["workspace:packages/next-sitemap-generator", {\
+          "packageLocation": "./packages/next-sitemap-generator/",\
+          "packageDependencies": [\
+            ["@atls/next-sitemap-generator", "workspace:packages/next-sitemap-generator"],\
+            ["@types/node", "npm:16.11.43"],\
+            ["xml-js", "npm:1.6.11"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2344,6 +2360,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-node-npm-14.14.41-86b32c9f0d-8fc205d411.zip/node_modules/@types/node/",\
           "packageDependencies": [\
             ["@types/node", "npm:14.14.41"]\
+          ],\
+          "linkType": "HARD"\
+        }],\
+        ["npm:16.11.43", {\
+          "packageLocation": "./.yarn/cache/@types-node-npm-16.11.43-d0740e29f9-96d09e6834.zip/node_modules/@types/node/",\
+          "packageDependencies": [\
+            ["@types/node", "npm:16.11.43"]\
           ],\
           "linkType": "HARD"\
         }],\
@@ -8204,6 +8227,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["sax", [\
+        ["npm:1.2.4", {\
+          "packageLocation": "./.yarn/cache/sax-npm-1.2.4-178f05f12f-d3df7d32b8.zip/node_modules/sax/",\
+          "packageDependencies": [\
+            ["sax", "npm:1.2.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["scheduler", [\
         ["npm:0.20.2", {\
           "packageLocation": "./.yarn/cache/scheduler-npm-0.20.2-90beaecfba-c4b35cf967.zip/node_modules/scheduler/",\
@@ -9426,6 +9458,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["write-file-atomic", "npm:4.0.1"],\
             ["imurmurhash", "npm:0.1.4"],\
             ["signal-exit", "npm:3.0.7"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["xml-js", [\
+        ["npm:1.6.11", {\
+          "packageLocation": "./.yarn/cache/xml-js-npm-1.6.11-56742b7fb0-24a5547991.zip/node_modules/xml-js/",\
+          "packageDependencies": [\
+            ["xml-js", "npm:1.6.11"],\
+            ["sax", "npm:1.2.4"]\
           ],\
           "linkType": "HARD"\
         }]\
