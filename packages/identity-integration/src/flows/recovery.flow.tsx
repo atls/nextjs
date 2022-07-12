@@ -74,32 +74,35 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
     }
   }, [values, flow])
 
-  const onSubmit = useCallback(() => {
-    setSubmitting(true)
+  const onSubmit = useCallback(
+    (override?: Partial<SubmitSelfServiceRecoveryFlowBody>) => {
+      setSubmitting(true)
 
-    kratos
-      .submitSelfServiceRecoveryFlow(
-        String(flow?.id),
-        undefined,
-        values.getValues() as SubmitSelfServiceRecoveryFlowBody,
-        { withCredentials: true }
-      )
-      .then(({ data }) => {
-        setFlow(data)
-      })
-      .catch(handleFlowError(router, 'recovery', setFlow))
-      .catch((error: AxiosError) => {
-        if (error.response?.status === 400) {
-          setFlow(error.response?.data)
+      const body = {
+        ...(values.getValues() as SubmitSelfServiceRecoveryFlowBody),
+        ...(override || {}),
+      }
 
-          return
-        }
+      kratos
+        .submitSelfServiceRecoveryFlow(String(flow?.id), undefined, body, { withCredentials: true })
+        .then(({ data }) => {
+          setFlow(data)
+        })
+        .catch(handleFlowError(router, 'recovery', setFlow))
+        .catch((error: AxiosError) => {
+          if (error.response?.status === 400) {
+            setFlow(error.response?.data)
 
-        // eslint-disable-next-line consistent-return
-        return Promise.reject(error)
-      })
-      .finally(() => setSubmitting(false))
-  }, [router, flow, values, setSubmitting])
+            return
+          }
+
+          // eslint-disable-next-line consistent-return
+          return Promise.reject(error)
+        })
+        .finally(() => setSubmitting(false))
+    },
+    [router, flow, values, setSubmitting]
+  )
 
   return (
     <FlowProvider value={{ flow, loading }}>

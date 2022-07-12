@@ -80,30 +80,35 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
     }
   }, [values, flow])
 
-  const onSubmit = useCallback(() => {
-    setSubmitting(true)
+  const onSubmit = useCallback(
+    (override?: Partial<SubmitSelfServiceVerificationFlowBody>) => {
+      setSubmitting(true)
 
-    kratos
-      .submitSelfServiceVerificationFlow(
-        String(flow?.id),
-        undefined,
-        values.getValues() as SubmitSelfServiceVerificationFlowBody,
-        { withCredentials: true }
-      )
-      .then(({ data }) => {
-        setFlow(data)
-      })
-      .catch((error: AxiosError) => {
-        switch (error.response?.status) {
-          case 400:
-            setFlow(error.response?.data)
-            return
-        }
+      const body = {
+        ...(values.getValues() as SubmitSelfServiceVerificationFlowBody),
+        ...(override || {}),
+      }
 
-        throw error
-      })
-      .finally(() => setSubmitting(false))
-  }, [flow, values, setSubmitting])
+      kratos
+        .submitSelfServiceVerificationFlow(String(flow?.id), undefined, body, {
+          withCredentials: true,
+        })
+        .then(({ data }) => {
+          setFlow(data)
+        })
+        .catch((error: AxiosError) => {
+          switch (error.response?.status) {
+            case 400:
+              setFlow(error.response?.data)
+              return
+          }
+
+          throw error
+        })
+        .finally(() => setSubmitting(false))
+    },
+    [flow, values, setSubmitting]
+  )
 
   return (
     <FlowProvider value={{ flow, loading }}>
