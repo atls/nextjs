@@ -32,7 +32,7 @@ export class ValuesStore extends EventEmitter {
     flow?.ui?.nodes?.forEach(({ attributes }) => {
       const { name, type, value = '' } = attributes as UiNodeInputAttributes
 
-      if (isUiNodeInputAttributes(attributes)) {
+      if (isUiNodeInputAttributes(attributes as any)) {
         if (type !== 'button' && type !== 'submit') {
           if (!this.#values[name]) {
             this.#values[name] = value
