@@ -176,6 +176,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@atls/next-sitemap-generator@workspace:packages/next-sitemap-generator":
+  version: 0.0.0-use.local
+  resolution: "@atls/next-sitemap-generator@workspace:packages/next-sitemap-generator"
+  dependencies:
+    "@types/node": 16
+    xml-js: ^1.6.11
+  bin:
+    gen-sitemap: ./dist/index.js
+  languageName: unknown
+  linkType: soft
+
 "@atls/schematics-utils@npm:0.0.7":
   version: 0.0.7
   resolution: "@atls/schematics-utils@npm:0.0.7"
@@ -1738,6 +1749,13 @@ __metadata:
   version: 14.14.41
   resolution: "@types/node@npm:14.14.41"
   checksum: 8fc205d411742fba8f12bf255423427481bdb371035b2c32db7167642fc1cff2bdfc2007ffc5ddbfe2c09f0df851d2df9f2199fac1f2b0046c1d6ccb2894cffd
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:16":
+  version: 16.11.43
+  resolution: "@types/node@npm:16.11.43"
+  checksum: 96d09e68347c49ebf84fe1443360edc3f98336f0794256abc8e4f29ef3070546357cae17083d6fd9767b631239367c4f245fe64accff4af057d17bd6694f0b2b
   languageName: node
   linkType: hard
 
@@ -6583,6 +6601,13 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
+"sax@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "sax@npm:1.2.4"
+  checksum: d3df7d32b897a2c2f28e941f732c71ba90e27c24f62ee918bd4d9a8cfb3553f2f81e5493c7f0be94a11c1911b643a9108f231dd6f60df3fa9586b5d2e3e9e1fe
+  languageName: node
+  linkType: hard
+
 "scheduler@npm:^0.20.2":
   version: 0.20.2
   resolution: "scheduler@npm:0.20.2"
@@ -7632,6 +7657,17 @@ resolve@^1.20.0:
     imurmurhash: ^0.1.4
     signal-exit: ^3.0.7
   checksum: 8f780232533ca6223c63c9b9c01c4386ca8c625ebe5017a9ed17d037aec19462ae17109e0aa155bff5966ee4ae7a27b67a99f55caf3f32ffd84155e9da3929fc
+  languageName: node
+  linkType: hard
+
+"xml-js@npm:^1.6.11":
+  version: 1.6.11
+  resolution: "xml-js@npm:1.6.11"
+  dependencies:
+    sax: ^1.2.4
+  bin:
+    xml-js: ./bin/cli.js
+  checksum: 24a55479919413687105fc2d8ab05e613ebedb1c1bc12258a108e07cff5ef793779297db854800a4edf0281303ebd1f177bc4a588442f5344e62b3dddda26c2b
   languageName: node
   linkType: hard
 
