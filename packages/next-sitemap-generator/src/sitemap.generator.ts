@@ -22,13 +22,22 @@ const bootstrap = () => {
     },
   }
 
+  const host = process.argv.slice(2)[0]
+
+  if (host.charAt(host.length - 1) === '/') {
+    throw new Error(`Host name should not end with '/'`)
+  }
+
+  const protocol = host.split('/')[0]
+
+  if (protocol !== 'http:' && protocol !== 'https:') {
+    throw new Error(`Protocol is missing or invalid`)
+  }
+
   for (const page of pages.filter((p) => !['_document.tsx', '_app.tsx'].includes(p))) {
     pageUrls.push({
       _attributes: {
-        loc: `https://dream-team.tech/${page
-          .replace('.tsx', '')
-          .replace('.ts', '')
-          .replace('index', '')}`,
+        loc: `${host}/${page.replace('.tsx', '').replace('.ts', '').replace('index', '')}`,
         lastmod: new Date().toISOString(),
         priority: page === 'index.ts' ? '1.00' : '0.80',
       },
