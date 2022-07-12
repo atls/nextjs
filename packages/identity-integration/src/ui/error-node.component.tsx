@@ -6,6 +6,7 @@ import { FC }                    from 'react'
 import { useError }              from '../providers'
 
 export interface ErrorNodeProps {
+  // eslint-disable-next-line
   name: string
   children: (node: SelfServiceError) => ReactElement<any>
 }

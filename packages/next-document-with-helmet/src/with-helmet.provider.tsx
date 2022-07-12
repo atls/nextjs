@@ -1,5 +1,5 @@
-import React          from 'react'
 import Document       from 'next/document'
+import React          from 'react'
 import { Head }       from 'next/document'
 import { Html }       from 'next/document'
 import { Main }       from 'next/document'

@@ -1,12 +1,11 @@
-import React    from 'react'
 import Document from 'next/document'
+import React    from 'react'
 
 export interface OpenGraphProviderOptinos {
   image?: string
 }
 
-export const withOpenGraph =
-  ({ image }: OpenGraphProviderOptinos = {}) =>
+export const withOpenGraph = ({ image }: OpenGraphProviderOptinos = {}) =>
   (TargetComponent) =>
     class WithOpenGraph extends TargetComponent {
       static async getInitialProps(context) {
