@@ -1,6 +1,6 @@
 {
   "name": "@atls/next-document-with-helmet",
-  "version": "0.2.66",
+  "version": "0.2.67",
   "license": "BSD-3 Clause",
   "main": "src/index.ts",
   "files": [
