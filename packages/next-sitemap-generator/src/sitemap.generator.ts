@@ -36,11 +36,9 @@ const bootstrap = () => {
 
   for (const page of pages.filter((p) => !['_document.tsx', '_app.tsx'].includes(p))) {
     pageUrls.push({
-      _attributes: {
-        loc: `${host}/${page.replace('.tsx', '').replace('.ts', '').replace('index', '')}`,
-        lastmod: new Date().toISOString(),
-        priority: page === 'index.ts' ? '1.00' : '0.80',
-      },
+      loc: `${host}/${page.replace('.tsx', '').replace('.ts', '').replace('index', '')}`,
+      lastmod: new Date().toISOString(),
+      priority: page === 'index.ts' ? '1.00' : '0.80',
     })
   }
 
