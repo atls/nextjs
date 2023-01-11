@@ -1,29 +1,29 @@
-import { SubmitSelfServiceRegistrationFlowBody } from '@ory/kratos-client'
-import { SelfServiceRegistrationFlow }           from '@ory/kratos-client'
-import { UiNodeInputAttributes }                 from '@ory/kratos-client'
+import { UpdateRegistrationFlowBody }                 from '@ory/kratos-client'
+import { RegistrationFlow as KratosRegistrationFlow } from '@ory/kratos-client'
+import { UiNodeInputAttributes }                      from '@ory/kratos-client'
 
-import React                                     from 'react'
-import { AxiosError }                            from 'axios'
-import { FC }                                    from 'react'
-import { useRouter }                             from 'next/router'
-import { useState }                              from 'react'
-import { useEffect }                             from 'react'
-import { useMemo }                               from 'react'
-import { useCallback }                           from 'react'
+import React                                          from 'react'
+import { AxiosError }                                 from 'axios'
+import { FC }                                         from 'react'
+import { useRouter }                                  from 'next/router'
+import { useState }                                   from 'react'
+import { useEffect }                                  from 'react'
+import { useMemo }                                    from 'react'
+import { useCallback }                                from 'react'
 
-import { FlowProvider }                          from '../providers'
-import { ValuesProvider }                        from '../providers'
-import { ValuesStore }                           from '../providers'
-import { SubmitProvider }                        from '../providers'
-import { kratos }                                from '../sdk'
-import { handleFlowError }                       from './handle-errors.util'
+import { FlowProvider }                               from '../providers'
+import { ValuesProvider }                             from '../providers'
+import { ValuesStore }                                from '../providers'
+import { SubmitProvider }                             from '../providers'
+import { kratos }                                     from '../sdk'
+import { handleFlowError }                            from './handle-errors.util'
 
 export interface RegistrationFlowProps {
   onError?: (error: { id: string }) => void
 }
 
 export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError }) => {
-  const [flow, setFlow] = useState<SelfServiceRegistrationFlow>()
+  const [flow, setFlow] = useState<KratosRegistrationFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
@@ -38,7 +38,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
 
     if (flowId) {
       kratos
-        .getSelfServiceRegistrationFlow(String(flowId), undefined, { withCredentials: true })
+        .getRegistrationFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -49,9 +49,12 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
     }
 
     kratos
-      .initializeSelfServiceRegistrationFlowForBrowsers(returnTo ? String(returnTo) : undefined, {
-        withCredentials: true,
-      })
+      .createBrowserRegistrationFlow(
+        { returnTo: returnTo ? String(returnTo) : undefined },
+        {
+          withCredentials: true,
+        }
+      )
       .then(({ data }) => {
         setFlow(data)
       })
@@ -66,7 +69,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (override?: Partial<SubmitSelfServiceRegistrationFlowBody>) => {
+    (override?: Partial<UpdateRegistrationFlowBody>) => {
       setSubmitting(true)
 
       const [submitNode] = [
@@ -80,7 +83,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
       ].flat()
 
       const body = {
-        ...(values.getValues() as SubmitSelfServiceRegistrationFlowBody),
+        ...(values.getValues() as UpdateRegistrationFlowBody),
         ...(submitNode
           ? {
               [(submitNode.attributes as UiNodeInputAttributes).name]: (
@@ -92,7 +95,10 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
       }
 
       kratos
-        .submitSelfServiceRegistrationFlow(String(flow?.id), body, { withCredentials: true })
+        .updateRegistrationFlow(
+          { flow: String(flow?.id), updateRegistrationFlowBody: body },
+          { withCredentials: true }
+        )
         .then(() => {
           if (flow?.return_to) {
             window.location.href = flow?.return_to

@@ -1,28 +1,28 @@
-import { SubmitSelfServiceLoginFlowBody } from '@ory/kratos-client'
-import { SelfServiceLoginFlow }           from '@ory/kratos-client'
+import { UpdateLoginFlowBody }          from '@ory/kratos-client'
+import { LoginFlow as KratosLoginFlow } from '@ory/kratos-client'
 
-import React                              from 'react'
-import { AxiosError }                     from 'axios'
-import { FC }                             from 'react'
-import { useRouter }                      from 'next/router'
-import { useState }                       from 'react'
-import { useEffect }                      from 'react'
-import { useMemo }                        from 'react'
-import { useCallback }                    from 'react'
+import React                            from 'react'
+import { AxiosError }                   from 'axios'
+import { FC }                           from 'react'
+import { useRouter }                    from 'next/router'
+import { useState }                     from 'react'
+import { useEffect }                    from 'react'
+import { useMemo }                      from 'react'
+import { useCallback }                  from 'react'
 
-import { FlowProvider }                   from '../providers'
-import { ValuesProvider }                 from '../providers'
-import { ValuesStore }                    from '../providers'
-import { SubmitProvider }                 from '../providers'
-import { kratos }                         from '../sdk'
-import { handleFlowError }                from './handle-errors.util'
+import { FlowProvider }                 from '../providers'
+import { ValuesProvider }               from '../providers'
+import { ValuesStore }                  from '../providers'
+import { SubmitProvider }               from '../providers'
+import { kratos }                       from '../sdk'
+import { handleFlowError }              from './handle-errors.util'
 
 export interface LoginFlowProps {
   onError?: (error: { id: string }) => void
 }
 
 export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
-  const [flow, setFlow] = useState<SelfServiceLoginFlow>()
+  const [flow, setFlow] = useState<KratosLoginFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
@@ -37,7 +37,7 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
 
     if (flowId) {
       kratos
-        .getSelfServiceLoginFlow(String(flowId), undefined, { withCredentials: true })
+        .getLoginFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -48,10 +48,12 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
     }
 
     kratos
-      .initializeSelfServiceLoginFlowForBrowsers(
-        Boolean(refresh),
-        aal ? String(aal) : undefined,
-        returnTo ? String(returnTo) : undefined,
+      .createBrowserLoginFlow(
+        {
+          refresh: Boolean(refresh),
+          aal: aal ? String(aal) : undefined,
+          returnTo: returnTo ? String(returnTo) : undefined,
+        },
         { withCredentials: true }
       )
       .then(({ data }) => {
@@ -68,16 +70,19 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (override?: Partial<SubmitSelfServiceLoginFlowBody>) => {
+    (override?: Partial<UpdateLoginFlowBody>) => {
       setSubmitting(true)
 
       const body = {
-        ...(values.getValues() as SubmitSelfServiceLoginFlowBody),
+        ...(values.getValues() as UpdateLoginFlowBody),
         ...(override || {}),
       }
 
       kratos
-        .submitSelfServiceLoginFlow(String(flow?.id), undefined, body, { withCredentials: true })
+        .updateLoginFlow(
+          { flow: String(flow?.id), updateLoginFlowBody: body },
+          { withCredentials: true }
+        )
         .then(() => {
           if (flow?.return_to) {
             window.location.href = flow?.return_to

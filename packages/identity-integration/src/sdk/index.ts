@@ -1,9 +1,9 @@
 import { Configuration } from '@ory/kratos-client'
-import { V0alpha2Api }   from '@ory/kratos-client'
+import { FrontendApi }   from '@ory/kratos-client'
 
 import { getDomain }     from 'tldjs'
 
-export class KratosClient extends V0alpha2Api {
+export class KratosClient extends FrontendApi {
   constructor(basePath?: string) {
     if (!basePath && typeof window !== 'undefined') {
       const { hostname, protocol } = window.location
