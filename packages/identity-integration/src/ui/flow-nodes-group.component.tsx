@@ -1,12 +1,11 @@
-import type { UiNode }  from '@ory/kratos-client'
-
 import { ReactElement } from 'react'
 import { FC }           from 'react'
 import { useMemo }      from 'react'
 
+import { ActualUiNode } from './ui.interfaces'
 import { useFlow }      from '../providers'
 
-export type FlowNodesGroupChildren = (node: Array<UiNode>) => ReactElement<any>
+export type FlowNodesGroupChildren = (node: Array<ActualUiNode>) => ReactElement<any>
 
 export interface FlowNodesGroupProps {
   name: string
@@ -23,7 +22,7 @@ export const FlowNodesGroup: FC<FlowNodesGroupProps> = ({ name, children }) => {
   }
 
   if (typeof children === 'function') {
-    return children(nodes)
+    return children(nodes as Array<ActualUiNode>)
   }
 
   return children as ReactElement<any>
