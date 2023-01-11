@@ -246,8 +246,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/identity-integration/",\
           "packageDependencies": [\
             ["@atls/next-identity-integration", "workspace:packages/identity-integration"],\
-            ["@ory/integrations", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:0.2.6"],\
-            ["@ory/kratos-client", "npm:0.8.2-alpha.1"],\
+            ["@ory/integrations", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:1.1.0"],\
+            ["@ory/kratos-client", "npm:0.11.0"],\
             ["@types/react", "npm:17.0.47"],\
             ["@types/react-dom", "npm:17.0.17"],\
             ["axios", "npm:0.25.0"],\
@@ -2031,28 +2031,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@ory/client", [\
-        ["npm:0.0.1-alpha.189", {\
-          "packageLocation": "./.yarn/cache/@ory-client-npm-0.0.1-alpha.189-9cb0ca9bde-f275d8c6e8.zip/node_modules/@ory/client/",\
+        ["npm:1.1.4", {\
+          "packageLocation": "./.yarn/cache/@ory-client-npm-1.1.4-4cc6a0553f-8d3504a2c8.zip/node_modules/@ory/client/",\
           "packageDependencies": [\
-            ["@ory/client", "npm:0.0.1-alpha.189"],\
+            ["@ory/client", "npm:1.1.4"],\
             ["axios", "npm:0.21.4"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["@ory/integrations", [\
-        ["npm:0.2.6", {\
-          "packageLocation": "./.yarn/cache/@ory-integrations-npm-0.2.6-b5d20c474a-ccff273063.zip/node_modules/@ory/integrations/",\
+        ["npm:1.1.0", {\
+          "packageLocation": "./.yarn/cache/@ory-integrations-npm-1.1.0-66d4cf5b19-38e38fad8e.zip/node_modules/@ory/integrations/",\
           "packageDependencies": [\
-            ["@ory/integrations", "npm:0.2.6"]\
+            ["@ory/integrations", "npm:1.1.0"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:0.2.6", {\
-          "packageLocation": "./.yarn/__virtual__/@ory-integrations-virtual-3ff00a523d/0/cache/@ory-integrations-npm-0.2.6-b5d20c474a-ccff273063.zip/node_modules/@ory/integrations/",\
+        ["virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:1.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/@ory-integrations-virtual-9e1a0461ba/0/cache/@ory-integrations-npm-1.1.0-66d4cf5b19-38e38fad8e.zip/node_modules/@ory/integrations/",\
           "packageDependencies": [\
-            ["@ory/integrations", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:0.2.6"],\
-            ["@ory/client", "npm:0.0.1-alpha.189"],\
+            ["@ory/integrations", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:1.1.0"],\
+            ["@ory/client", "npm:1.1.4"],\
             ["@types/next", null],\
             ["@types/ory__client", null],\
             ["@types/tldjs", "npm:2.3.1"],\
@@ -2074,10 +2074,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@ory/kratos-client", [\
-        ["npm:0.8.2-alpha.1", {\
-          "packageLocation": "./.yarn/cache/@ory-kratos-client-npm-0.8.2-alpha.1-8d2a5db47c-d103ffdf08.zip/node_modules/@ory/kratos-client/",\
+        ["npm:0.11.0", {\
+          "packageLocation": "./.yarn/cache/@ory-kratos-client-npm-0.11.0-668dc45130-462b2a4ea1.zip/node_modules/@ory/kratos-client/",\
           "packageDependencies": [\
-            ["@ory/kratos-client", "npm:0.8.2-alpha.1"],\
+            ["@ory/kratos-client", "npm:0.11.0"],\
             ["axios", "npm:0.21.4"]\
           ],\
           "linkType": "HARD"\

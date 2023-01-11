@@ -1,28 +1,28 @@
-import { SubmitSelfServiceRecoveryFlowBody } from '@ory/kratos-client'
-import { SelfServiceRecoveryFlow }           from '@ory/kratos-client'
+import { UpdateRecoveryFlowBody }             from '@ory/kratos-client'
+import { RecoveryFlow as KratosRecoveryFlow } from '@ory/kratos-client'
 
-import React                                 from 'react'
-import { AxiosError }                        from 'axios'
-import { FC }                                from 'react'
-import { useRouter }                         from 'next/router'
-import { useState }                          from 'react'
-import { useEffect }                         from 'react'
-import { useMemo }                           from 'react'
-import { useCallback }                       from 'react'
+import React                                  from 'react'
+import { AxiosError }                         from 'axios'
+import { FC }                                 from 'react'
+import { useRouter }                          from 'next/router'
+import { useState }                           from 'react'
+import { useEffect }                          from 'react'
+import { useMemo }                            from 'react'
+import { useCallback }                        from 'react'
 
-import { FlowProvider }                      from '../providers'
-import { ValuesProvider }                    from '../providers'
-import { ValuesStore }                       from '../providers'
-import { SubmitProvider }                    from '../providers'
-import { kratos }                            from '../sdk'
-import { handleFlowError }                   from './handle-errors.util'
+import { FlowProvider }                       from '../providers'
+import { ValuesProvider }                     from '../providers'
+import { ValuesStore }                        from '../providers'
+import { SubmitProvider }                     from '../providers'
+import { kratos }                             from '../sdk'
+import { handleFlowError }                    from './handle-errors.util'
 
 export interface RecoveryFlowProps {
   onError?: (error: { id: string }) => void
 }
 
 export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
-  const [flow, setFlow] = useState<SelfServiceRecoveryFlow>()
+  const [flow, setFlow] = useState<KratosRecoveryFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
@@ -37,7 +37,7 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
 
     if (flowId) {
       kratos
-        .getSelfServiceRecoveryFlow(String(flowId), undefined, { withCredentials: true })
+        .getRecoveryFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -48,9 +48,12 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
     }
 
     kratos
-      .initializeSelfServiceRecoveryFlowForBrowsers(returnTo ? String(returnTo) : undefined, {
-        withCredentials: true,
-      })
+      .createBrowserRecoveryFlow(
+        { returnTo: returnTo ? String(returnTo) : undefined },
+        {
+          withCredentials: true,
+        }
+      )
       .then(({ data }) => {
         setFlow(data)
       })
@@ -75,16 +78,19 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (override?: Partial<SubmitSelfServiceRecoveryFlowBody>) => {
+    (override?: Partial<UpdateRecoveryFlowBody>) => {
       setSubmitting(true)
 
       const body = {
-        ...(values.getValues() as SubmitSelfServiceRecoveryFlowBody),
+        ...(values.getValues() as UpdateRecoveryFlowBody),
         ...(override || {}),
       }
 
       kratos
-        .submitSelfServiceRecoveryFlow(String(flow?.id), undefined, body, { withCredentials: true })
+        .updateRecoveryFlow(
+          { flow: String(flow?.id), updateRecoveryFlowBody: body },
+          { withCredentials: true }
+        )
         .then(({ data }) => {
           setFlow(data)
         })

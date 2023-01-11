@@ -1,28 +1,28 @@
-import { SubmitSelfServiceSettingsFlowBody } from '@ory/kratos-client'
-import { SelfServiceSettingsFlow }           from '@ory/kratos-client'
+import { UpdateSettingsFlowBody }             from '@ory/kratos-client'
+import { SettingsFlow as KratosSettingsFlow } from '@ory/kratos-client'
 
-import React                                 from 'react'
-import { AxiosError }                        from 'axios'
-import { FC }                                from 'react'
-import { useRouter }                         from 'next/router'
-import { useState }                          from 'react'
-import { useEffect }                         from 'react'
-import { useMemo }                           from 'react'
-import { useCallback }                       from 'react'
+import React                                  from 'react'
+import { AxiosError }                         from 'axios'
+import { FC }                                 from 'react'
+import { useRouter }                          from 'next/router'
+import { useState }                           from 'react'
+import { useEffect }                          from 'react'
+import { useMemo }                            from 'react'
+import { useCallback }                        from 'react'
 
-import { FlowProvider }                      from '../providers'
-import { ValuesProvider }                    from '../providers'
-import { ValuesStore }                       from '../providers'
-import { SubmitProvider }                    from '../providers'
-import { kratos }                            from '../sdk'
-import { handleFlowError }                   from './handle-errors.util'
+import { FlowProvider }                       from '../providers'
+import { ValuesProvider }                     from '../providers'
+import { ValuesStore }                        from '../providers'
+import { SubmitProvider }                     from '../providers'
+import { kratos }                             from '../sdk'
+import { handleFlowError }                    from './handle-errors.util'
 
 export interface SettingsFlowProps {
   onError?: (error: { id: string }) => void
 }
 
 export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
-  const [flow, setFlow] = useState<SelfServiceSettingsFlow>()
+  const [flow, setFlow] = useState<KratosSettingsFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
@@ -37,7 +37,7 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
 
     if (flowId) {
       kratos
-        .getSelfServiceSettingsFlow(String(flowId), undefined, undefined, { withCredentials: true })
+        .getSettingsFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -48,9 +48,12 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
     }
 
     kratos
-      .initializeSelfServiceSettingsFlowForBrowsers(returnTo ? String(returnTo) : undefined, {
-        withCredentials: true,
-      })
+      .createBrowserSettingsFlow(
+        { returnTo: returnTo ? String(returnTo) : undefined },
+        {
+          withCredentials: true,
+        }
+      )
       .then(({ data }) => {
         setFlow(data)
       })
@@ -74,16 +77,19 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (override?: Partial<SubmitSelfServiceSettingsFlowBody>) => {
+    (override?: Partial<UpdateSettingsFlowBody>) => {
       setSubmitting(true)
 
       const body = {
-        ...(values.getValues() as SubmitSelfServiceSettingsFlowBody),
+        ...(values.getValues() as UpdateSettingsFlowBody),
         ...(override || {}),
       }
 
       kratos
-        .submitSelfServiceSettingsFlow(String(flow?.id), undefined, body, { withCredentials: true })
+        .updateSettingsFlow(
+          { flow: String(flow?.id), updateSettingsFlowBody: body },
+          { withCredentials: true }
+        )
         .then(({ data }) => {
           setFlow(data)
         })

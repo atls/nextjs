@@ -12,8 +12,8 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@ory/integrations": "^0.2.1",
-    "@ory/kratos-client": "^0.8.2-alpha.1",
+    "@ory/integrations": "^1.1.0",
+    "@ory/kratos-client": "^0.11.0",
     "tldjs": "^2.3.1"
   },
   "devDependencies": {

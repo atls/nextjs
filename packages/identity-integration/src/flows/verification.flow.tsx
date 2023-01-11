@@ -1,29 +1,29 @@
 /* eslint-disable default-case */
 
-import { SubmitSelfServiceVerificationFlowBody } from '@ory/kratos-client'
-import { SelfServiceVerificationFlow }           from '@ory/kratos-client'
+import { UpdateVerificationFlowBody }                 from '@ory/kratos-client'
+import { VerificationFlow as KratosVerificationFlow } from '@ory/kratos-client'
 
-import React                                     from 'react'
-import { AxiosError }                            from 'axios'
-import { FC }                                    from 'react'
-import { useRouter }                             from 'next/router'
-import { useState }                              from 'react'
-import { useEffect }                             from 'react'
-import { useMemo }                               from 'react'
-import { useCallback }                           from 'react'
+import React                                          from 'react'
+import { AxiosError }                                 from 'axios'
+import { FC }                                         from 'react'
+import { useRouter }                                  from 'next/router'
+import { useState }                                   from 'react'
+import { useEffect }                                  from 'react'
+import { useMemo }                                    from 'react'
+import { useCallback }                                from 'react'
 
-import { FlowProvider }                          from '../providers'
-import { ValuesProvider }                        from '../providers'
-import { ValuesStore }                           from '../providers'
-import { SubmitProvider }                        from '../providers'
-import { kratos }                                from '../sdk'
+import { FlowProvider }                               from '../providers'
+import { ValuesProvider }                             from '../providers'
+import { ValuesStore }                                from '../providers'
+import { SubmitProvider }                             from '../providers'
+import { kratos }                                     from '../sdk'
 
 export interface VerificationFlowProps {
   onError?: (error: { id: string }) => void
 }
 
 export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError }) => {
-  const [flow, setFlow] = useState<SelfServiceVerificationFlow>()
+  const [flow, setFlow] = useState<KratosVerificationFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
@@ -38,7 +38,7 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
 
     if (flowId) {
       kratos
-        .getSelfServiceVerificationFlow(String(flowId), undefined, { withCredentials: true })
+        .getVerificationFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
@@ -57,9 +57,12 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
     }
 
     kratos
-      .initializeSelfServiceVerificationFlowForBrowsers(returnTo ? String(returnTo) : undefined, {
-        withCredentials: true,
-      })
+      .createBrowserVerificationFlow(
+        { returnTo: returnTo ? String(returnTo) : undefined },
+        {
+          withCredentials: true,
+        }
+      )
       .then(({ data }) => {
         setFlow(data)
       })
@@ -81,18 +84,21 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
   }, [values, flow])
 
   const onSubmit = useCallback(
-    (override?: Partial<SubmitSelfServiceVerificationFlowBody>) => {
+    (override?: Partial<UpdateVerificationFlowBody>) => {
       setSubmitting(true)
 
       const body = {
-        ...(values.getValues() as SubmitSelfServiceVerificationFlowBody),
+        ...(values.getValues() as UpdateVerificationFlowBody),
         ...(override || {}),
       }
 
       kratos
-        .submitSelfServiceVerificationFlow(String(flow?.id), undefined, body, {
-          withCredentials: true,
-        })
+        .updateVerificationFlow(
+          { flow: String(flow?.id), updateVerificationFlowBody: body },
+          {
+            withCredentials: true,
+          }
+        )
         .then(({ data }) => {
           setFlow(data)
         })
