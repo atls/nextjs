@@ -1,18 +1,13 @@
-import type { UiNode }                 from '@ory/kratos-client'
-import type { UiNodeAnchorAttributes } from '@ory/kratos-client'
+import { ReactElement } from 'react'
+import { FC }           from 'react'
+import { FormEvent }    from 'react'
+import { useCallback }  from 'react'
 
-import { ReactElement }                from 'react'
-import { FC }                          from 'react'
-import { FormEvent }                   from 'react'
-import { useCallback }                 from 'react'
-
-import { useFlowNode }                 from '../providers'
-import { useValue }                    from '../providers'
+import { ActualUiNode } from './ui.interfaces'
+import { useFlowNode }  from '../providers'
+import { useValue }     from '../providers'
 
 type OnChangeCallback = (event: FormEvent<HTMLInputElement> | string | any) => void
-type ActualUiNode = Omit<UiNode, 'attributes'> & {
-  attributes: Exclude<UiNode['attributes'], UiNodeAnchorAttributes>
-}
 
 export interface FlowNodeProps {
   name: string

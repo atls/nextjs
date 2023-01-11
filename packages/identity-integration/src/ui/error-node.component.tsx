@@ -1,21 +1,18 @@
-import type { FlowError } from '@ory/kratos-client'
+import { ReactElement }    from 'react'
+import { FC }              from 'react'
 
-import { ReactElement }   from 'react'
-import { FC }             from 'react'
-
-import { useError }       from '../providers'
+import { ActualFlowError } from './ui.interfaces'
+import { useError }        from '../providers'
 
 export interface ErrorNodeProps {
-  // eslint-disable-next-line
-  name: string
-  children: (node: FlowError) => ReactElement<any>
+  children: (node: ActualFlowError) => ReactElement<any>
 }
 
 export const ErrorNode: FC<ErrorNodeProps> = ({ children }) => {
   const { error } = useError()
 
   if (error && typeof children === 'function') {
-    return children(error)
+    return children(error as ActualFlowError)
   }
 
   return null
