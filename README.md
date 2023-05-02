@@ -1,4 +1,4 @@
-![nextjs-github-cover](https://user-images.githubusercontent.com/102182195/235635139-8ad19164-6467-4f84-8888-3e8bd37e911f.png)
+![nextjs-github-cover](https://user-images.githubusercontent.com/102182195/235649170-58ac6ff7-eff2-45b0-b966-2efcc4bb2248.png)
 # NextJS Custom Workshop
 
 [//]: # 'VERSIONS'
