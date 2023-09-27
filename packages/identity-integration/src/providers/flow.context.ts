@@ -5,6 +5,8 @@ import { Flow }          from './flow.interfaces'
 export interface ContextFlow {
   flow?: Flow
   loading: boolean
+  identity?: any
+  isValid?: boolean
 }
 
 const Context = createContext<ContextFlow>({ loading: false })
