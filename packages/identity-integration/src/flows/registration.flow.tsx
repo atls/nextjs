@@ -24,6 +24,8 @@ export interface RegistrationFlowProps {
 
 export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError }) => {
   const [flow, setFlow] = useState<KratosRegistrationFlow>()
+  const [identity, setIdentity] = useState({})
+  const [isValid, setIsValid] = useState<boolean>(false)
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
@@ -99,11 +101,12 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
           { flow: String(flow?.id), updateRegistrationFlowBody: body },
           { withCredentials: true }
         )
-        .then(() => {
+        .then(async ({ data }) => {
+          setIdentity(data.identity)
+          setIsValid(true)
+
           if (flow?.return_to) {
             window.location.href = flow?.return_to
-          } else {
-            router.push('/profile/settings')
           }
         })
         .catch(handleFlowError(router, 'registration', setFlow))
@@ -123,7 +126,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
   )
 
   return (
-    <FlowProvider value={{ flow, loading }}>
+    <FlowProvider value={{ flow, loading, identity, isValid }}>
       <ValuesProvider value={values}>
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>

@@ -9,13 +9,7 @@ import type { UpdateRecoveryFlowBody }     from '@ory/kratos-client'
 import type { UpdateSettingsFlowBody }     from '@ory/kratos-client'
 import type { UpdateLoginFlowBody }        from '@ory/kratos-client'
 
-export type FlowName =
-  | 'login'
-  | 'registration'
-  | 'recovery'
-  | 'settings'
-  | 'verification'
-  | 'errors'
+export type FlowName = 'login' | 'registration' | 'recovery' | 'settings' | 'verification' | 'error'
 
 export type Flow = RegistrationFlow | VerificationFlow | RecoveryFlow | SettingsFlow | LoginFlow
 

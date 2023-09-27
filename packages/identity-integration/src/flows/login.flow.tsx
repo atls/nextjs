@@ -87,7 +87,7 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
           if (flow?.return_to) {
             window.location.href = flow?.return_to
           } else {
-            router.push('/profile/settings')
+            router.push('/app')
           }
         })
         .catch(handleFlowError(router, 'login', setFlow))

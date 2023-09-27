@@ -92,6 +92,7 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
         )
         .then(({ data }) => {
           setFlow(data)
+          router.push('/')
         })
         .catch(handleFlowError(router, 'settings', setFlow))
         .catch((error: AxiosError) => {
