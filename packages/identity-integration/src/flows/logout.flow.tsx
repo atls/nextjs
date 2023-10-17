@@ -1,13 +1,23 @@
-import { AxiosError } from 'axios'
-import { useRouter }  from 'next/router'
-import { useState }   from 'react'
-import { useEffect }  from 'react'
+import { LogoutFlow as KratosLogoutFlow } from '@ory/kratos-client'
 
-import { kratos }     from '../sdk'
+import React                              from 'react'
+import { AxiosError }                     from 'axios'
+import { FC }                             from 'react'
+import { useRouter }                      from 'next/router'
+import { useState }                       from 'react'
+import { useEffect }                      from 'react'
 
-export const LogoutFlow = ({ children }) => {
+import { kratos }                         from '../sdk'
+
+interface LogoutFlowProps {
+  returnToUrl?: string
+}
+
+export const LogoutFlow: FC<LogoutFlowProps> = ({ children, returnToUrl }) => {
   const [logoutToken, setLogoutToken] = useState<string>('')
   const router = useRouter()
+
+  const { return_to: returnTo } = router.query
 
   useEffect(() => {
     if (!router.isReady) {
@@ -15,11 +25,14 @@ export const LogoutFlow = ({ children }) => {
     }
 
     kratos
-      .createBrowserLogoutFlow({}, { withCredentials: true })
+      .createBrowserLogoutFlow(
+        { returnTo: (returnTo as string | undefined) ?? returnToUrl ?? '/auth/login' },
+        { withCredentials: true }
+      )
       .then(({ data }) => {
         setLogoutToken(data.logout_token)
       })
-      .catch((error: AxiosError) => {
+      .catch((error: AxiosError<KratosLogoutFlow>) => {
         // eslint-disable-next-line default-case
         switch (error.response?.status) {
           case 401:
@@ -28,16 +41,17 @@ export const LogoutFlow = ({ children }) => {
 
         return Promise.reject(error)
       })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router, router.isReady])
 
   useEffect(() => {
     if (logoutToken) {
       kratos
         .updateLogoutFlow({ token: logoutToken }, { withCredentials: true })
-        .then(() => router.push('/auth/login'))
         .then(() => router.reload())
     }
   }, [logoutToken, router])
 
-  return children
+  // eslint-disable-next-line react/jsx-no-useless-fragment
+  return <>{children}</>
 }

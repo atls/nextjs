@@ -20,9 +20,10 @@ import { kratos }                                     from '../sdk'
 
 export interface VerificationFlowProps {
   onError?: (error: { id: string }) => void
+  returnToUrl?: string
 }
 
-export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError }) => {
+export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError, returnToUrl }) => {
   const [flow, setFlow] = useState<KratosVerificationFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
@@ -42,7 +43,7 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch((error: AxiosError) => {
+        .catch((error: AxiosError<KratosVerificationFlow>) => {
           switch (error.response?.status) {
             case 410:
             case 403:
@@ -58,7 +59,7 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
 
     kratos
       .createBrowserVerificationFlow(
-        { returnTo: returnTo ? String(returnTo) : undefined },
+        { returnTo: String(returnTo) ?? returnToUrl ?? '/auth/login' },
         {
           withCredentials: true,
         }
@@ -66,7 +67,7 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
       .then(({ data }) => {
         setFlow(data)
       })
-      .catch((error: AxiosError) => {
+      .catch((error: AxiosError<KratosVerificationFlow>) => {
         switch (error.response?.status) {
           case 400:
             return router.push('/')
@@ -75,6 +76,7 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
         throw error
       })
       .finally(() => setLoading(false))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -102,7 +104,7 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch((error: AxiosError) => {
+        .catch((error: AxiosError<KratosVerificationFlow>) => {
           switch (error.response?.status) {
             case 400:
               setFlow(error.response?.data)
@@ -119,6 +121,7 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError 
   return (
     <FlowProvider value={{ flow, loading }}>
       <ValuesProvider value={values}>
+        {/* @ts-ignore Enum conflict with string */}
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>
     </FlowProvider>

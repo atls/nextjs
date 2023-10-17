@@ -10,9 +10,11 @@ import { useEffect }     from 'react'
 import { ErrorProvider } from '../providers'
 import { kratos }        from '../sdk'
 
-export interface ErrorErrorProps {}
+export interface ErrorErrorProps {
+  returnToUrl?: string
+}
 
-export const ErrorFlow: FC<ErrorErrorProps> = ({ children }) => {
+export const ErrorFlow: FC<ErrorErrorProps> = ({ children, returnToUrl }) => {
   const [error, setError] = useState<FlowError>()
   const [loading, setLoading] = useState<boolean>(true)
   const router = useRouter()
@@ -29,18 +31,19 @@ export const ErrorFlow: FC<ErrorErrorProps> = ({ children }) => {
       .then(({ data }) => {
         setError(data)
       })
-      .catch((err: AxiosError) => {
+      .catch((err: AxiosError<FlowError>) => {
         // eslint-disable-next-line default-case
         switch (err.response?.status) {
           case 404:
           case 403:
           case 410:
-            return router.push('/auth/login')
+            return router.push(returnToUrl ?? '/auth/login')
         }
 
         return Promise.reject(err)
       })
       .finally(() => setLoading(false))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id, router, router.isReady, error])
 
   return <ErrorProvider value={{ error, loading }}>{children}</ErrorProvider>

@@ -19,9 +19,10 @@ import { handleFlowError }                    from './handle-errors.util'
 
 export interface SettingsFlowProps {
   onError?: (error: { id: string }) => void
+  returnToUrl?: string
 }
 
-export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
+export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError, returnToUrl }) => {
   const [flow, setFlow] = useState<KratosSettingsFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
@@ -49,7 +50,7 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
 
     kratos
       .createBrowserSettingsFlow(
-        { returnTo: returnTo ? String(returnTo) : undefined },
+        { returnTo: String(returnTo) ?? returnToUrl ?? '/profile/settings' },
         {
           withCredentials: true,
         }
@@ -58,16 +59,21 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
         setFlow(data)
       })
       .catch(handleFlowError(router, 'settings', setFlow, onError))
-      .catch((error: AxiosError) => {
+      .catch((error: AxiosError<KratosSettingsFlow>) => {
         // eslint-disable-next-line default-case
         switch (error.response?.status) {
           case 401:
-            return router.push('/auth/login')
+            if (error.response.data.return_to) {
+              window.location.href = error.response.data.return_to
+            } else {
+              return router.push('/auth/login')
+            }
         }
 
         return Promise.reject(error)
       })
       .finally(() => setLoading(false))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -95,7 +101,7 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError }) => {
           router.push('/')
         })
         .catch(handleFlowError(router, 'settings', setFlow))
-        .catch((error: AxiosError) => {
+        .catch((error: AxiosError<KratosSettingsFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
 
