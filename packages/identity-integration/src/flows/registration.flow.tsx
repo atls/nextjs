@@ -20,9 +20,10 @@ import { handleFlowError }                            from './handle-errors.util
 
 export interface RegistrationFlowProps {
   onError?: (error: { id: string }) => void
+  returnToUrl?: string
 }
 
-export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError }) => {
+export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError, returnToUrl }) => {
   const [flow, setFlow] = useState<KratosRegistrationFlow>()
   const [identity, setIdentity] = useState({})
   const [isValid, setIsValid] = useState<boolean>(false)
@@ -52,7 +53,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
 
     kratos
       .createBrowserRegistrationFlow(
-        { returnTo: returnTo ? String(returnTo) : undefined },
+        { returnTo: String(returnTo) ?? returnToUrl ?? '/auth/verification' },
         {
           withCredentials: true,
         }
@@ -62,6 +63,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
       })
       .catch(handleFlowError(router, 'registration', setFlow, onError))
       .finally(() => setLoading(false))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -107,10 +109,12 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
 
           if (flow?.return_to) {
             window.location.href = flow?.return_to
+          } else {
+            router.push(returnToUrl ?? '/')
           }
         })
         .catch(handleFlowError(router, 'registration', setFlow))
-        .catch((error: AxiosError) => {
+        .catch((error: AxiosError<KratosRegistrationFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
 
@@ -122,6 +126,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError 
         })
         .finally(() => setSubmitting(false))
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [router, flow, values, setSubmitting]
   )
 

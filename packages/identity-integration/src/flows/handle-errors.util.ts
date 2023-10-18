@@ -13,7 +13,7 @@ export const handleFlowError = <S>(
     onResetFlow: Dispatch<SetStateAction<S | undefined>>,
     onError?: (error: any) => void
   ) =>
-  async (error: AxiosError) => {
+  async (error: AxiosError<any>) => {
     switch (error.response?.data.error?.id) {
       case 'session_aal2_required':
         window.location.href = error.response?.data.redirect_browser_to

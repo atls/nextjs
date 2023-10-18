@@ -19,9 +19,10 @@ import { handleFlowError }                    from './handle-errors.util'
 
 export interface RecoveryFlowProps {
   onError?: (error: { id: string }) => void
+  returnToUrl?: string
 }
 
-export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
+export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError, returnToUrl }) => {
   const [flow, setFlow] = useState<KratosRecoveryFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
@@ -49,7 +50,7 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
 
     kratos
       .createBrowserRecoveryFlow(
-        { returnTo: returnTo ? String(returnTo) : undefined },
+        { returnTo: String(returnTo) ?? returnToUrl ?? '/auth/recovery' },
         {
           withCredentials: true,
         }
@@ -58,7 +59,7 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
         setFlow(data)
       })
       .catch(handleFlowError(router, 'recovery', setFlow, onError))
-      .catch((error: AxiosError) => {
+      .catch((error: AxiosError<KratosRecoveryFlow>) => {
         if (error.response?.status === 400) {
           setFlow(error.response?.data)
 
@@ -69,6 +70,7 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
         return Promise.reject(error)
       })
       .finally(() => setLoading(false))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -95,7 +97,7 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
           setFlow(data)
         })
         .catch(handleFlowError(router, 'recovery', setFlow))
-        .catch((error: AxiosError) => {
+        .catch((error: AxiosError<KratosRecoveryFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
 
@@ -113,6 +115,7 @@ export const RecoveryFlow: FC<RecoveryFlowProps> = ({ children, onError }) => {
   return (
     <FlowProvider value={{ flow, loading }}>
       <ValuesProvider value={values}>
+        {/* @ts-ignore Enum conflict with string */}
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>
     </FlowProvider>

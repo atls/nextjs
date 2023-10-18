@@ -19,9 +19,10 @@ import { handleFlowError }              from './handle-errors.util'
 
 export interface LoginFlowProps {
   onError?: (error: { id: string }) => void
+  returnToUrl?: string
 }
 
-export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
+export const LoginFlow: FC<LoginFlowProps> = ({ children, onError, returnToUrl }) => {
   const [flow, setFlow] = useState<KratosLoginFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
@@ -52,7 +53,7 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
         {
           refresh: Boolean(refresh),
           aal: aal ? String(aal) : undefined,
-          returnTo: returnTo ? String(returnTo) : undefined,
+          returnTo: String(returnTo) ?? returnToUrl ?? '/',
         },
         { withCredentials: true }
       )
@@ -61,6 +62,7 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
       })
       .catch(handleFlowError(router, 'login', setFlow, onError))
       .finally(() => setLoading(false))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -87,11 +89,11 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
           if (flow?.return_to) {
             window.location.href = flow?.return_to
           } else {
-            router.push('/app')
+            router.push(returnToUrl ?? '/')
           }
         })
         .catch(handleFlowError(router, 'login', setFlow))
-        .catch((error: AxiosError) => {
+        .catch((error: AxiosError<KratosLoginFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
 
@@ -103,6 +105,7 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError }) => {
         })
         .finally(() => setSubmitting(false))
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [router, flow, values, setSubmitting]
   )
 
