@@ -297,12 +297,12 @@ __metadata:
     "@ory/client": "npm:1.2.11"
     "@ory/integrations": "npm:1.1.5"
     "@ory/kratos-client": "npm:1.0.0"
-    "@types/react": "npm:17.0.47"
-    "@types/react-dom": "npm:17.0.17"
+    "@types/react": "npm:18.2.30"
+    "@types/react-dom": "npm:18.2.14"
     axios: "npm:1.5.1"
     next: "npm:12.3.4"
-    react: "npm:17.0.2"
-    react-dom: "npm:17.0.2"
+    react: "npm:18.2.0"
+    react-dom: "npm:18.2.0"
     tldjs: "npm:2.3.1"
   peerDependencies:
     next: 12.3.4

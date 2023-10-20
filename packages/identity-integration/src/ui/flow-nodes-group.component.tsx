@@ -5,7 +5,7 @@ import { useMemo }      from 'react'
 import { ActualUiNode } from './ui.interfaces'
 import { useFlow }      from '../providers'
 
-export type FlowNodesGroupChildren = (node: Array<ActualUiNode>) => ReactElement<any>
+export type FlowNodesGroupChildren = (node: ActualUiNode[]) => ReactElement<any>
 
 export interface FlowNodesGroupProps {
   name: string
@@ -22,7 +22,7 @@ export const FlowNodesGroup: FC<FlowNodesGroupProps> = ({ name, children }) => {
   }
 
   if (typeof children === 'function') {
-    return children(nodes as Array<ActualUiNode>)
+    return children(nodes as ActualUiNode[])
   }
 
   return children as ReactElement<any>

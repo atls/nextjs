@@ -1,20 +1,21 @@
-import { FlowError }     from '@ory/kratos-client'
+import { FlowError }         from '@ory/kratos-client'
 
-import React             from 'react'
-import { AxiosError }    from 'axios'
-import { FC }            from 'react'
-import { useRouter }     from 'next/router'
-import { useState }      from 'react'
-import { useEffect }     from 'react'
+import React                 from 'react'
+import { AxiosError }        from 'axios'
+import { PropsWithChildren } from 'react'
+import { FC }                from 'react'
+import { useRouter }         from 'next/router'
+import { useState }          from 'react'
+import { useEffect }         from 'react'
 
-import { ErrorProvider } from '../providers'
-import { kratos }        from '../sdk'
+import { ErrorProvider }     from '../providers'
+import { kratos }            from '../sdk'
 
 export interface ErrorErrorProps {
   returnToUrl?: string
 }
 
-export const ErrorFlow: FC<ErrorErrorProps> = ({ children, returnToUrl }) => {
+export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, returnToUrl }) => {
   const [error, setError] = useState<FlowError>()
   const [loading, setLoading] = useState<boolean>(true)
   const router = useRouter()

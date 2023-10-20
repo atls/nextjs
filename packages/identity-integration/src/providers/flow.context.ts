@@ -1,3 +1,5 @@
+import { Identity }      from '@ory/kratos-client'
+
 import { createContext } from 'react'
 
 import { Flow }          from './flow.interfaces'
@@ -5,7 +7,7 @@ import { Flow }          from './flow.interfaces'
 export interface ContextFlow {
   flow?: Flow
   loading: boolean
-  identity?: any
+  identity?: Identity
   isValid?: boolean
 }
 

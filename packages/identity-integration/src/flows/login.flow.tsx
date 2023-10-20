@@ -3,6 +3,7 @@ import { LoginFlow as KratosLoginFlow } from '@ory/kratos-client'
 
 import React                            from 'react'
 import { AxiosError }                   from 'axios'
+import { PropsWithChildren }            from 'react'
 import { FC }                           from 'react'
 import { useRouter }                    from 'next/router'
 import { useState }                     from 'react'
@@ -22,7 +23,11 @@ export interface LoginFlowProps {
   returnToUrl?: string
 }
 
-export const LoginFlow: FC<LoginFlowProps> = ({ children, onError, returnToUrl }) => {
+export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
+  children,
+  onError,
+  returnToUrl,
+}) => {
   const [flow, setFlow] = useState<KratosLoginFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
@@ -53,7 +58,7 @@ export const LoginFlow: FC<LoginFlowProps> = ({ children, onError, returnToUrl }
         {
           refresh: Boolean(refresh),
           aal: aal ? String(aal) : undefined,
-          returnTo: String(returnTo) ?? returnToUrl ?? '/',
+          returnTo: returnTo?.toString() ?? returnToUrl,
         },
         { withCredentials: true }
       )
