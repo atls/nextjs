@@ -1,4 +1,5 @@
 import { LogoutFlow as KratosLogoutFlow } from '@ory/kratos-client'
+import { PropsWithChildren }              from 'react'
 
 import React                              from 'react'
 import { AxiosError }                     from 'axios'
@@ -13,7 +14,7 @@ interface LogoutFlowProps {
   returnToUrl?: string
 }
 
-export const LogoutFlow: FC<LogoutFlowProps> = ({ children, returnToUrl }) => {
+export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, returnToUrl }) => {
   const [logoutToken, setLogoutToken] = useState<string>('')
   const router = useRouter()
 
@@ -26,7 +27,7 @@ export const LogoutFlow: FC<LogoutFlowProps> = ({ children, returnToUrl }) => {
 
     kratos
       .createBrowserLogoutFlow(
-        { returnTo: (returnTo as string | undefined) ?? returnToUrl ?? '/auth/login' },
+        { returnTo: returnTo?.toString() ?? returnToUrl },
         { withCredentials: true }
       )
       .then(({ data }) => {

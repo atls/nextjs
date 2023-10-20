@@ -1,6 +1,8 @@
+import { Identity }                                   from '@ory/kratos-client'
 import { UpdateRegistrationFlowBody }                 from '@ory/kratos-client'
 import { RegistrationFlow as KratosRegistrationFlow } from '@ory/kratos-client'
 import { UiNodeInputAttributes }                      from '@ory/kratos-client'
+import { PropsWithChildren }                          from 'react'
 
 import React                                          from 'react'
 import { AxiosError }                                 from 'axios'
@@ -23,9 +25,9 @@ export interface RegistrationFlowProps {
   returnToUrl?: string
 }
 
-export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError, returnToUrl }) => {
+export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({ children, onError, returnToUrl }) => {
   const [flow, setFlow] = useState<KratosRegistrationFlow>()
-  const [identity, setIdentity] = useState({})
+  const [identity, setIdentity] = useState<Identity>()
   const [isValid, setIsValid] = useState<boolean>(false)
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
@@ -53,7 +55,7 @@ export const RegistrationFlow: FC<RegistrationFlowProps> = ({ children, onError,
 
     kratos
       .createBrowserRegistrationFlow(
-        { returnTo: String(returnTo) ?? returnToUrl ?? '/auth/verification' },
+        { returnTo: returnTo?.toString() ?? returnToUrl },
         {
           withCredentials: true,
         }

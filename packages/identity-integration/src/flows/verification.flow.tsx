@@ -2,6 +2,7 @@
 
 import { UpdateVerificationFlowBody }                 from '@ory/kratos-client'
 import { VerificationFlow as KratosVerificationFlow } from '@ory/kratos-client'
+import { PropsWithChildren }                          from 'react'
 
 import React                                          from 'react'
 import { AxiosError }                                 from 'axios'
@@ -23,7 +24,7 @@ export interface VerificationFlowProps {
   returnToUrl?: string
 }
 
-export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError, returnToUrl }) => {
+export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({ children, onError, returnToUrl }) => {
   const [flow, setFlow] = useState<KratosVerificationFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
@@ -59,7 +60,7 @@ export const VerificationFlow: FC<VerificationFlowProps> = ({ children, onError,
 
     kratos
       .createBrowserVerificationFlow(
-        { returnTo: String(returnTo) ?? returnToUrl ?? '/auth/login' },
+        { returnTo: returnTo?.toString() ?? returnToUrl },
         {
           withCredentials: true,
         }

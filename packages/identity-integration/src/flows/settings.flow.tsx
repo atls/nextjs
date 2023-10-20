@@ -1,5 +1,6 @@
 import { UpdateSettingsFlowBody }             from '@ory/kratos-client'
 import { SettingsFlow as KratosSettingsFlow } from '@ory/kratos-client'
+import { PropsWithChildren }                  from 'react'
 
 import React                                  from 'react'
 import { AxiosError }                         from 'axios'
@@ -22,7 +23,9 @@ export interface SettingsFlowProps {
   returnToUrl?: string
 }
 
-export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError, returnToUrl }) => {
+export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
+  children, onError, returnToUrl
+}) => {
   const [flow, setFlow] = useState<KratosSettingsFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
@@ -50,7 +53,7 @@ export const SettingsFlow: FC<SettingsFlowProps> = ({ children, onError, returnT
 
     kratos
       .createBrowserSettingsFlow(
-        { returnTo: String(returnTo) ?? returnToUrl ?? '/profile/settings' },
+        { returnTo: returnTo?.toString() ?? returnToUrl },
         {
           withCredentials: true,
         }
