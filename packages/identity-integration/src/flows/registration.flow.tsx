@@ -2,10 +2,10 @@ import { Identity }                                   from '@ory/kratos-client'
 import { UpdateRegistrationFlowBody }                 from '@ory/kratos-client'
 import { RegistrationFlow as KratosRegistrationFlow } from '@ory/kratos-client'
 import { UiNodeInputAttributes }                      from '@ory/kratos-client'
-import { PropsWithChildren }                          from 'react'
 
 import React                                          from 'react'
 import { AxiosError }                                 from 'axios'
+import { PropsWithChildren }                          from 'react'
 import { FC }                                         from 'react'
 import { useRouter }                                  from 'next/router'
 import { useState }                                   from 'react'
@@ -25,7 +25,11 @@ export interface RegistrationFlowProps {
   returnToUrl?: string
 }
 
-export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({ children, onError, returnToUrl }) => {
+export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
+  children,
+  onError,
+  returnToUrl,
+}) => {
   const [flow, setFlow] = useState<KratosRegistrationFlow>()
   const [identity, setIdentity] = useState<Identity>()
   const [isValid, setIsValid] = useState<boolean>(false)

@@ -1,11 +1,11 @@
-import { UiText }       from '@ory/kratos-client'
+import { UiText }            from '@ory/kratos-client'
 
 import { ReactElement }      from 'react'
 import { FC }                from 'react'
 import { useMemo }           from 'react'
-import { localizedMessages } from '../messages'
 
-import { useFlow }      from '../providers'
+import { localizedMessages } from '../messages'
+import { useFlow }           from '../providers'
 
 export interface FlowMessagesProps {
   children: (messages: UiText[], ruMessages: string[]) => ReactElement<any>
@@ -14,7 +14,7 @@ export interface FlowMessagesProps {
 export const FlowMessages: FC<FlowMessagesProps> = ({ children }) => {
   const { flow } = useFlow()
   const messages = useMemo(() => flow?.ui?.messages || [], [flow])
-  const ruMessages = useMemo(() => localizedMessages(messages) || [], [flow])
+  const ruMessages = useMemo(() => localizedMessages(messages) || [], [messages])
 
   if (typeof children === 'function' && messages) {
     return children(messages, ruMessages)

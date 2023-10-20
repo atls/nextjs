@@ -1,9 +1,9 @@
 import { UpdateRecoveryFlowBody }             from '@ory/kratos-client'
 import { RecoveryFlow as KratosRecoveryFlow } from '@ory/kratos-client'
-import { PropsWithChildren }                  from 'react'
 
 import React                                  from 'react'
 import { AxiosError }                         from 'axios'
+import { PropsWithChildren }                  from 'react'
 import { FC }                                 from 'react'
 import { useRouter }                          from 'next/router'
 import { useState }                           from 'react'
@@ -24,7 +24,9 @@ export interface RecoveryFlowProps {
 }
 
 export const RecoveryFlow: FC<PropsWithChildren<RecoveryFlowProps>> = ({
-  children, onError, returnToUrl
+  children,
+  onError,
+  returnToUrl,
 }) => {
   const [flow, setFlow] = useState<KratosRecoveryFlow>()
   const [submitting, setSubmitting] = useState<boolean>(false)
