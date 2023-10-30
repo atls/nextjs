@@ -15,7 +15,7 @@ import { FlowProvider }                       from '../providers'
 import { ValuesProvider }                     from '../providers'
 import { ValuesStore }                        from '../providers'
 import { SubmitProvider }                     from '../providers'
-import { kratos }                             from '../sdk'
+import { useKratosClient }                    from '../providers'
 import { handleFlowError }                    from './handle-errors.util'
 
 export interface SettingsFlowProps {
@@ -33,6 +33,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
   const router = useRouter()
+  const { kratosClient, returnToSettingsUrl } = useKratosClient()
 
   const { return_to: returnTo, flow: flowId, refresh, aal } = router.query
 
@@ -42,18 +43,18 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
     }
 
     if (flowId) {
-      kratos
+      kratosClient
         .getSettingsFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch(handleFlowError(router, 'settings', setFlow, onError))
+        .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl, onError))
         .finally(() => setLoading(false))
 
       return
     }
 
-    kratos
+    kratosClient
       .createBrowserSettingsFlow(
         { returnTo: returnTo?.toString() ?? returnToUrl },
         {
@@ -63,7 +64,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
       .then(({ data }) => {
         setFlow(data)
       })
-      .catch(handleFlowError(router, 'settings', setFlow, onError))
+      .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl, onError))
       .catch((error: AxiosError<KratosSettingsFlow>) => {
         // eslint-disable-next-line default-case
         switch (error.response?.status) {
@@ -96,7 +97,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
         ...(override || {}),
       }
 
-      kratos
+      kratosClient
         .updateSettingsFlow(
           { flow: String(flow?.id), updateSettingsFlowBody: body },
           { withCredentials: true }
@@ -105,7 +106,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
           setFlow(data)
           router.push('/')
         })
-        .catch(handleFlowError(router, 'settings', setFlow))
+        .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl))
         .catch((error: AxiosError<KratosSettingsFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
@@ -118,6 +119,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
         })
         .finally(() => setSubmitting(false))
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [router, flow, values, setSubmitting]
   )
 

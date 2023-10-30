@@ -15,7 +15,7 @@ import { FlowProvider }                 from '../providers'
 import { ValuesProvider }               from '../providers'
 import { ValuesStore }                  from '../providers'
 import { SubmitProvider }               from '../providers'
-import { kratos }                       from '../sdk'
+import { useKratosClient }              from '../providers'
 import { handleFlowError }              from './handle-errors.util'
 
 export interface LoginFlowProps {
@@ -33,6 +33,7 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
   const router = useRouter()
+  const { kratosClient, returnToSettingsUrl } = useKratosClient()
 
   const { return_to: returnTo, flow: flowId, refresh, aal } = router.query
 
@@ -42,18 +43,18 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
     }
 
     if (flowId) {
-      kratos
+      kratosClient
         .getLoginFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch(handleFlowError(router, 'login', setFlow, onError))
+        .catch(handleFlowError(router, 'login', setFlow, returnToSettingsUrl, onError))
         .finally(() => setLoading(false))
 
       return
     }
 
-    kratos
+    kratosClient
       .createBrowserLoginFlow(
         {
           refresh: Boolean(refresh),
@@ -65,7 +66,7 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
       .then(({ data }) => {
         setFlow(data)
       })
-      .catch(handleFlowError(router, 'login', setFlow, onError))
+      .catch(handleFlowError(router, 'login', setFlow, returnToSettingsUrl, onError))
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
@@ -85,7 +86,7 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
         ...(override || {}),
       }
 
-      kratos
+      kratosClient
         .updateLoginFlow(
           { flow: String(flow?.id), updateLoginFlowBody: body },
           { withCredentials: true }
@@ -97,7 +98,7 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
             router.push(returnToUrl ?? '/')
           }
         })
-        .catch(handleFlowError(router, 'login', setFlow))
+        .catch(handleFlowError(router, 'login', setFlow, returnToSettingsUrl))
         .catch((error: AxiosError<KratosLoginFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
