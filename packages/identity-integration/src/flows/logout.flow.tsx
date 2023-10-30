@@ -8,7 +8,7 @@ import { useRouter }                      from 'next/router'
 import { useState }                       from 'react'
 import { useEffect }                      from 'react'
 
-import { kratos }                         from '../sdk'
+import { useKratosClient }                from '../providers'
 
 interface LogoutFlowProps {
   returnToUrl?: string
@@ -17,6 +17,7 @@ interface LogoutFlowProps {
 export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, returnToUrl }) => {
   const [logoutToken, setLogoutToken] = useState<string>('')
   const router = useRouter()
+  const { kratosClient } = useKratosClient()
 
   const { return_to: returnTo } = router.query
 
@@ -25,7 +26,7 @@ export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, r
       return
     }
 
-    kratos
+    kratosClient
       .createBrowserLogoutFlow(
         { returnTo: returnTo?.toString() ?? returnToUrl },
         { withCredentials: true }
@@ -47,10 +48,11 @@ export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, r
 
   useEffect(() => {
     if (logoutToken) {
-      kratos
+      kratosClient
         .updateLogoutFlow({ token: logoutToken }, { withCredentials: true })
         .then(() => router.reload())
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logoutToken, router])
 
   // eslint-disable-next-line react/jsx-no-useless-fragment

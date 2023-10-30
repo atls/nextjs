@@ -17,7 +17,7 @@ import { FlowProvider }                               from '../providers'
 import { ValuesProvider }                             from '../providers'
 import { ValuesStore }                                from '../providers'
 import { SubmitProvider }                             from '../providers'
-import { kratos }                                     from '../sdk'
+import { useKratosClient }                            from '../providers'
 import { handleFlowError }                            from './handle-errors.util'
 
 export interface RegistrationFlowProps {
@@ -37,6 +37,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
   const router = useRouter()
+  const { kratosClient, returnToSettingsUrl } = useKratosClient()
 
   const { return_to: returnTo, flow: flowId, refresh, aal } = router.query
 
@@ -46,18 +47,18 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
     }
 
     if (flowId) {
-      kratos
+      kratosClient
         .getRegistrationFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
         })
-        .catch(handleFlowError(router, 'registration', setFlow, onError))
+        .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl, onError))
         .finally(() => setLoading(false))
 
       return
     }
 
-    kratos
+    kratosClient
       .createBrowserRegistrationFlow(
         { returnTo: returnTo?.toString() ?? returnToUrl },
         {
@@ -67,7 +68,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
       .then(({ data }) => {
         setFlow(data)
       })
-      .catch(handleFlowError(router, 'registration', setFlow, onError))
+      .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl, onError))
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
@@ -104,7 +105,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
         ...(override || {}),
       }
 
-      kratos
+      kratosClient
         .updateRegistrationFlow(
           { flow: String(flow?.id), updateRegistrationFlowBody: body },
           { withCredentials: true }
@@ -119,7 +120,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
             router.push(returnToUrl ?? '/')
           }
         })
-        .catch(handleFlowError(router, 'registration', setFlow))
+        .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl))
         .catch((error: AxiosError<KratosRegistrationFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)

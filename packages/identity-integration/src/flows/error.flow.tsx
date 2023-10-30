@@ -9,7 +9,7 @@ import { useState }          from 'react'
 import { useEffect }         from 'react'
 
 import { ErrorProvider }     from '../providers'
-import { kratos }            from '../sdk'
+import { useKratosClient }   from '../providers'
 
 export interface ErrorErrorProps {
   returnToUrl?: string
@@ -20,6 +20,8 @@ export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, re
   const [loading, setLoading] = useState<boolean>(true)
   const router = useRouter()
 
+  const { kratosClient } = useKratosClient()
+
   const { id } = router.query
 
   useEffect(() => {
@@ -27,7 +29,7 @@ export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, re
       return
     }
 
-    kratos
+    kratosClient
       .getFlowError({ id: String(id) })
       .then(({ data }) => {
         setError(data)

@@ -17,7 +17,7 @@ import { FlowProvider }                               from '../providers'
 import { ValuesProvider }                             from '../providers'
 import { ValuesStore }                                from '../providers'
 import { SubmitProvider }                             from '../providers'
-import { kratos }                                     from '../sdk'
+import { useKratosClient }                            from '../providers'
 
 export interface VerificationFlowProps {
   onError?: (error: { id: string }) => void
@@ -34,6 +34,7 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
   const [loading, setLoading] = useState<boolean>(true)
   const values = useMemo(() => new ValuesStore(), [])
   const router = useRouter()
+  const { kratosClient } = useKratosClient()
 
   const { return_to: returnTo, flow: flowId, refresh, aal } = router.query
 
@@ -43,7 +44,7 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
     }
 
     if (flowId) {
-      kratos
+      kratosClient
         .getVerificationFlow({ id: String(flowId) }, { withCredentials: true })
         .then(({ data }) => {
           setFlow(data)
@@ -62,7 +63,7 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
       return
     }
 
-    kratos
+    kratosClient
       .createBrowserVerificationFlow(
         { returnTo: returnTo?.toString() ?? returnToUrl },
         {
@@ -99,7 +100,7 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
         ...(override || {}),
       }
 
-      kratos
+      kratosClient
         .updateVerificationFlow(
           { flow: String(flow?.id), updateVerificationFlowBody: body },
           {
@@ -120,6 +121,7 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
         })
         .finally(() => setSubmitting(false))
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [flow, values, setSubmitting]
   )
 
