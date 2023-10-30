@@ -4,7 +4,7 @@ import { FrontendApi }   from '@ory/kratos-client'
 import { getDomain }     from 'tldjs'
 
 export class KratosClient extends FrontendApi {
-  constructor(basePath?: string) {
+  constructor({ basePath, ...props }: Partial<Configuration>) {
     if (!basePath && typeof window !== 'undefined') {
       const { hostname, protocol } = window.location
 
@@ -19,12 +19,8 @@ export class KratosClient extends FrontendApi {
       }
     }
 
-    super(
-      new Configuration({
-        basePath,
-      })
-    )
+    super(new Configuration({ basePath, ...props }))
   }
 }
 
-export const kratos = new KratosClient()
+export const kratos = new KratosClient({})
