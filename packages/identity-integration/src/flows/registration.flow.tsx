@@ -23,12 +23,14 @@ import { handleFlowError }                            from './handle-errors.util
 export interface RegistrationFlowProps {
   onError?: (error: { id: string }) => void
   returnToUrl?: string
+  shouldRedirect?: boolean
 }
 
 export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
   children,
   onError,
   returnToUrl,
+  shouldRedirect = true,
 }) => {
   const [flow, setFlow] = useState<KratosRegistrationFlow>()
   const [identity, setIdentity] = useState<Identity>()
@@ -60,7 +62,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
 
     kratosClient
       .createBrowserRegistrationFlow(
-        { returnTo: returnTo?.toString() ?? returnToUrl },
+        { returnTo: shouldRedirect ? returnTo?.toString() ?? returnToUrl : undefined },
         {
           withCredentials: true,
         }
@@ -116,7 +118,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
 
           if (flow?.return_to) {
             window.location.href = flow?.return_to
-          } else {
+          } else if (shouldRedirect) {
             router.push(returnToUrl ?? '/')
           }
         })
