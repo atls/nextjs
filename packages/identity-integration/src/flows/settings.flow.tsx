@@ -104,7 +104,13 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
         )
         .then(({ data }) => {
           setFlow(data)
-          router.push('/')
+          if (flow?.return_to) {
+            window.location.href = flow?.return_to
+          } else if (returnToUrl) {
+            router.push(returnToUrl)
+          } else {
+            router.replace(router.asPath)
+          }
         })
         .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl))
         .catch((error: AxiosError<KratosSettingsFlow>) => {
