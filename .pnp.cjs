@@ -394,6 +394,7 @@ const RAW_RUNTIME_STATE =
           ["@ory/kratos-client", "npm:1.0.0"],\
           ["@types/react", "npm:17.0.47"],\
           ["@types/react-dom", "npm:17.0.17"],\
+          ["@types/tldjs", "npm:2.3.4"],\
           ["axios", "npm:1.5.1"],\
           ["next", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:12.3.4"],\
           ["react", "npm:17.0.2"],\
@@ -2533,6 +2534,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/@types-tldjs-npm-2.3.1-5df0bfec5c-b359bd9eb3.zip/node_modules/@types/tldjs/",\
         "packageDependencies": [\
           ["@types/tldjs", "npm:2.3.1"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:2.3.4", {\
+        "packageLocation": "./.yarn/cache/@types-tldjs-npm-2.3.4-db0b02e2c1-a42622e8ba.zip/node_modules/@types/tldjs/",\
+        "packageDependencies": [\
+          ["@types/tldjs", "npm:2.3.4"]\
         ],\
         "linkType": "HARD"\
       }]\

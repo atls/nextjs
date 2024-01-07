@@ -299,6 +299,7 @@ __metadata:
     "@ory/kratos-client": "npm:1.0.0"
     "@types/react": "npm:18.2.30"
     "@types/react-dom": "npm:18.2.14"
+    "@types/tldjs": "npm:2.3.4"
     axios: "npm:1.5.1"
     next: "npm:12.3.4"
     react: "npm:18.2.0"
@@ -1926,6 +1927,13 @@ __metadata:
   version: 2.3.1
   resolution: "@types/tldjs@npm:2.3.1"
   checksum: b359bd9eb31a9c8602d81f3d56d6a4db78c99377ac51d56cf1e7d060f53cd2b5297317f6056608acf7efb00754ba9645325ee91580d3224074a50ca9c3e0ff36
+  languageName: node
+  linkType: hard
+
+"@types/tldjs@npm:2.3.4":
+  version: 2.3.4
+  resolution: "@types/tldjs@npm:2.3.4"
+  checksum: a42622e8baa791613de16bb1a03b90a10feb906a88fdcb30b2c68e1d988bd63370fa1583861ba47c0a0b4d4712bb67dd32b911437aa682ae1a6076ec0c933962
   languageName: node
   linkType: hard
 
