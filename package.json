@@ -34,5 +34,6 @@
       "type": "libraries",
       "migration": "1646849022520"
     }
-  }
+  },
+  "typecheckSkipLibCheck": true
 }
