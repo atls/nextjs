@@ -12,15 +12,15 @@
     "postpack": "rm -rf dist"
   },
   "dependencies": {
-    "@ory/client": "1.5.1",
+    "@ory/client": "1.2.11",
     "@ory/integrations": "1.1.5",
     "@ory/kratos-client": "1.0.0",
     "@types/tldjs": "2.3.4",
     "tldjs": "2.3.1"
   },
   "devDependencies": {
-    "@types/react": "18.2.30",
-    "@types/react-dom": "18.2.14",
+    "@types/react": "18.2.40",
+    "@types/react-dom": "18.2.10",
     "axios": "1.5.1",
     "next": "14.1.0",
     "react": "18.2.0",
