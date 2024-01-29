@@ -1,6 +1,6 @@
 {
   "name": "@atls/next-document-with-helmet",
-  "version": "0.2.67",
+  "version": "0.3.0",
   "license": "BSD-3 Clause",
   "main": "src/index.ts",
   "files": [
@@ -12,17 +12,18 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@types/node": "18.0.3",
-    "@types/react": "^18.0.15",
-    "@types/react-dom": "^18.0.6",
-    "next": "12.2.2",
+    "@types/node": "18.19.10",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.18",
+    "next": "14.1.0",
     "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-helmet": "6.1.0"
   },
   "peerDependencies": {
-    "next": "*",
-    "react": "^16.12.0",
-    "react-helmet": "^6.0.0"
+    "next": "14.1.0",
+    "react": "18.2.0",
+    "react-helmet": "6.1.0"
   },
   "publishConfig": {
     "main": "dist/index.js",
