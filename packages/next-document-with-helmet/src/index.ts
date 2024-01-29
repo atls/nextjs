@@ -1,1 +1,1 @@
-export * from './with-helmet.provider'
+export { withHelmet } from './with-helmet.provider'

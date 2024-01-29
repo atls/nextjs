@@ -1,1 +1,1 @@
-export * from './with-icons.provider'
+export { withIcons } from './with-icons.provider'
