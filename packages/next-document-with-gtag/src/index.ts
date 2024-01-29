@@ -1,1 +1,1 @@
-export * from './with-gtag.provider'
+export { withGtag } from './with-gtag.provider'
