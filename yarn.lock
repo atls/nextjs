@@ -386,7 +386,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@atls/next-sitemap-generator@workspace:packages/next-sitemap-generator"
   dependencies:
-    "@types/node": "npm:16"
+    "@types/node": "npm:18.19.10"
     xml-js: "npm:^1.6.11"
   bin:
     gen-sitemap: ./dist/index.js
@@ -1630,13 +1630,6 @@ __metadata:
   version: 18.18.5
   resolution: "@types/node@npm:18.18.5"
   checksum: a7363aab9f402290799d3e2696fbc70c76a8a65e2354f72b8f399c38edc346f600066f8ac59dde985cfc64160cfeb63ed7fc917aecdfe7ec469345d3ce029bda
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:16":
-  version: 16.11.43
-  resolution: "@types/node@npm:16.11.43"
-  checksum: a1d6d0fe7e2c124442d3a950a6cbd82e2722d1b44d50b8a4b9a02fd5b607194d7b028b20bf2f7c22b97f1297eb75b897f39737aa6323c9bae488d233ce238089
   languageName: node
   linkType: hard
 

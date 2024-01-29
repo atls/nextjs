@@ -45,7 +45,6 @@ const bootstrap = () => {
   const xml = js2xml(struct, { compact: true })
 
   if (!existsSync(`${cwd}/src/public/`)) mkdirSync(`${cwd}/src/public/`)
-
   writeFileSync(`${cwd}/src/public/sitemap_index.xml`, xml)
 }
 

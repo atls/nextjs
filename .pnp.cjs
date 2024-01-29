@@ -492,7 +492,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/next-sitemap-generator/",\
         "packageDependencies": [\
           ["@atls/next-sitemap-generator", "workspace:packages/next-sitemap-generator"],\
-          ["@types/node", "npm:16.11.43"],\
+          ["@types/node", "npm:18.19.10"],\
           ["xml-js", "npm:1.6.11"]\
         ],\
         "linkType": "SOFT"\
@@ -2251,13 +2251,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/node", [\
-      ["npm:16.11.43", {\
-        "packageLocation": "./.yarn/cache/@types-node-npm-16.11.43-d0740e29f9-a1d6d0fe7e.zip/node_modules/@types/node/",\
-        "packageDependencies": [\
-          ["@types/node", "npm:16.11.43"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:18.0.3", {\
         "packageLocation": "./.yarn/cache/@types-node-npm-18.0.3-c2cbe1f26e-736dac4284.zip/node_modules/@types/node/",\
         "packageDependencies": [\
