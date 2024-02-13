@@ -7,7 +7,8 @@ import React                                          from 'react'
 import { AxiosError }                                 from 'axios'
 import { PropsWithChildren }                          from 'react'
 import { FC }                                         from 'react'
-import { useRouter }                                  from 'next/router'
+import { useSearchParams }                            from 'next/navigation'
+import { useRouter }                                  from 'next/navigation'
 import { useState }                                   from 'react'
 import { useEffect }                                  from 'react'
 import { useMemo }                                    from 'react'
@@ -35,11 +36,15 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
   const values = useMemo(() => new ValuesStore(), [])
   const router = useRouter()
   const { kratosClient } = useKratosClient()
+  const { get } = useSearchParams()
 
-  const { return_to: returnTo, flow: flowId, refresh, aal } = router.query
+  const returnTo = get('return_to')
+  const flowId = get('flow')
+  const refresh = get('refresh')
+  const aal = get('aal')
 
   useEffect(() => {
-    if (!router.isReady || flow) {
+    if (flow) {
       return
     }
 
@@ -83,7 +88,7 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
       })
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
+  }, [flowId, router, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
     if (flow) {

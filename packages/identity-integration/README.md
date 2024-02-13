@@ -1,4 +1,8 @@
-# NextJS Custom Workshop
+# Identity Integration
+
+## BREAKING CHANGE 0.2.0
+
+- Переход на `App Router` для `Next.JS@14`
 
 ## BREAKING CHANGE 0.0.16
 

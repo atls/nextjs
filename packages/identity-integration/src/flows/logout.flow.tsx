@@ -4,7 +4,8 @@ import React                              from 'react'
 import { AxiosError }                     from 'axios'
 import { PropsWithChildren }              from 'react'
 import { FC }                             from 'react'
-import { useRouter }                      from 'next/router'
+import { useSearchParams }                from 'next/navigation'
+import { useRouter }                      from 'next/navigation'
 import { useState }                       from 'react'
 import { useEffect }                      from 'react'
 
@@ -18,14 +19,11 @@ export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, r
   const [logoutToken, setLogoutToken] = useState<string>('')
   const router = useRouter()
   const { kratosClient } = useKratosClient()
+  const { get } = useSearchParams()
 
-  const { return_to: returnTo } = router.query
+  const returnTo = get('return_to')
 
   useEffect(() => {
-    if (!router.isReady) {
-      return
-    }
-
     kratosClient
       .createBrowserLogoutFlow(
         { returnTo: returnTo?.toString() ?? returnToUrl },
@@ -44,13 +42,13 @@ export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, r
         return Promise.reject(error)
       })
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router, router.isReady])
+  }, [router])
 
   useEffect(() => {
     if (logoutToken) {
       kratosClient
         .updateLogoutFlow({ token: logoutToken }, { withCredentials: true })
-        .then(() => router.reload())
+        .then(() => router.refresh())
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logoutToken, router])
