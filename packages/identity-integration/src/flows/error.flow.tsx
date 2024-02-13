@@ -4,7 +4,8 @@ import React                 from 'react'
 import { AxiosError }        from 'axios'
 import { PropsWithChildren } from 'react'
 import { FC }                from 'react'
-import { useRouter }         from 'next/router'
+import { useRouter }         from 'next/navigation'
+import { useSearchParams }   from 'next/navigation'
 import { useState }          from 'react'
 import { useEffect }         from 'react'
 
@@ -18,14 +19,15 @@ export interface ErrorErrorProps {
 export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, returnToUrl }) => {
   const [error, setError] = useState<FlowError>()
   const [loading, setLoading] = useState<boolean>(true)
-  const router = useRouter()
+  const { get } = useSearchParams()
+  const { push } = useRouter()
 
   const { kratosClient } = useKratosClient()
 
-  const { id } = router.query
+  const id = get('id')
 
   useEffect(() => {
-    if (!router.isReady || error) {
+    if (error) {
       return
     }
 
@@ -40,14 +42,14 @@ export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, re
           case 404:
           case 403:
           case 410:
-            return router.push(returnToUrl ?? '/auth/login')
+            return push(returnToUrl ?? '/auth/login')
         }
 
         return Promise.reject(err)
       })
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, router, router.isReady, error])
+  }, [id, push, error])
 
   return <ErrorProvider value={{ error, loading }}>{children}</ErrorProvider>
 }

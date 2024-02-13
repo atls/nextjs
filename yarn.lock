@@ -378,8 +378,8 @@ __metadata:
     react-dom: "npm:18.2.0"
     tldjs: "npm:2.3.1"
   peerDependencies:
-    next: 14.1.0
-    react: 18.2.0
+    next: ^14.1.0
+    react: ^18.2.0
   languageName: unknown
   linkType: soft
 

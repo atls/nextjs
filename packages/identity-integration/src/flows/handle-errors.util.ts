@@ -2,13 +2,13 @@
 /* eslint-disable prefer-template */
 /* eslint-disable default-case */
 
-import { AxiosError }     from 'axios'
-import { NextRouter }     from 'next/router'
-import { Dispatch }       from 'react'
-import { SetStateAction } from 'react'
+import { AxiosError }        from 'axios'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
+import { Dispatch }          from 'react'
+import { SetStateAction }    from 'react'
 
 export const handleFlowError = <S>(
-    router: NextRouter,
+    router: AppRouterInstance,
     flowType: 'login' | 'registration' | 'settings' | 'recovery' | 'verification',
     onResetFlow: Dispatch<SetStateAction<S | undefined>>,
     onErrorRedirectUrl: string,
