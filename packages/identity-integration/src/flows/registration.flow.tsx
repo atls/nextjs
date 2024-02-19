@@ -1,30 +1,40 @@
-import { Identity }                                   from '@ory/kratos-client'
-import { UpdateRegistrationFlowBody }                 from '@ory/kratos-client'
-import { RegistrationFlow as KratosRegistrationFlow } from '@ory/kratos-client'
-import { UiNodeInputAttributes }                      from '@ory/kratos-client'
+import { Identity }                                                  from '@ory/kratos-client'
+import { UpdateRegistrationFlowBody }                                from '@ory/kratos-client'
+import { RegistrationFlow as KratosRegistrationFlow }                from '@ory/kratos-client'
+import { ContinueWith as KratosContinueWith }                        from '@ory/kratos-client'
 
-import React                                          from 'react'
-import { AxiosError }                                 from 'axios'
-import { PropsWithChildren }                          from 'react'
-import { FC }                                         from 'react'
-import { useSearchParams }                            from 'next/navigation'
-import { useRouter }                                  from 'next/navigation'
-import { useState }                                   from 'react'
-import { useEffect }                                  from 'react'
-import { useMemo }                                    from 'react'
-import { useCallback }                                from 'react'
+import { UiNodeInputAttributes } from '@ory/kratos-client'
 
-import { FlowProvider }                               from '../providers'
-import { ValuesProvider }                             from '../providers'
-import { ValuesStore }                                from '../providers'
-import { SubmitProvider }                             from '../providers'
-import { useKratosClient }                            from '../providers'
-import { handleFlowError }                            from './handle-errors.util'
+import React                                                         from 'react'
+import { AxiosError }                                                from 'axios'
+import { PropsWithChildren }                                         from 'react'
+import { FC }                                                        from 'react'
+import { useSearchParams }                                           from 'next/navigation'
+import { useRouter }                                                 from 'next/navigation'
+import { useState }                                                  from 'react'
+import { useEffect }                                                 from 'react'
+import { useMemo }                                                   from 'react'
+import { useCallback }                                               from 'react'
+
+import { FlowProvider }                                              from '../providers'
+import { ValuesProvider }                                            from '../providers'
+import { ValuesStore }                                               from '../providers'
+import { SubmitProvider }                                            from '../providers'
+import { useKratosClient }                                           from '../providers'
+import { handleFlowError }                                           from './handle-errors.util'
 
 export interface RegistrationFlowProps {
   onError?: (error: { id: string }) => void
   returnToUrl?: string
   shouldRedirect?: boolean
+}
+
+type ContinueWith = KratosContinueWith & {
+  flow?: {
+    id: string
+    url?: string
+    verifiable_address: string
+  }
 }
 
 export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
@@ -121,10 +131,21 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
           setIdentity(data.identity)
           setIsValid(true)
 
+          const continueWithAction: ContinueWith | undefined = data.continue_with?.find(
+            (action) => action.action === 'show_verification_ui'
+          )
+
           if (flow?.return_to) {
             window.location.href = flow?.return_to
           } else if (shouldRedirect) {
-            router.push(returnToUrl ?? '/')
+            if (returnToUrl) {
+              router.push(returnToUrl)
+            }
+            if (continueWithAction?.flow?.url) {
+              router.push(continueWithAction.flow.url)
+            } else {
+              router.push('/')
+            }
           }
         })
         .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl))
