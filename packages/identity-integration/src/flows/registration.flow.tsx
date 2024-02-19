@@ -27,6 +27,15 @@ export interface RegistrationFlowProps {
   shouldRedirect?: boolean
 }
 
+type ContinueWith = {
+  action: string
+  flow?: {
+    id: string
+    url?: string
+    verifiable_address: string
+  }
+}
+
 export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
   children,
   onError,
@@ -121,10 +130,21 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
           setIdentity(data.identity)
           setIsValid(true)
 
+          const continueWithAction: ContinueWith | undefined = data.continue_with?.find(
+            (action) => action.action === 'show_verification_ui'
+          )
+
           if (flow?.return_to) {
             window.location.href = flow?.return_to
           } else if (shouldRedirect) {
-            router.push(returnToUrl ?? '/')
+            if (returnToUrl) {
+              router.push(returnToUrl)
+            }
+            if (continueWithAction?.flow?.url) {
+              router.push(continueWithAction.flow.url)
+            } else {
+              router.push('/')
+            }
           }
         })
         .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl))
