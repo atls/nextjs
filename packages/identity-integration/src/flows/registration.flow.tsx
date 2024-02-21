@@ -1,32 +1,32 @@
-import { Identity }                                                  from '@ory/kratos-client'
-import { UpdateRegistrationFlowBody }                                from '@ory/kratos-client'
-import { RegistrationFlow as KratosRegistrationFlow }                from '@ory/kratos-client'
-import { ContinueWith as KratosContinueWith }                        from '@ory/kratos-client'
+import { Identity }                                   from '@ory/kratos-client'
+import { UpdateRegistrationFlowBody }                 from '@ory/kratos-client'
+import { RegistrationFlow as KratosRegistrationFlow } from '@ory/kratos-client'
+import { ContinueWith as KratosContinueWith }         from '@ory/kratos-client'
+import { UiNodeInputAttributes }                      from '@ory/kratos-client'
 
-import { UiNodeInputAttributes } from '@ory/kratos-client'
+import React                                          from 'react'
+import { AxiosError }                                 from 'axios'
+import { PropsWithChildren }                          from 'react'
+import { FC }                                         from 'react'
+import { useSearchParams }                            from 'next/navigation'
+import { useRouter }                                  from 'next/navigation'
+import { useState }                                   from 'react'
+import { useEffect }                                  from 'react'
+import { useMemo }                                    from 'react'
+import { useCallback }                                from 'react'
 
-import React                                                         from 'react'
-import { AxiosError }                                                from 'axios'
-import { PropsWithChildren }                                         from 'react'
-import { FC }                                                        from 'react'
-import { useSearchParams }                                           from 'next/navigation'
-import { useRouter }                                                 from 'next/navigation'
-import { useState }                                                  from 'react'
-import { useEffect }                                                 from 'react'
-import { useMemo }                                                   from 'react'
-import { useCallback }                                               from 'react'
-
-import { FlowProvider }                                              from '../providers'
-import { ValuesProvider }                                            from '../providers'
-import { ValuesStore }                                               from '../providers'
-import { SubmitProvider }                                            from '../providers'
-import { useKratosClient }                                           from '../providers'
-import { handleFlowError }                                           from './handle-errors.util'
+import { FlowProvider }                               from '../providers'
+import { ValuesProvider }                             from '../providers'
+import { ValuesStore }                                from '../providers'
+import { SubmitProvider }                             from '../providers'
+import { useKratosClient }                            from '../providers'
+import { handleFlowError }                            from './handle-errors.util'
 
 export interface RegistrationFlowProps {
   onError?: (error: { id: string }) => void
   returnToUrl?: string
   shouldRedirect?: boolean
+  passEmail: boolean
 }
 
 type ContinueWith = KratosContinueWith & {
@@ -42,6 +42,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
   onError,
   returnToUrl,
   shouldRedirect = true,
+  passEmail = false,
 }) => {
   const [flow, setFlow] = useState<KratosRegistrationFlow>()
   const [identity, setIdentity] = useState<Identity>()
@@ -142,7 +143,16 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
               router.push(returnToUrl)
             }
             if (continueWithAction?.flow?.url) {
-              router.push(continueWithAction.flow.url)
+              if (passEmail) {
+                const url = new URL(continueWithAction.flow.url)
+                const params = url.searchParams
+                const email = continueWithAction.flow.verifiable_address
+                params.set('email', email)
+                const newUrlString = `${url.origin}${url.pathname}?${params.toString()}`
+                router.push(newUrlString)
+              } else {
+                router.push(continueWithAction.flow.url)
+              }
             } else {
               router.push('/')
             }
