@@ -1,6 +1,6 @@
 [
   {
-    "en": "the password has been found in data breaches and must no longer be used",
+    "en": "password has been found in data breaches and must no longer be used",
     "ru": "пароль был найден в слитых базах данных и не может быть использован"
   },
   {
@@ -8,7 +8,7 @@
     "ru": "Проверьте введенные данные"
   },
   {
-    "en": "password length must be at least 8 characters but only got",
+    "en": "password must be at least 8 characters",
     "ru": "длина пароля должна быть минимум 8 символов"
   }
 ]

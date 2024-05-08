@@ -569,6 +569,24 @@
     "context": {}
   },
   {
+    "id": 4000032,
+    "text": "{reason}",
+    "ru": "{reason}",
+    "type": "error",
+    "context": {
+      "reason": "{reason}"
+    }
+  },
+  {
+    "id": 4000034,
+    "text": "{reason}",
+    "ru": "{reason}",
+    "type": "error",
+    "context": {
+      "reason": "{reason}"
+    }
+  },
+  {
     "id": 4010001,
     "text": "The login flow expired 1.02 minutes ago, please try again.",
     "ru": "Время ожидания для входа истекло 1.02 минуты назад, пожалуйста, попробуйте еще раз.",
