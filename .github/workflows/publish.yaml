@@ -6,6 +6,6 @@ on:
 jobs:
   run:
     name: Publish
-    uses: atls/tools/.github/workflows/reusable-publish.yaml@master
+    uses: atls/shared/.github/workflows/publish.yaml@master
     secrets:
       npmAuthToken: ${{ secrets.NPM_TOKEN }}
