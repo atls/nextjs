@@ -1,11 +1,19 @@
 name: Publish
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - master
+    paths-ignore:
+      - '.github/**'
 
 jobs:
-  run:
+  publish:
+    if: github.event.pull_request.merged == true
     name: Publish
     uses: atls/shared/.github/workflows/publish.yaml@master
+    permissions: write-all
     secrets:
       npmAuthToken: ${{ secrets.NPM_TOKEN }}
