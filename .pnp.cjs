@@ -275,7 +275,7 @@ const RAW_RUNTIME_STATE =
           ["@types/react", "npm:18.2.40"],\
           ["@types/react-dom", "npm:18.2.10"],\
           ["@types/tldjs", "npm:2.3.4"],\
-          ["axios", "npm:1.5.1"],\
+          ["axios", "npm:1.7.7"],\
           ["next", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:14.2.9"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:18.3.1"],\
@@ -3602,16 +3602,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["axios", [\
-      ["npm:1.5.1", {\
-        "packageLocation": "../.yarn/berry/cache/axios-npm-1.5.1-6bc68e7d25-10.zip/node_modules/axios/",\
-        "packageDependencies": [\
-          ["axios", "npm:1.5.1"],\
-          ["follow-redirects", "virtual:cfbedc233d4c16068d815547ad303dec1092fdb3b8bb4ec9ab9c56bdd55b4e87650c7a525a88805756f4d2819c03abfd96a9983cfa927fedf995d1b8b879db38#npm:1.15.9"],\
-          ["form-data", "npm:4.0.0"],\
-          ["proxy-from-env", "npm:1.1.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:1.7.7", {\
         "packageLocation": "../.yarn/berry/cache/axios-npm-1.7.7-cfbedc233d-10.zip/node_modules/axios/",\
         "packageDependencies": [\

@@ -1,7 +1,6 @@
 export { Session } from '@ory/kratos-client'
 export { Configuration } from '@ory/kratos-client'
 export * from './providers/index.js'
-export * from './flows/index.js'
 export * from './ui/index.js'
 export * from './messages/index.js'
 export * from './sdk/index.js'

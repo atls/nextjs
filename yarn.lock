@@ -188,7 +188,7 @@ __metadata:
     "@types/react": "npm:18.2.40"
     "@types/react-dom": "npm:18.2.10"
     "@types/tldjs": "npm:2.3.4"
-    axios: "npm:1.5.1"
+    axios: "npm:1.7.7"
     next: "npm:14.2.9"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
@@ -2639,18 +2639,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:1.5.1":
-  version: 1.5.1
-  resolution: "axios@npm:1.5.1"
-  dependencies:
-    follow-redirects: "npm:^1.15.0"
-    form-data: "npm:^4.0.0"
-    proxy-from-env: "npm:^1.1.0"
-  checksum: 10/67633db5867c789a6edb6e5229884501bef89584a6718220c243fd5a64de4ea7dcdfdf4f8368a672d582db78aaa9f8d7b619d39403b669f451e1242bbd4c7ee2
-  languageName: node
-  linkType: hard
-
-"axios@npm:^1.6.1":
+"axios@npm:1.7.7, axios@npm:^1.6.1":
   version: 1.7.7
   resolution: "axios@npm:1.7.7"
   dependencies:
@@ -4154,7 +4143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.15.0, follow-redirects@npm:^1.15.6":
+"follow-redirects@npm:^1.15.6":
   version: 1.15.9
   resolution: "follow-redirects@npm:1.15.9"
   peerDependenciesMeta:

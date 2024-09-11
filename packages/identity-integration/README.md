@@ -1,5 +1,11 @@
 # Identity Integration
 
+## BREAKING CHANGE 1.0.0
+
+- Flow экспортируются:
+  - `@atls/next-identity-integration/app-router` - для `app` роутера
+  - `@atls/next-identity-integration/page-router` - для `pages` роутера
+
 ## BREAKING CHANGE 0.2.0
 
 - Переход на `App Router` для `Next.JS@14`

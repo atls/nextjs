@@ -4,7 +4,10 @@
   "license": "BSD-3-Clause",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./package.json": "./package.json",
+    "./app-router": "./src/app-router.ts",
+    "./page-router": "./src/page-router.ts"
   },
   "main": "src/index.ts",
   "files": [
@@ -25,7 +28,7 @@
     "@types/react": "18.2.40",
     "@types/react-dom": "18.2.10",
     "@types/tldjs": "2.3.4",
-    "axios": "1.5.1",
+    "axios": "1.7.7",
     "next": "14.2.9",
     "react": "18.3.1",
     "react-dom": "18.3.1"
@@ -36,6 +39,24 @@
   },
   "publishConfig": {
     "access": "public",
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "import": "./dist/index.js",
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "./app-router": {
+        "import": "./dist/app-router.js",
+        "types": "./dist/app-router.d.ts",
+        "default": "./dist/app-router.js"
+      },
+      "./page-router": {
+        "import": "./dist/page-router.js",
+        "types": "./dist/page-router.d.ts",
+        "default": "./dist/page-router.js"
+      }
+    },
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
   },
