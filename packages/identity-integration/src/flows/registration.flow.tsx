@@ -6,20 +6,20 @@ import { UiNodeInputAttributes }                      from '@ory/kratos-client'
 import { AxiosError }                                 from 'axios'
 import { PropsWithChildren }                          from 'react'
 import { FC }                                         from 'react'
-import { useSearchParams }                            from 'next/navigation'
-import { useRouter }                                  from 'next/navigation'
+import { useSearchParams }                            from 'next/navigation.js'
+import { useRouter }                                  from 'next/navigation.js'
 import { useState }                                   from 'react'
 import { useEffect }                                  from 'react'
 import { useMemo }                                    from 'react'
 import { useCallback }                                from 'react'
 import React                                          from 'react'
 
-import { FlowProvider }                               from '../providers'
-import { ValuesProvider }                             from '../providers'
-import { ValuesStore }                                from '../providers'
-import { SubmitProvider }                             from '../providers'
-import { useKratosClient }                            from '../providers'
-import { handleFlowError }                            from './handle-errors.util'
+import { FlowProvider }                               from '../providers/index.js'
+import { ValuesProvider }                             from '../providers/index.js'
+import { ValuesStore }                                from '../providers/index.js'
+import { SubmitProvider }                             from '../providers/index.js'
+import { useKratosClient }                            from '../providers/index.js'
+import { handleFlowError }                            from './handle-errors.util.js'
 
 export interface RegistrationFlowProps {
   onError?: (error: { id: string }) => void
@@ -32,7 +32,7 @@ type ContinueWith = KratosContinueWith & {
   flow?: {
     id: string
     url?: string
-    verifiable_address: string
+    verifiable_address?: string
   }
 }
 
@@ -124,6 +124,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
 
       kratosClient
         .updateRegistrationFlow(
+          // @ts-ignore
           { flow: String(flow?.id), updateRegistrationFlowBody: body },
           { withCredentials: true }
         )
@@ -146,7 +147,8 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
                 const url = new URL(continueWithAction.flow.url)
                 const params = url.searchParams
                 const email = continueWithAction.flow.verifiable_address
-                params.set('email', email)
+                if (email) params.set('email', email)
+
                 const newUrlString = `${url.origin}${url.pathname}?${params.toString()}`
                 router.push(newUrlString)
               } else {
@@ -177,6 +179,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
   return (
     <FlowProvider value={{ flow, loading, identity, isValid }}>
       <ValuesProvider value={values}>
+        {/* @ts-ignore */}
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>
     </FlowProvider>

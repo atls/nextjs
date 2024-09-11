@@ -1,7 +1,7 @@
 import type { UiNodeInputAttributes } from '@ory/kratos-client'
 
-import type { Flow }                  from './flow.interfaces'
-import type { Body }                  from './flow.interfaces'
+import type { Flow }                  from './flow.interfaces.js'
+import type { Body }                  from './flow.interfaces.js'
 
 import { isUiNodeInputAttributes }    from '@ory/integrations/ui'
 import { EventEmitter }               from 'events'
@@ -15,7 +15,8 @@ export class ValuesStore extends EventEmitter {
     this.setMaxListeners(50)
   }
 
-  getValue(name): string | any {
+  getValue(name: string): string | any {
+    // @ts-ignore
     return this.#values[name]
   }
 
@@ -24,6 +25,7 @@ export class ValuesStore extends EventEmitter {
   }
 
   setValue(name: string, value: string) {
+    // @ts-ignore
     this.#values[name] = value
     this.emit(name, value)
   }
@@ -34,7 +36,9 @@ export class ValuesStore extends EventEmitter {
 
       if (isUiNodeInputAttributes(attributes as any)) {
         if (type !== 'button' && type !== 'submit') {
+          // @ts-ignore
           if (!this.#values[name]) {
+            // @ts-ignore
             this.#values[name] = value
             this.emit(name, value)
           }

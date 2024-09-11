@@ -1,9 +1,12 @@
-import { ReactElement } from 'react'
-import { FC }           from 'react'
-import { useMemo }      from 'react'
+import type { UiNode }       from '@ory/kratos-client'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
 
-import { ActualUiNode } from './ui.interfaces'
-import { useFlow }      from '../providers'
+import type { ActualUiNode } from './ui.interfaces.js'
+
+import { useMemo }           from 'react'
+
+import { useFlow }           from '../providers/index.js'
 
 export type FlowNodesGroupChildren = (node: ActualUiNode[]) => ReactElement<any>
 
@@ -15,7 +18,10 @@ export interface FlowNodesGroupProps {
 export const FlowNodesGroup: FC<FlowNodesGroupProps> = ({ name, children }) => {
   const { flow } = useFlow()
 
-  const nodes = useMemo(() => flow?.ui?.nodes?.filter((node) => node.group === name), [flow, name])
+  const nodes = useMemo(
+    () => flow?.ui?.nodes?.filter((node: UiNode) => node.group === name),
+    [flow, name]
+  )
 
   if (!(nodes && nodes.length > 0)) {
     return null

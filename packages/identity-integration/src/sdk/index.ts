@@ -1,2 +1,2 @@
-export * from './kratos-admin.client'
-export * from './kratos.client'
+export * from './kratos-admin.client.js'
+export * from './kratos.client.js'

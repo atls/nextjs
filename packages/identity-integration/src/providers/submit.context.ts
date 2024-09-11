@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-import { Body }          from './flow.interfaces'
+import { Body }          from './flow.interfaces.js'
 
 export interface ContextSubmit {
   onSubmit: (override?: Partial<Body>) => void

@@ -1,11 +1,13 @@
-import { ReactElement } from 'react'
-import { FC }           from 'react'
-import { FormEvent }    from 'react'
-import { useCallback }  from 'react'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
+import type { FormEvent }    from 'react'
 
-import { ActualUiNode } from './ui.interfaces'
-import { useFlowNode }  from '../providers'
-import { useValue }     from '../providers'
+import type { ActualUiNode } from './ui.interfaces.js'
+
+import { useCallback }       from 'react'
+
+import { useFlowNode }       from '../providers/index.js'
+import { useValue }          from '../providers/index.js'
 
 type OnChangeCallback = (event: FormEvent<HTMLInputElement> | string | any) => void
 

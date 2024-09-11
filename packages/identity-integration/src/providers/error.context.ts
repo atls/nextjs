@@ -1,4 +1,4 @@
-import { FlowError }     from '@ory/kratos-client'
+import type { FlowError }     from '@ory/kratos-client'
 import { createContext } from 'react'
 
 export interface ContextError {

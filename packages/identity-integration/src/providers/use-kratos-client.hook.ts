@@ -1,7 +1,7 @@
 import { useContext }          from 'react'
 
-import { ContextKratosClient } from './kratos-client.context'
-import { KratosClientContext } from './kratos-client.context'
+import { ContextKratosClient } from './kratos-client.context.js'
+import { KratosClientContext } from './kratos-client.context.js'
 
 export const useKratosClient = (): Required<ContextKratosClient> => {
   const { kratosClient, returnToSettingsUrl } = useContext(KratosClientContext)

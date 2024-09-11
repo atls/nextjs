@@ -1,7 +1,8 @@
-import { LocalizedMessagesProps } from './localized-messages.interfaces'
-import ruFields                   from '../locales/ru/ru-fields.json'
-import ruMessages                 from '../locales/ru/ru-messages.json'
-import ruReasons                  from '../locales/ru/ru-reasons.json'
+import type { LocalizedMessagesProps } from './localized-messages.interfaces.js'
+
+import ruFields                        from '../locales/ru/ru-fields.json'
+import ruMessages                      from '../locales/ru/ru-messages.json'
+import ruReasons                       from '../locales/ru/ru-reasons.json'
 
 export const localizedMessages: LocalizedMessagesProps = (messages) =>
   messages.map(

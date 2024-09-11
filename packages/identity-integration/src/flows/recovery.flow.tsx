@@ -3,20 +3,20 @@ import { RecoveryFlow as KratosRecoveryFlow } from '@ory/kratos-client'
 import { AxiosError }                         from 'axios'
 import { PropsWithChildren }                  from 'react'
 import { FC }                                 from 'react'
-import { useSearchParams }                    from 'next/navigation'
-import { useRouter }                          from 'next/navigation'
+import { useSearchParams }                    from 'next/navigation.js'
+import { useRouter }                          from 'next/navigation.js'
 import { useState }                           from 'react'
 import { useEffect }                          from 'react'
 import { useMemo }                            from 'react'
 import { useCallback }                        from 'react'
 import React                                  from 'react'
 
-import { FlowProvider }                       from '../providers'
-import { ValuesProvider }                     from '../providers'
-import { ValuesStore }                        from '../providers'
-import { SubmitProvider }                     from '../providers'
-import { useKratosClient }                    from '../providers'
-import { handleFlowError }                    from './handle-errors.util'
+import { FlowProvider }                       from '../providers/index.js'
+import { ValuesProvider }                     from '../providers/index.js'
+import { ValuesStore }                        from '../providers/index.js'
+import { SubmitProvider }                     from '../providers/index.js'
+import { useKratosClient }                    from '../providers/index.js'
+import { handleFlowError }                    from './handle-errors.util.js'
 
 export interface RecoveryFlowProps {
   onError?: (error: { id: string }) => void
@@ -100,6 +100,7 @@ export const RecoveryFlow: FC<PropsWithChildren<RecoveryFlowProps>> = ({
 
       kratosClient
         .updateRecoveryFlow(
+          // @ts-ignore
           { flow: String(flow?.id), updateRecoveryFlowBody: body },
           { withCredentials: true }
         )

@@ -2,10 +2,10 @@
 /* eslint-disable prefer-template */
 /* eslint-disable default-case */
 
-import { AxiosError }        from 'axios'
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
-import { Dispatch }          from 'react'
-import { SetStateAction }    from 'react'
+import type { AxiosError }        from 'axios'
+import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime.js'
+import type { Dispatch }          from 'react'
+import type { SetStateAction }    from 'react'
 
 export const handleFlowError = <S>(
     router: AppRouterInstance,

@@ -411,7 +411,7 @@
   {
     "id": 4000005,
     "text": "The password can not be used because {reason}.",
-    "ru": "Этот пароль не может быть использован потому что {reason}.",
+    "ru": "Этот пароль не может быть использован, потому что {reason}.",
     "type": "error",
     "context": {
       "reason": "{reason}"

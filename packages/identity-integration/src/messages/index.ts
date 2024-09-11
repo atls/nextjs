@@ -1,2 +1,2 @@
-export * from './localized-messages'
-export * from './localized-messages.interfaces'
+export * from './localized-messages.js'
+export * from './localized-messages.interfaces.js'

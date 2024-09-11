@@ -1,6 +1,6 @@
 import { createContext } from 'react'
 
-import { ValuesStore }   from './values.store'
+import { ValuesStore }   from './values.store.js'
 
 const Context = createContext<ValuesStore>(new ValuesStore())
 
