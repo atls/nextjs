@@ -1,6 +1,5 @@
 import { Configuration } from '@ory/kratos-client'
 import { FrontendApi }   from '@ory/kratos-client'
-
 import { getDomain }     from 'tldjs'
 
 export class KratosClient extends FrontendApi {

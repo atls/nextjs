@@ -1,6 +1,5 @@
 import { Configuration } from '@ory/kratos-client'
 import { IdentityApi }   from '@ory/kratos-client'
-
 import { getDomain }     from 'tldjs'
 
 export class KratosAdminClient extends IdentityApi {

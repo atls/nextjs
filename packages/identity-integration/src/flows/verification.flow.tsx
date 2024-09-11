@@ -2,8 +2,6 @@
 
 import { UpdateVerificationFlowBody }                 from '@ory/kratos-client'
 import { VerificationFlow as KratosVerificationFlow } from '@ory/kratos-client'
-
-import React                                          from 'react'
 import { AxiosError }                                 from 'axios'
 import { PropsWithChildren }                          from 'react'
 import { FC }                                         from 'react'
@@ -13,6 +11,7 @@ import { useState }                                   from 'react'
 import { useEffect }                                  from 'react'
 import { useMemo }                                    from 'react'
 import { useCallback }                                from 'react'
+import React                                          from 'react'
 
 import { FlowProvider }                               from '../providers'
 import { ValuesProvider }                             from '../providers'

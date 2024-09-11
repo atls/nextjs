@@ -1,5 +1,4 @@
 import { UiText }            from '@ory/kratos-client'
-
 import { ReactElement }      from 'react'
 import { FC }                from 'react'
 import { useMemo }           from 'react'

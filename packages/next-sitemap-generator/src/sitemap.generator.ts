@@ -1,5 +1,4 @@
 import * as process      from 'process'
-
 import { readdirSync }   from 'fs'
 import { writeFileSync } from 'fs'
 import { existsSync }    from 'fs'
