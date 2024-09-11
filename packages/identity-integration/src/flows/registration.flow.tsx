@@ -3,8 +3,6 @@ import { UpdateRegistrationFlowBody }                 from '@ory/kratos-client'
 import { RegistrationFlow as KratosRegistrationFlow } from '@ory/kratos-client'
 import { ContinueWith as KratosContinueWith }         from '@ory/kratos-client'
 import { UiNodeInputAttributes }                      from '@ory/kratos-client'
-
-import React                                          from 'react'
 import { AxiosError }                                 from 'axios'
 import { PropsWithChildren }                          from 'react'
 import { FC }                                         from 'react'
@@ -14,6 +12,7 @@ import { useState }                                   from 'react'
 import { useEffect }                                  from 'react'
 import { useMemo }                                    from 'react'
 import { useCallback }                                from 'react'
+import React                                          from 'react'
 
 import { FlowProvider }                               from '../providers'
 import { ValuesProvider }                             from '../providers'
@@ -78,7 +77,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
 
     kratosClient
       .createBrowserRegistrationFlow(
-        { returnTo: shouldRedirect ? returnTo?.toString() ?? returnToUrl : undefined },
+        { returnTo: shouldRedirect ? (returnTo?.toString() ?? returnToUrl) : undefined },
         {
           withCredentials: true,
         }
