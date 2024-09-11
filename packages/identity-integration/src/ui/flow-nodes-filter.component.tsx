@@ -1,9 +1,11 @@
-import { ReactElement } from 'react'
-import { FC }           from 'react'
-import { useMemo }      from 'react'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
 
-import { ActualUiNode } from './ui.interfaces'
-import { useFlow }      from '../providers'
+import type { ActualUiNode } from './ui.interfaces.js'
+
+import { useMemo }           from 'react'
+
+import { useFlow }           from '../providers/index.js'
 
 export type FlowNodesFilterChildren = (node: ActualUiNode[]) => ReactElement<any>
 

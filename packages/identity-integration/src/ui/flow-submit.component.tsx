@@ -1,8 +1,9 @@
-import { ReactElement } from 'react'
-import { FC }           from 'react'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
 
-import { Body }         from '../providers'
-import { useSubmit }    from '../providers'
+import type { Body }         from '../providers/index.js'
+
+import { useSubmit }         from '../providers/index.js'
 
 export interface FlowSubmitProps {
   children: (submit: {

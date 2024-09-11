@@ -1,7 +1,7 @@
 import { useContext }   from 'react'
 
-import { ErrorContext } from './error.context'
-import { ContextError } from './error.context'
+import { ErrorContext } from './error.context.js'
+import { ContextError } from './error.context.js'
 
 export const useError = (): ContextError => {
   const error = useContext(ErrorContext)

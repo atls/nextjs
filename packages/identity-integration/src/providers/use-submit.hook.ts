@@ -1,7 +1,7 @@
 import { useContext }    from 'react'
 
-import { SubmitContext } from './submit.context'
-import { ContextSubmit } from './submit.context'
+import { SubmitContext } from './submit.context.js'
+import { ContextSubmit } from './submit.context.js'
 
 export const useSubmit = (): ContextSubmit => {
   const submit = useContext(SubmitContext)

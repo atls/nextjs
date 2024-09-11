@@ -1,22 +1,22 @@
-import { UpdateSettingsFlowBody }             from '@ory/kratos-client'
-import { SettingsFlow as KratosSettingsFlow } from '@ory/kratos-client'
-import { AxiosError }                         from 'axios'
-import { PropsWithChildren }                  from 'react'
-import { FC }                                 from 'react'
-import { useSearchParams }                    from 'next/navigation'
-import { useRouter }                          from 'next/navigation'
-import { useState }                           from 'react'
-import { useEffect }                          from 'react'
-import { useMemo }                            from 'react'
-import { useCallback }                        from 'react'
-import React                                  from 'react'
+import type { UpdateSettingsFlowBody }             from '@ory/kratos-client'
+import type { SettingsFlow as KratosSettingsFlow } from '@ory/kratos-client'
+import type { AxiosError }                         from 'axios'
+import type { PropsWithChildren }                  from 'react'
+import type { FC }                                 from 'react'
 
-import { FlowProvider }                       from '../providers'
-import { ValuesProvider }                     from '../providers'
-import { ValuesStore }                        from '../providers'
-import { SubmitProvider }                     from '../providers'
-import { useKratosClient }                    from '../providers'
-import { handleFlowError }                    from './handle-errors.util'
+import { useRouter }                               from 'next/router.js'
+import { useState }                                from 'react'
+import { useEffect }                               from 'react'
+import { useMemo }                                 from 'react'
+import { useCallback }                             from 'react'
+import React                                       from 'react'
+
+import { FlowProvider }                            from '../providers/index.js'
+import { ValuesProvider }                          from '../providers/index.js'
+import { ValuesStore }                             from '../providers/index.js'
+import { SubmitProvider }                          from '../providers/index.js'
+import { useKratosClient }                         from '../providers/index.js'
+import { handleFlowError }                         from './handle-errors.util.js'
 
 export interface SettingsFlowProps {
   onError?: (error: { id: string }) => void
@@ -34,17 +34,11 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
   const values = useMemo(() => new ValuesStore(), [])
   const router = useRouter()
   const { kratosClient, returnToSettingsUrl } = useKratosClient()
-  const { get } = useSearchParams()
 
-  const returnTo = get('return_to')
-  const flowId = get('flow')
-  const refresh = get('refresh')
-  const aal = get('aal')
+  const { return_to: returnTo, flow: flowId, refresh, aal } = router.query
 
   useEffect(() => {
-    if (flow) {
-      return
-    }
+    if (!router.isReady || flow) return
 
     if (flowId) {
       kratosClient
@@ -84,7 +78,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
       })
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [flowId, router, aal, refresh, returnTo, flow, onError])
+  }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
     if (flow) {
@@ -103,6 +97,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
 
       kratosClient
         .updateSettingsFlow(
+          // @ts-ignore
           { flow: String(flow?.id), updateSettingsFlowBody: body },
           { withCredentials: true }
         )
@@ -113,7 +108,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
           } else if (returnToUrl) {
             router.push(returnToUrl)
           } else {
-            router.refresh()
+            router.reload()
           }
         })
         .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl))
@@ -136,6 +131,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
   return (
     <FlowProvider value={{ flow, loading }}>
       <ValuesProvider value={values}>
+        {/* @ts-ignore */}
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>
     </FlowProvider>

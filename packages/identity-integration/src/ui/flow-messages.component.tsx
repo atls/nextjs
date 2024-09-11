@@ -1,10 +1,11 @@
-import { UiText }            from '@ory/kratos-client'
-import { ReactElement }      from 'react'
-import { FC }                from 'react'
+import type { UiText }       from '@ory/kratos-client'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
+
 import { useMemo }           from 'react'
 
-import { localizedMessages } from '../messages'
-import { useFlow }           from '../providers'
+import { localizedMessages } from '../messages/index.js'
+import { useFlow }           from '../providers/index.js'
 
 export interface FlowMessagesProps {
   children: (messages: UiText[], ruMessages: string[]) => ReactElement<any>

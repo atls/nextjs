@@ -1,15 +1,15 @@
-import { FlowError }         from '@ory/kratos-client'
-import { AxiosError }        from 'axios'
-import { PropsWithChildren } from 'react'
-import { FC }                from 'react'
-import { useRouter }         from 'next/navigation'
-import { useSearchParams }   from 'next/navigation'
-import { useState }          from 'react'
-import { useEffect }         from 'react'
-import React                 from 'react'
+import type { FlowError }         from '@ory/kratos-client'
+import type { AxiosError }        from 'axios'
+import type { PropsWithChildren } from 'react'
+import type { FC }                from 'react'
 
-import { ErrorProvider }     from '../providers'
-import { useKratosClient }   from '../providers'
+import { useRouter }              from 'next/router.js'
+import { useState }               from 'react'
+import { useEffect }              from 'react'
+import React                      from 'react'
+
+import { ErrorProvider }          from '../providers/index.js'
+import { useKratosClient }        from '../providers/index.js'
 
 export interface ErrorErrorProps {
   returnToUrl?: string
@@ -18,15 +18,14 @@ export interface ErrorErrorProps {
 export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, returnToUrl }) => {
   const [error, setError] = useState<FlowError>()
   const [loading, setLoading] = useState<boolean>(true)
-  const { get } = useSearchParams()
-  const { push } = useRouter()
+  const { push, query, isReady } = useRouter()
 
   const { kratosClient } = useKratosClient()
 
-  const id = get('id')
+  const { id } = query
 
   useEffect(() => {
-    if (error) {
+    if (!isReady || error) {
       return
     }
 
@@ -48,7 +47,7 @@ export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, re
       })
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id, push, error])
+  }, [id, push, isReady, error])
 
   return <ErrorProvider value={{ error, loading }}>{children}</ErrorProvider>
 }

@@ -1,7 +1,8 @@
-import { createContext } from 'react'
+import type { KratosClient } from '../sdk/index.js'
 
-import { KratosClient }  from '../sdk'
-import { kratos }        from '../sdk'
+import { createContext }     from 'react'
+
+import { kratos }            from '../sdk/index.js'
 
 export interface ContextKratosClient {
   kratosClient?: KratosClient

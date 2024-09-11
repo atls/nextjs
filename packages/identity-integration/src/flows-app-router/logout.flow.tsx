@@ -1,14 +1,15 @@
-import { LogoutFlow as KratosLogoutFlow } from '@ory/kratos-client'
-import { AxiosError }                     from 'axios'
-import { PropsWithChildren }              from 'react'
-import { FC }                             from 'react'
-import { useSearchParams }                from 'next/navigation'
-import { useRouter }                      from 'next/navigation'
-import { useState }                       from 'react'
-import { useEffect }                      from 'react'
-import React                              from 'react'
+import type { LogoutFlow as KratosLogoutFlow } from '@ory/kratos-client'
+import type { AxiosError }                     from 'axios'
+import type { PropsWithChildren }              from 'react'
+import type { FC }                             from 'react'
 
-import { useKratosClient }                from '../providers'
+import { useSearchParams }                    from 'next/navigation.js'
+import { useRouter }                          from 'next/navigation.js'
+import { useState }                           from 'react'
+import { useEffect }                          from 'react'
+import React                                   from 'react'
+
+import { useKratosClient }                     from '../providers/index.js'
 
 interface LogoutFlowProps {
   returnToUrl?: string

@@ -1,11 +1,11 @@
 import type { UiText }       from '@ory/kratos-client'
+import type { ReactElement } from 'react'
+import type { FC }           from 'react'
 
-import { ReactElement }      from 'react'
-import { FC }                from 'react'
 import { useMemo }           from 'react'
 
-import { localizedMessages } from '../messages'
-import { useFlowNode }       from '../providers'
+import { localizedMessages } from '../messages/index.js'
+import { useFlowNode }       from '../providers/index.js'
 
 export interface FlowNodeMessagesProps {
   name: string

@@ -4,7 +4,7 @@ import type { UiNode }                from '@ory/kratos-client'
 
 import { useMemo }                    from 'react'
 
-import { useFlow }                    from './use-flow.hook'
+import { useFlow }                    from './use-flow.hook.js'
 
 export const useFlowNode = (nameOrId: string): UiNode | undefined => {
   const { flow } = useFlow()
