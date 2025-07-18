@@ -34,7 +34,7 @@ export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, re
       .then(({ data }) => {
         setError(data)
       })
-      .catch((err: AxiosError<FlowError>) => {
+      .catch(async (err: AxiosError<FlowError>) => {
         // eslint-disable-next-line default-case
         switch (err.response?.status) {
           case 404:
@@ -45,8 +45,9 @@ export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, re
 
         return Promise.reject(err)
       })
-      .finally(() => setLoading(false))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .finally(() => {
+        setLoading(false)
+      })
   }, [id, push, isReady, error])
 
   return <ErrorProvider value={{ error, loading }}>{children}</ErrorProvider>

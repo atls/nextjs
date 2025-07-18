@@ -54,7 +54,9 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
           setFlow(data)
         })
         .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl, onError))
-        .finally(() => setLoading(false))
+        .finally(() => {
+          setLoading(false)
+        })
 
       return
     }
@@ -70,21 +72,23 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
         setFlow(data)
       })
       .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl, onError))
-      .catch((error: AxiosError<KratosSettingsFlow>) => {
+      .catch(async (error: AxiosError<KratosSettingsFlow>) => {
         // eslint-disable-next-line default-case
         switch (error.response?.status) {
           case 401:
             if (error.response.data.return_to) {
               window.location.href = error.response.data.return_to
             } else {
-              return router.push('/auth/login')
+              router.push('/auth/login')
+              return
             }
         }
 
-        return Promise.reject(error)
+        Promise.reject(error)
       })
-      .finally(() => setLoading(false))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .finally(() => {
+        setLoading(false)
+      })
   }, [flowId, router, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -98,13 +102,12 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
       setSubmitting(true)
 
       const body = {
-        ...(values.getValues() as UpdateSettingsFlowBody),
+        ...values.getValues(),
         ...(override || {}),
-      }
+      } as UpdateSettingsFlowBody
 
       kratosClient
         .updateSettingsFlow(
-          // @ts-ignore
           { flow: String(flow?.id), updateSettingsFlowBody: body },
           { withCredentials: true }
         )
@@ -119,7 +122,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
           }
         })
         .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl))
-        .catch((error: AxiosError<KratosSettingsFlow>) => {
+        .catch(async (error: AxiosError<KratosSettingsFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
 
@@ -129,16 +132,18 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
           // eslint-disable-next-line consistent-return
           return Promise.reject(error)
         })
-        .finally(() => setSubmitting(false))
+        .finally(() => {
+          setSubmitting(false)
+        })
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     [router, flow, values, setSubmitting]
   )
 
   return (
     <FlowProvider value={{ flow, loading }}>
       <ValuesProvider value={values}>
-        {/* @ts-ignore */}
+        {/* @ts-expect-error correct type onSubmit */}
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>
     </FlowProvider>

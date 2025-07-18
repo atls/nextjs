@@ -1,4 +1,4 @@
-export * from './flow.interfaces.js'
+export type * from './flow.interfaces.js'
 export * from './flow.context.js'
 export * from './use-flow.hook.js'
 export * from './use-flow-node.hook.js'

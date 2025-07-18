@@ -9,7 +9,7 @@ import { useFlowNode }       from '../providers/index.js'
 
 export interface FlowNodeMessagesProps {
   name: string
-  children: (messages: UiText[], ruMessages: string[]) => ReactElement<any>
+  children: (messages: Array<UiText>, ruMessages: Array<string>) => ReactElement
 }
 
 export const FlowNodeMessages: FC<FlowNodeMessagesProps> = ({ name, children }) => {

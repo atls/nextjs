@@ -9,12 +9,14 @@ import type { SetStateAction } from 'react'
 
 export const handleFlowError = <S>(
     router: NextRouter,
-    flowType: 'login' | 'registration' | 'settings' | 'recovery' | 'verification',
+    flowType: 'login' | 'recovery' | 'registration' | 'settings' | 'verification',
     onResetFlow: Dispatch<SetStateAction<S | undefined>>,
     onErrorRedirectUrl: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError?: (error: any) => void
   ) =>
-  async (error: AxiosError<any>) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async (error: AxiosError<any>): Promise<void> => {
     const redirectToSettings = onErrorRedirectUrl
 
     switch (error.response?.data.error?.id) {

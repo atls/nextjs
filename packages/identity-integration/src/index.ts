@@ -1,4 +1,4 @@
-export { Session } from '@ory/kratos-client'
+export type { Session } from '@ory/kratos-client'
 export { Configuration } from '@ory/kratos-client'
 export * from './ui/index.js'
 export * from './providers/index.js'

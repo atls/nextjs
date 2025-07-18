@@ -15,5 +15,19 @@
     "typescript": "5.5.4"
   },
   "packageManager": "yarn@4.9.2",
+  "linterIgnorePatterns": [
+    "packages/next-document-with-gtag/**/*",
+    "packages/next-document-with-helmet/**/*",
+    "packages/next-document-with-icons/**/*",
+    "packages/next-document-with-opengraph/**/*",
+    "packages/next-sitemap-generator/**/*"
+  ],
+  "typecheckIgnorePatterns": [
+    "packages/next-document-with-gtag/**/*",
+    "packages/next-document-with-helmet/**/*",
+    "packages/next-document-with-icons/**/*",
+    "packages/next-document-with-opengraph/**/*",
+    "packages/next-sitemap-generator/**/*"
+  ],
   "typecheckSkipLibCheck": true
 }

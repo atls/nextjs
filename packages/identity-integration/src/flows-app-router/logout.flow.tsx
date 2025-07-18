@@ -32,25 +32,25 @@ export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, r
       .then(({ data }) => {
         setLogoutToken(data.logout_token)
       })
-      .catch((error: AxiosError<KratosLogoutFlow>) => {
+      .catch(async (error: AxiosError<KratosLogoutFlow>) => {
         // eslint-disable-next-line default-case
         switch (error.response?.status) {
-          case 401:
-            return router.push('/auth/login')
+          case 401: {
+            router.push('/auth/login')
+            return
+          }
         }
 
-        return Promise.reject(error)
+        Promise.reject(error)
       })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router])
 
   useEffect(() => {
     if (logoutToken) {
-      kratosClient
-        .updateLogoutFlow({ token: logoutToken }, { withCredentials: true })
-        .then(() => router.refresh())
+      kratosClient.updateLogoutFlow({ token: logoutToken }, { withCredentials: true }).then(() => {
+        router.refresh()
+      })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logoutToken, router])
 
   // eslint-disable-next-line react/jsx-no-useless-fragment

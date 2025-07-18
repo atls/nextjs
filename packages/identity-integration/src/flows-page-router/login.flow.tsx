@@ -47,7 +47,9 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
           setFlow(data)
         })
         .catch(handleFlowError(router, 'login', setFlow, returnToSettingsUrl, onError))
-        .finally(() => setLoading(false))
+        .finally(() => {
+          setLoading(false)
+        })
 
       return
     }
@@ -65,8 +67,9 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
         setFlow(data)
       })
       .catch(handleFlowError(router, 'login', setFlow, returnToSettingsUrl, onError))
-      .finally(() => setLoading(false))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .finally(() => {
+        setLoading(false)
+      })
   }, [flowId, router, router.isReady, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -80,13 +83,12 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
       setSubmitting(true)
 
       const body = {
-        ...(values.getValues() as UpdateLoginFlowBody),
+        ...values.getValues(),
         ...(override || {}),
-      }
+      } as UpdateLoginFlowBody
 
       kratosClient
         .updateLoginFlow(
-          // @ts-ignore
           { flow: String(flow?.id), updateLoginFlowBody: body },
           { withCredentials: true }
         )
@@ -98,7 +100,7 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
           }
         })
         .catch(handleFlowError(router, 'login', setFlow, returnToSettingsUrl))
-        .catch((error: AxiosError<KratosLoginFlow>) => {
+        .catch(async (error: AxiosError<KratosLoginFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
 
@@ -108,16 +110,18 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
           // eslint-disable-next-line consistent-return
           return Promise.reject(error)
         })
-        .finally(() => setSubmitting(false))
+        .finally(() => {
+          setSubmitting(false)
+        })
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     [router, flow, values, setSubmitting]
   )
 
   return (
     <FlowProvider value={{ flow, loading }}>
       <ValuesProvider value={values}>
-        {/* @ts-ignore */}
+        {/* @ts-expect-error correct onSubmit type */}
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>
     </FlowProvider>

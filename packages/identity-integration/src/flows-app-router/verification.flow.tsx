@@ -57,13 +57,17 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
         .catch((error: AxiosError<KratosVerificationFlow>) => {
           switch (error.response?.status) {
             case 410:
-            case 403:
-              return router.push('/auth/verification')
+            case 403: {
+              router.push('/auth/verification')
+              return
+            }
           }
 
           throw error
         })
-        .finally(() => setLoading(false))
+        .finally(() => {
+          setLoading(false)
+        })
 
       return
     }
@@ -80,14 +84,17 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
       })
       .catch((error: AxiosError<KratosVerificationFlow>) => {
         switch (error.response?.status) {
-          case 400:
-            return router.push('/')
+          case 400: {
+            router.push('/')
+            return
+          }
         }
 
         throw error
       })
-      .finally(() => setLoading(false))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .finally(() => {
+        setLoading(false)
+      })
   }, [flowId, router, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -101,13 +108,12 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
       setSubmitting(true)
 
       const body = {
-        ...(values.getValues() as UpdateVerificationFlowBody),
+        ...values.getValues(),
         ...(override || {}),
-      }
+      } as UpdateVerificationFlowBody
 
       kratosClient
         .updateVerificationFlow(
-          // @ts-ignore
           { flow: String(flow?.id), updateVerificationFlowBody: body },
           {
             withCredentials: true,
@@ -125,16 +131,18 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
 
           throw error
         })
-        .finally(() => setSubmitting(false))
+        .finally(() => {
+          setSubmitting(false)
+        })
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     [flow, values, setSubmitting]
   )
 
   return (
     <FlowProvider value={{ flow, loading }}>
       <ValuesProvider value={values}>
-        {/* @ts-ignore Enum conflict with string */}
+        {/* @ts-expect-error Enum conflict with string */}
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>
     </FlowProvider>
