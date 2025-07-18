@@ -8,7 +8,7 @@ import { localizedMessages } from '../messages/index.js'
 import { useFlow }           from '../providers/index.js'
 
 export interface FlowMessagesProps {
-  children: (messages: UiText[], ruMessages: string[]) => ReactElement<any>
+  children: (messages: Array<UiText>, ruMessages: Array<string>) => ReactElement
 }
 
 export const FlowMessages: FC<FlowMessagesProps> = ({ children }) => {

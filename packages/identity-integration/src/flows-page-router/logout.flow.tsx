@@ -32,7 +32,7 @@ export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, r
       .then(({ data }) => {
         setLogoutToken(data.logout_token)
       })
-      .catch((error: AxiosError<KratosLogoutFlow>) => {
+      .catch(async (error: AxiosError<KratosLogoutFlow>) => {
         // eslint-disable-next-line default-case
         switch (error.response?.status) {
           case 401:
@@ -41,16 +41,14 @@ export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, r
 
         return Promise.reject(error)
       })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router])
 
   useEffect(() => {
     if (logoutToken) {
-      kratosClient
-        .updateLogoutFlow({ token: logoutToken }, { withCredentials: true })
-        .then(() => router.reload())
+      kratosClient.updateLogoutFlow({ token: logoutToken }, { withCredentials: true }).then(() => {
+        router.reload()
+      })
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [logoutToken, router])
 
   // eslint-disable-next-line react/jsx-no-useless-fragment

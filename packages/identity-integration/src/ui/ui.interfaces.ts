@@ -7,4 +7,5 @@ export type ActualUiNode = Omit<UiNode, 'attributes'> & {
   attributes: UiNodeInputAttributes & UiNodeTextAttributes
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ActualFlowError = Omit<FlowError, 'error'> & { error: any }

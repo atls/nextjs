@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 
 import { useValues }   from './use-values.hook.js'
 
-export const useValue = (name: string) => {
+export const useValue = (name: string): [string, (val: string) => void] => {
   const values = useValues()
 
   const [value, setValue] = useState(values.getValue(name))
@@ -12,12 +12,17 @@ export const useValue = (name: string) => {
   useEffect(() => {
     values.on(name, setValue)
 
-    return () => {
+    return (): void => {
       values.off(name, setValue)
     }
   }, [values, name])
 
-  const onChange = useCallback((val: string) => values.setValue(name, val), [values, name])
+  const onChange = useCallback(
+    (val: string): void => {
+      values.setValue(name, val)
+    },
+    [values, name]
+  )
 
   return [value, onChange]
 }

@@ -9,12 +9,14 @@ import type { SetStateAction }    from 'react'
 
 export const handleFlowError = <S>(
     router: AppRouterInstance,
-    flowType: 'login' | 'registration' | 'settings' | 'recovery' | 'verification',
+    flowType: 'login' | 'recovery' | 'registration' | 'settings' | 'verification',
     onResetFlow: Dispatch<SetStateAction<S | undefined>>,
     onErrorRedirectUrl: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     onError?: (error: any) => void
   ) =>
-  async (error: AxiosError<any>) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async (error: AxiosError<any>): Promise<void> => {
     const redirectToSettings = onErrorRedirectUrl
 
     switch (error.response?.data.error?.id) {
@@ -26,7 +28,7 @@ export const handleFlowError = <S>(
         if (error.response?.data?.redirect_browser_to) {
           window.location.href = error.response.data.redirect_browser_to
         } else {
-          await router.push(redirectToSettings)
+          router.push(redirectToSettings)
         }
 
         return
@@ -41,7 +43,7 @@ export const handleFlowError = <S>(
 
         onResetFlow(undefined)
 
-        await router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
+        router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
 
         return
       case 'self_service_flow_expired':
@@ -51,7 +53,7 @@ export const handleFlowError = <S>(
 
         onResetFlow(undefined)
 
-        await router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
+        router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
 
         return
       case 'security_csrf_violation':
@@ -61,13 +63,13 @@ export const handleFlowError = <S>(
 
         onResetFlow(undefined)
 
-        await router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
+        router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
 
         return
       case 'security_identity_mismatch':
         onResetFlow(undefined)
 
-        await router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
+        router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
 
         return
       case 'browser_location_change_required':
@@ -80,7 +82,7 @@ export const handleFlowError = <S>(
       case 410:
         onResetFlow(undefined)
 
-        await router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
+        router.push(flowType === 'settings' ? redirectToSettings : '/auth/' + flowType)
 
         return
     }

@@ -7,18 +7,18 @@ import { useMemo }           from 'react'
 
 import { useFlow }           from '../providers/index.js'
 
-export type FlowNodesFilterChildren = (node: ActualUiNode[]) => ReactElement<any>
+export type FlowNodesFilterChildren = (node: Array<ActualUiNode>) => ReactElement
 
 export interface FlowNodesFilterProps {
   predicate: (node: ActualUiNode) => boolean
-  children: ReactElement<any> | FlowNodesFilterChildren
+  children: FlowNodesFilterChildren | ReactElement
 }
 
 export const FlowNodesFilter: FC<FlowNodesFilterProps> = ({ predicate, children }) => {
   const { flow } = useFlow()
 
   const nodes = useMemo(
-    () => (flow?.ui?.nodes as ActualUiNode[])?.filter(predicate),
+    () => (flow?.ui?.nodes as Array<ActualUiNode>)?.filter(predicate),
     [flow, predicate]
   )
 
@@ -27,8 +27,8 @@ export const FlowNodesFilter: FC<FlowNodesFilterProps> = ({ predicate, children 
   }
 
   if (typeof children === 'function') {
-    return children(nodes as ActualUiNode[])
+    return children(nodes)
   }
 
-  return children as ReactElement<any>
+  return children
 }

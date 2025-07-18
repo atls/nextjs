@@ -1,7 +1,8 @@
-import { Identity }      from '@ory/kratos-client'
-import { createContext } from 'react'
+import type { Identity } from '@ory/kratos-client'
 
-import { Flow }          from './flow.interfaces.js'
+import type { Flow }     from './flow.interfaces.js'
+
+import { createContext } from 'react'
 
 export interface ContextFlow {
   flow?: Flow

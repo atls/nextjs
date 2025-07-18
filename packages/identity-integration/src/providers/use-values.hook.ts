@@ -1,7 +1,8 @@
-import { useContext }    from 'react'
+import type { ValuesStore } from './values.store.js'
 
-import { ValuesContext } from './values.context.js'
-import { ValuesStore }   from './values.store.js'
+import { useContext }       from 'react'
+
+import { ValuesContext }    from './values.context.js'
 
 export const useValues = (): ValuesStore => {
   const values = useContext(ValuesContext)

@@ -71,7 +71,9 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
           setFlow(data)
         })
         .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl, onError))
-        .finally(() => setLoading(false))
+        .finally(() => {
+          setLoading(false)
+        })
 
       return
     }
@@ -87,8 +89,9 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
         setFlow(data)
       })
       .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl, onError))
-      .finally(() => setLoading(false))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+      .finally(() => {
+        setLoading(false)
+      })
   }, [flowId, router, aal, refresh, returnTo, flow, onError])
 
   useEffect(() => {
@@ -112,7 +115,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
       ].flat()
 
       const body = {
-        ...(values.getValues() as UpdateRegistrationFlowBody),
+        ...values.getValues(),
         ...(submitNode
           ? {
               [(submitNode.attributes as UiNodeInputAttributes).name]: (
@@ -121,11 +124,10 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
             }
           : {}),
         ...(override || {}),
-      }
+      } as UpdateRegistrationFlowBody
 
       kratosClient
         .updateRegistrationFlow(
-          // @ts-ignore
           { flow: String(flow?.id), updateRegistrationFlowBody: body },
           { withCredentials: true }
         )
@@ -161,7 +163,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
           }
         })
         .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl))
-        .catch((error: AxiosError<KratosRegistrationFlow>) => {
+        .catch(async (error: AxiosError<KratosRegistrationFlow>) => {
           if (error.response?.status === 400) {
             setFlow(error.response?.data)
 
@@ -171,16 +173,18 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
           // eslint-disable-next-line consistent-return
           return Promise.reject(error)
         })
-        .finally(() => setSubmitting(false))
+        .finally(() => {
+          setSubmitting(false)
+        })
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
     [router, flow, values, setSubmitting]
   )
 
   return (
     <FlowProvider value={{ flow, loading, identity, isValid }}>
       <ValuesProvider value={values}>
-        {/* @ts-ignore */}
+        {/* @ts-expect-error correct onSubmit type */}
         <SubmitProvider value={{ submitting, onSubmit }}>{children}</SubmitProvider>
       </ValuesProvider>
     </FlowProvider>
