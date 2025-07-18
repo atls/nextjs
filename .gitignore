@@ -46,3 +46,6 @@ dist/
 # JetBrains Files
 .idea
 *.iml
+
+# VS Code Files
+.vscode
