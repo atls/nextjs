@@ -36,12 +36,12 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
   const values = useMemo(() => new ValuesStore(), [])
   const router = useRouter()
   const { kratosClient } = useKratosClient()
-  const { get } = useSearchParams()
+  const searchParams = useSearchParams()
 
-  const returnTo = get('return_to')
-  const flowId = get('flow')
-  const refresh = get('refresh')
-  const aal = get('aal')
+  const returnTo = searchParams.get('return_to')
+  const flowId = searchParams.get('flow')
+  const refresh = searchParams.get('refresh')
+  const aal = searchParams.get('aal')
 
   useEffect(() => {
     if (flow) {

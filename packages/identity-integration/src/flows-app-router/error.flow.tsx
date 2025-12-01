@@ -19,12 +19,12 @@ export interface ErrorErrorProps {
 export const ErrorFlow: FC<PropsWithChildren<ErrorErrorProps>> = ({ children, returnToUrl }) => {
   const [error, setError] = useState<FlowError>()
   const [loading, setLoading] = useState<boolean>(true)
-  const { get } = useSearchParams()
+  const searchParams = useSearchParams()
   const { push } = useRouter()
 
   const { kratosClient } = useKratosClient()
 
-  const id = get('id')
+  const id = searchParams.get('id')
 
   useEffect(() => {
     if (error) {
