@@ -19,9 +19,9 @@ export const LogoutFlow: FC<PropsWithChildren<LogoutFlowProps>> = ({ children, r
   const [logoutToken, setLogoutToken] = useState<string>('')
   const router = useRouter()
   const { kratosClient } = useKratosClient()
-  const { get } = useSearchParams()
+  const searchParams = useSearchParams()
 
-  const returnTo = get('return_to')
+  const returnTo = searchParams.get('return_to')
 
   useEffect(() => {
     kratosClient
