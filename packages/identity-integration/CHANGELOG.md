@@ -1,3 +1,15 @@
+
+
+## [1.0.3](https://github.com/atls/nextjs/compare/@atls/next-identity-integration@1.0.2...@atls/next-identity-integration@1.0.3) (2025-12-01)
+
+
+### Bug Fixes
+
+
+* **next-identity-integration:** next use search params ([f6ffddd](https://github.com/atls/nextjs/commit/f6ffddd6c63884900e5880d9b852047a9576efe7))
+
+
+
 ## 1.0.2 (2025-07-18)
 
 ### Bug Fixes
