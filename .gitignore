@@ -47,5 +47,6 @@ dist/
 .idea
 *.iml
 
-# VS Code Files
+# Editor files
 .vscode
+/.yarn/sdks/
