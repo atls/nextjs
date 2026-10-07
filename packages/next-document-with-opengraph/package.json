@@ -12,7 +12,7 @@
     "postpack": "rm -rf dist"
   },
   "devDependencies": {
-    "@types/node": "18.19.10",
+    "@types/node": "24.19.1",
     "@types/react": "18.2.40",
     "@types/react-dom": "18.2.10",
     "next": "14.1.0",
@@ -27,6 +27,5 @@
     "access": "public",
     "main": "dist/index.js",
     "typings": "dist/index.d.ts"
-  },
-  "typecheckSkipLibCheck": true
+  }
 }

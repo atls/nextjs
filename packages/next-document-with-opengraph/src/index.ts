@@ -1,1 +1,2 @@
-export { OpenGraphProviderOptinos, withOpenGraph } from './with-opengraph.provider'
+export type { OpenGraphProviderOptinos } from './with-opengraph.provider'
+export { withOpenGraph }                 from './with-opengraph.provider'

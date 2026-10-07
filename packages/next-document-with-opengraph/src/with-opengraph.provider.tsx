@@ -19,7 +19,7 @@ export const withOpenGraph = ({ image }: OpenGraphProviderOptinos = {}) =>
       }
 
       static renderDocument(...args) {
-        // @ts-ignore
+        // @ts-expect-error
         return Document.renderDocument(...args)
       }
     }

@@ -1,0 +1,7 @@
+releases:
+  "@atls/next-document-with-gtag": patch
+  "@atls/next-document-with-helmet": patch
+  "@atls/next-document-with-icons": patch
+  "@atls/next-document-with-opengraph": patch
+  "@atls/next-identity-integration": patch
+  "@atls/next-sitemap-generator": patch

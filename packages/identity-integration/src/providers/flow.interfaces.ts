@@ -14,8 +14,9 @@ export type FlowName = 'error' | 'login' | 'recovery' | 'registration' | 'settin
 export type Flow = LoginFlow | RecoveryFlow | RegistrationFlow | SettingsFlow | VerificationFlow
 
 export type Body =
-  | UpdateLoginFlowBody
-  | UpdateRecoveryFlowBody
-  | UpdateRegistrationFlowBody
-  | UpdateSettingsFlowBody
-  | UpdateVerificationFlowBody
+
+    | UpdateLoginFlowBody
+    | UpdateRecoveryFlowBody
+    | UpdateRegistrationFlowBody
+    | UpdateSettingsFlowBody
+    | UpdateVerificationFlowBody

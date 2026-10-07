@@ -5,15 +5,17 @@
   "workspaces": [
     "packages/**/*"
   ],
-  "resolutions": {
-    "@types/react": "18.2.40"
+  "lint-staged": {
+    "*.{yml,yaml,json,graphql,md}": "yarn format",
+    "*.{js,mjs,cjs,jsx,ts,tsx}": [
+      "yarn format",
+      "yarn lint"
+    ],
+    "*.{test,spec}.{ts,tsx}": "yarn test unit"
   },
   "devDependencies": {
-    "@atls/code-runtime": "2.1.9",
-    "@jest/core": "28.1.2",
-    "@types/node": "18.19.10",
-    "typescript": "5.5.4"
+    "@atls/raijin": "1.1.1",
+    "@types/node": "24.19.1"
   },
-  "packageManager": "yarn@4.9.2",
-  "typecheckSkipLibCheck": true
+  "packageManager": "yarn@4.18.0"
 }
