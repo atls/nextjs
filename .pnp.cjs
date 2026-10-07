@@ -60,7 +60,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@atls/raijin", "npm:1.1.1"],\
           ["@jest/core", "virtual:a0a1d86d37dad16ec9b6fa6783a3cfd93c087281e3d3f821332e71dfddaacca42fbc7ee14e4585a8c55e64cf5781a6c0a03b4d75a28b7eb7598942a159bb1c6c#npm:28.1.2"],\
-          ["@types/node", "npm:18.19.10"],\
+          ["@types/node", "npm:24.19.1"],\
           ["nextjs", "workspace:."],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
@@ -144,7 +144,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/next-document-with-gtag/",\
         "packageDependencies": [\
           ["@atls/next-document-with-gtag", "workspace:packages/next-document-with-gtag"],\
-          ["@types/node", "npm:18.19.10"],\
+          ["@types/node", "npm:24.19.1"],\
           ["@types/react", "npm:18.2.40"],\
           ["@types/react-dom", "npm:18.2.10"],\
           ["next", "virtual:3fb9ffcfd494380af48431fe188f0621c3a43ad3e8c2a3e9163ea3a134c01df40ca32ec70cae93d098ab7c70527ae493ef1548bee4091ff653ef51f02df4adb6#npm:14.1.0"],\
@@ -159,7 +159,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/next-document-with-helmet/",\
         "packageDependencies": [\
           ["@atls/next-document-with-helmet", "workspace:packages/next-document-with-helmet"],\
-          ["@types/node", "npm:18.19.10"],\
+          ["@types/node", "npm:24.19.1"],\
           ["@types/react", "npm:18.2.40"],\
           ["@types/react-dom", "npm:18.2.10"],\
           ["next", "virtual:3fb9ffcfd494380af48431fe188f0621c3a43ad3e8c2a3e9163ea3a134c01df40ca32ec70cae93d098ab7c70527ae493ef1548bee4091ff653ef51f02df4adb6#npm:14.1.0"],\
@@ -175,7 +175,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/next-document-with-icons/",\
         "packageDependencies": [\
           ["@atls/next-document-with-icons", "workspace:packages/next-document-with-icons"],\
-          ["@types/node", "npm:18.19.10"],\
+          ["@types/node", "npm:24.19.1"],\
           ["@types/react", "npm:18.2.40"],\
           ["@types/react-dom", "npm:18.2.10"],\
           ["next", "virtual:3fb9ffcfd494380af48431fe188f0621c3a43ad3e8c2a3e9163ea3a134c01df40ca32ec70cae93d098ab7c70527ae493ef1548bee4091ff653ef51f02df4adb6#npm:14.1.0"],\
@@ -190,7 +190,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/next-document-with-opengraph/",\
         "packageDependencies": [\
           ["@atls/next-document-with-opengraph", "workspace:packages/next-document-with-opengraph"],\
-          ["@types/node", "npm:18.19.10"],\
+          ["@types/node", "npm:24.19.1"],\
           ["@types/react", "npm:18.2.40"],\
           ["@types/react-dom", "npm:18.2.10"],\
           ["next", "virtual:3fb9ffcfd494380af48431fe188f0621c3a43ad3e8c2a3e9163ea3a134c01df40ca32ec70cae93d098ab7c70527ae493ef1548bee4091ff653ef51f02df4adb6#npm:14.1.0"],\
@@ -208,7 +208,7 @@ const RAW_RUNTIME_STATE =
           ["@ory/client", "npm:1.20.22"],\
           ["@ory/integrations", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:1.3.1"],\
           ["@ory/kratos-client", "npm:1.3.8"],\
-          ["@types/react", "npm:18.2.40"],\
+          ["@types/react", "npm:19.2.7"],\
           ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.2.3"],\
           ["@types/tldjs", "npm:2.3.4"],\
           ["axios", "npm:1.10.0"],\
@@ -225,7 +225,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/next-sitemap-generator/",\
         "packageDependencies": [\
           ["@atls/next-sitemap-generator", "workspace:packages/next-sitemap-generator"],\
-          ["@types/node", "npm:18.19.10"],\
+          ["@types/node", "npm:24.19.1"],\
           ["xml-js", "npm:1.6.11"]\
         ],\
         "linkType": "SOFT"\
@@ -2660,19 +2660,19 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@types/node", [\
-      ["npm:18.19.10", {\
-        "packageLocation": "../.yarn/berry/cache/@types-node-npm-18.19.10-f36f48c154-10.zip/node_modules/@types/node/",\
-        "packageDependencies": [\
-          ["@types/node", "npm:18.19.10"],\
-          ["undici-types", "npm:5.26.5"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:20.11.10", {\
         "packageLocation": "../.yarn/berry/cache/@types-node-npm-20.11.10-169269fe65-10.zip/node_modules/@types/node/",\
         "packageDependencies": [\
           ["@types/node", "npm:20.11.10"],\
           ["undici-types", "npm:5.26.5"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:24.19.1", {\
+        "packageLocation": "../.yarn/berry/cache/@types-node-npm-24.19.1-7ff7cdf8c6-10.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:24.19.1"],\
+          ["undici-types", "npm:7.24.6"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -2705,13 +2705,29 @@ const RAW_RUNTIME_STATE =
           ["csstype", "npm:3.1.3"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:19.2.7", {\
+        "packageLocation": "../.yarn/berry/cache/@types-react-npm-19.2.7-2ae71602b6-10.zip/node_modules/@types/react/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:19.2.7"],\
+          ["csstype", "npm:3.2.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:19.3.0", {\
+        "packageLocation": "../.yarn/berry/cache/@types-react-npm-19.3.0-96fae4fb3f-10.zip/node_modules/@types/react/",\
+        "packageDependencies": [\
+          ["@types/react", "npm:19.3.0"],\
+          ["csstype", "npm:3.2.3"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@types/react-dom", [\
       ["npm:18.2.10", {\
         "packageLocation": "../.yarn/berry/cache/@types-react-dom-npm-18.2.10-996210477a-10.zip/node_modules/@types/react-dom/",\
         "packageDependencies": [\
-          ["@types/react", "npm:18.2.40"],\
+          ["@types/react", "npm:19.3.0"],\
           ["@types/react-dom", "npm:18.2.10"]\
         ],\
         "linkType": "HARD"\
@@ -2726,7 +2742,7 @@ const RAW_RUNTIME_STATE =
       ["virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.2.3", {\
         "packageLocation": "./.yarn/__virtual__/@types-react-dom-virtual-d3fc2ce53c/2/.yarn/berry/cache/@types-react-dom-npm-19.2.3-1b243fa1cb-10.zip/node_modules/@types/react-dom/",\
         "packageDependencies": [\
-          ["@types/react", "npm:18.2.40"],\
+          ["@types/react", "npm:19.2.7"],\
           ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.2.3"]\
         ],\
         "packagePeers": [\
@@ -4623,6 +4639,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/csstype-npm-3.1.3-e9a1c85013-10.zip/node_modules/csstype/",\
         "packageDependencies": [\
           ["csstype", "npm:3.1.3"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:3.2.3", {\
+        "packageLocation": "../.yarn/berry/cache/csstype-npm-3.2.3-741053244e-10.zip/node_modules/csstype/",\
+        "packageDependencies": [\
+          ["csstype", "npm:3.2.3"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -8540,7 +8563,7 @@ const RAW_RUNTIME_STATE =
           ["@types/babel-plugin-react-compiler", null],\
           ["@types/opentelemetry__api", null],\
           ["@types/playwright__test", null],\
-          ["@types/react", "npm:18.2.40"],\
+          ["@types/react", "npm:19.2.7"],\
           ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.2.3"],\
           ["@types/sass", null],\
           ["babel-plugin-react-compiler", null],\
@@ -8576,7 +8599,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@atls/raijin", "npm:1.1.1"],\
           ["@jest/core", "virtual:a0a1d86d37dad16ec9b6fa6783a3cfd93c087281e3d3f821332e71dfddaacca42fbc7ee14e4585a8c55e64cf5781a6c0a03b4d75a28b7eb7598942a159bb1c6c#npm:28.1.2"],\
-          ["@types/node", "npm:18.19.10"],\
+          ["@types/node", "npm:24.19.1"],\
           ["nextjs", "workspace:."],\
           ["typescript", "patch:typescript@npm%3A5.5.4#optional!builtin<compat/typescript>::version=5.5.4&hash=379a07"]\
         ],\
@@ -9283,7 +9306,7 @@ const RAW_RUNTIME_STATE =
       ["virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.2.0", {\
         "packageLocation": "./.yarn/__virtual__/react-dom-virtual-787b70a74b/2/.yarn/berry/cache/react-dom-npm-19.2.0-10246904d4-10.zip/node_modules/react-dom/",\
         "packageDependencies": [\
-          ["@types/react", "npm:18.2.40"],\
+          ["@types/react", "npm:19.2.7"],\
           ["react", "npm:19.2.0"],\
           ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.2.0"],\
           ["scheduler", "npm:0.27.0"]\
@@ -10305,7 +10328,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/core", null],\
           ["@types/babel-plugin-macros", null],\
           ["@types/babel__core", null],\
-          ["@types/react", "npm:18.2.40"],\
+          ["@types/react", "npm:19.2.7"],\
           ["babel-plugin-macros", null],\
           ["client-only", "npm:0.0.1"],\
           ["react", "npm:19.2.0"],\
@@ -10815,6 +10838,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../.yarn/berry/cache/undici-types-npm-5.26.5-de4f7c7bb9-10.zip/node_modules/undici-types/",\
         "packageDependencies": [\
           ["undici-types", "npm:5.26.5"]\
+        ],\
+        "linkType": "HARD"\
+      }],\
+      ["npm:7.24.6", {\
+        "packageLocation": "../.yarn/berry/cache/undici-types-npm-7.24.6-8759b28e34-10.zip/node_modules/undici-types/",\
+        "packageDependencies": [\
+          ["undici-types", "npm:7.24.6"]\
         ],\
         "linkType": "HARD"\
       }]\
