@@ -5,7 +5,7 @@ import type { Body }                  from './flow.interfaces.js'
 
 import { EventEmitter }               from 'node:events'
 
-import { isUiNodeInputAttributes }    from '@ory/integrations/ui'
+import { isUiNodeInputAttributes }    from '@ory/integrations/ui/index.js'
 
 export class ValuesStore extends EventEmitter {
   #values: Body = {} as Body
