@@ -1,8 +1,9 @@
-import * as process      from 'process'
-import { readdirSync }   from 'fs'
-import { writeFileSync } from 'fs'
-import { existsSync }    from 'fs'
-import { mkdirSync }     from 'fs'
+import { readdirSync }   from 'node:fs'
+import { writeFileSync } from 'node:fs'
+import { existsSync }    from 'node:fs'
+import { mkdirSync }     from 'node:fs'
+import * as process      from 'node:process'
+
 import { js2xml }        from 'xml-js'
 
 const bootstrap = () => {
@@ -23,7 +24,7 @@ const bootstrap = () => {
 
   const host = process.argv.slice(2)[0]
 
-  if (host.charAt(host.length - 1) === '/') {
+  if (host.endsWith('/')) {
     throw new Error(`Host name should not end with '/'`)
   }
 

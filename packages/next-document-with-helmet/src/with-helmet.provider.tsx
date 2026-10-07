@@ -23,7 +23,7 @@ export const withHelmet = () => (TargetComponent) =>
     }
 
     static renderDocument(...args) {
-      // @ts-ignore
+      // @ts-expect-error
       return Document.renderDocument(...args)
     }
 

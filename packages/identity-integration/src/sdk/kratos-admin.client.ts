@@ -8,13 +8,13 @@ export class KratosAdminClient extends IdentityApi {
       const { hostname, protocol } = window.location
 
       if (hostname === 'localhost') {
-        basePath = 'http://localhost:4434' // eslint-disable-line no-param-reassign
+        basePath = 'http://localhost:4434'
       } else if (hostname === '127.0.0.1') {
-        basePath = 'http://127.0.0.1:4434' // eslint-disable-line no-param-reassign
+        basePath = 'http://127.0.0.1:4434'
       } else if (hostname.startsWith('accounts.')) {
-        basePath = origin.replace('accounts.', 'identity-admin.') // eslint-disable-line no-param-reassign
+        basePath = origin.replace('accounts.', 'identity-admin.')
       } else {
-        basePath = `${protocol}//identity-admin.${getDomain(hostname)}` // eslint-disable-line no-param-reassign
+        basePath = `${protocol}//identity-admin.${getDomain(hostname)}`
       }
     }
 

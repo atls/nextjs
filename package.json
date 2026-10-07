@@ -9,11 +9,10 @@
     "@types/react": "18.2.40"
   },
   "devDependencies": {
-    "@atls/code-runtime": "2.1.9",
+    "@atls/raijin": "1.1.1",
     "@jest/core": "28.1.2",
     "@types/node": "18.19.10",
     "typescript": "5.5.4"
   },
-  "packageManager": "yarn@4.9.2",
-  "typecheckSkipLibCheck": true
+  "packageManager": "yarn@4.18.0"
 }

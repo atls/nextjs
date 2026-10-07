@@ -27,7 +27,7 @@ export const FlowNode: FC<FlowNodeProps> = ({ name, children }) => {
       } else if (event?.target) {
         setValue(event.target.value)
       } else {
-        setValue(event as never as string)
+        setValue(event as never)
       }
     },
     [setValue]

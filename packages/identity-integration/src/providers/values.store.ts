@@ -3,8 +3,9 @@ import type { UiNodeInputAttributes } from '@ory/kratos-client'
 import type { Flow }                  from './flow.interfaces.js'
 import type { Body }                  from './flow.interfaces.js'
 
+import { EventEmitter }               from 'node:events'
+
 import { isUiNodeInputAttributes }    from '@ory/integrations/ui'
-import { EventEmitter }               from 'events'
 
 export class ValuesStore extends EventEmitter {
   #values: Body = {} as Body
