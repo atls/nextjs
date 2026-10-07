@@ -5,11 +5,17 @@
   "workspaces": [
     "packages/**/*"
   ],
+  "lint-staged": {
+    "*.{yml,yaml,json,graphql,md}": "yarn format",
+    "*.{js,mjs,cjs,jsx,ts,tsx}": [
+      "yarn format",
+      "yarn lint"
+    ],
+    "*.{test,spec}.{ts,tsx}": "yarn test unit"
+  },
   "devDependencies": {
     "@atls/raijin": "1.1.1",
-    "@jest/core": "28.1.2",
-    "@types/node": "24.19.1",
-    "typescript": "5.5.4"
+    "@types/node": "24.19.1"
   },
   "packageManager": "yarn@4.18.0"
 }
