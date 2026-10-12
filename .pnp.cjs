@@ -157,14 +157,13 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/next-document-with-helmet/",\
         "packageDependencies": [\
           ["@atls/next-document-with-helmet", "workspace:packages/next-document-with-helmet"],\
+          ["@dr.pogodin/react-helmet", "virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b"],\
           ["@types/node", "npm:24.19.1"],\
           ["@types/react", "npm:19.3.0"],\
           ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"],\
-          ["@types/react-helmet", "npm:6.1.11"],\
           ["next", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:16.4.0"],\
           ["react", "npm:19.3.0"],\
-          ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"],\
-          ["react-helmet", "virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#npm:6.1.0"]\
+          ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -621,6 +620,28 @@ const RAW_RUNTIME_STATE =
           ["@babel/helper-string-parser", "npm:7.27.1"],\
           ["@babel/helper-validator-identifier", "npm:7.27.1"],\
           ["@babel/types", "npm:7.28.1"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@dr.pogodin/react-helmet", [\
+      ["patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b", {\
+        "packageLocation": "../.yarn/berry/cache/@dr.pogodin-react-helmet-patch-fecd1f971f-10.zip/node_modules/@dr.pogodin/react-helmet/",\
+        "packageDependencies": [\
+          ["@dr.pogodin/react-helmet", "patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b", {\
+        "packageLocation": "./.yarn/__virtual__/@dr.pogodin-react-helmet-virtual-6ba2383e91/2/.yarn/berry/cache/@dr.pogodin-react-helmet-patch-fecd1f971f-10.zip/node_modules/@dr.pogodin/react-helmet/",\
+        "packageDependencies": [\
+          ["@dr.pogodin/react-helmet", "virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b"],\
+          ["@types/react", "npm:19.3.0"],\
+          ["react", "npm:19.3.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1539,16 +1560,6 @@ const RAW_RUNTIME_STATE =
         ],\
         "packagePeers": [\
           "@types/react"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@types/react-helmet", [\
-      ["npm:6.1.11", {\
-        "packageLocation": "../.yarn/berry/cache/@types-react-helmet-npm-6.1.11-6d6a281744-10.zip/node_modules/@types/react-helmet/",\
-        "packageDependencies": [\
-          ["@types/react", "npm:19.3.0"],\
-          ["@types/react-helmet", "npm:6.1.11"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -6293,68 +6304,11 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["react-fast-compare", [\
-      ["npm:3.2.2", {\
-        "packageLocation": "../.yarn/berry/cache/react-fast-compare-npm-3.2.2-45b585a872-10.zip/node_modules/react-fast-compare/",\
-        "packageDependencies": [\
-          ["react-fast-compare", "npm:3.2.2"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["react-helmet", [\
-      ["npm:6.1.0", {\
-        "packageLocation": "../.yarn/berry/cache/react-helmet-npm-6.1.0-20fd5447ff-10.zip/node_modules/react-helmet/",\
-        "packageDependencies": [\
-          ["react-helmet", "npm:6.1.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#npm:6.1.0", {\
-        "packageLocation": "./.yarn/__virtual__/react-helmet-virtual-6ab1933d1f/2/.yarn/berry/cache/react-helmet-npm-6.1.0-20fd5447ff-10.zip/node_modules/react-helmet/",\
-        "packageDependencies": [\
-          ["@types/react", "npm:19.3.0"],\
-          ["object-assign", "npm:4.1.1"],\
-          ["prop-types", "npm:15.8.1"],\
-          ["react", "npm:19.3.0"],\
-          ["react-fast-compare", "npm:3.2.2"],\
-          ["react-helmet", "virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#npm:6.1.0"],\
-          ["react-side-effect", "virtual:6ab1933d1f49d1346ed2078d19396b31321ffcbd2521f0c078a9841207841b8363a3a9f4827f1744ce518354f87ea760c98181a5a1749061d15df17f926d281f#npm:2.1.2"]\
-        ],\
-        "packagePeers": [\
-          "@types/react",\
-          "react"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["react-is", [\
       ["npm:16.13.1", {\
         "packageLocation": "../.yarn/berry/cache/react-is-npm-16.13.1-a9b9382b4f-10.zip/node_modules/react-is/",\
         "packageDependencies": [\
           ["react-is", "npm:16.13.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["react-side-effect", [\
-      ["npm:2.1.2", {\
-        "packageLocation": "../.yarn/berry/cache/react-side-effect-npm-2.1.2-c18e5fd8bd-10.zip/node_modules/react-side-effect/",\
-        "packageDependencies": [\
-          ["react-side-effect", "npm:2.1.2"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:6ab1933d1f49d1346ed2078d19396b31321ffcbd2521f0c078a9841207841b8363a3a9f4827f1744ce518354f87ea760c98181a5a1749061d15df17f926d281f#npm:2.1.2", {\
-        "packageLocation": "./.yarn/__virtual__/react-side-effect-virtual-a9c5b9c861/2/.yarn/berry/cache/react-side-effect-npm-2.1.2-c18e5fd8bd-10.zip/node_modules/react-side-effect/",\
-        "packageDependencies": [\
-          ["@types/react", "npm:19.3.0"],\
-          ["react", "npm:19.3.0"],\
-          ["react-side-effect", "virtual:6ab1933d1f49d1346ed2078d19396b31321ffcbd2521f0c078a9841207841b8363a3a9f4827f1744ce518354f87ea760c98181a5a1749061d15df17f926d281f#npm:2.1.2"]\
-        ],\
-        "packagePeers": [\
-          "@types/react",\
-          "react"\
         ],\
         "linkType": "HARD"\
       }]\

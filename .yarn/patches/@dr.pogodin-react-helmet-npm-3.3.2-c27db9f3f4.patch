@@ -1,0 +1,60 @@
+diff --git a/build/types/Helmet.d.ts b/build/types/Helmet.d.ts
+index acf8e34d008be053fdecb85fc62b2b0b6cae5fee..73b372f98cfbfadfc2563f44de2a558f265ee787 100644
+--- a/build/types/Helmet.d.ts
++++ b/build/types/Helmet.d.ts
+@@ -1,4 +1,4 @@
+ import { type FunctionComponent } from 'react';
+-import type { HelmetProps } from './types';
++import type { HelmetProps } from './types.js';
+ declare const Helmet: FunctionComponent<HelmetProps>;
+ export default Helmet;
+diff --git a/build/types/Provider.d.ts b/build/types/Provider.d.ts
+index fea729bf8a7dbf106503e7c745af2d9d560dc798..71b34b08159eaac833eee719b7bd2dcec6818859 100644
+--- a/build/types/Provider.d.ts
++++ b/build/types/Provider.d.ts
+@@ -1,5 +1,5 @@
+ import { type FunctionComponent, type ReactNode } from 'react';
+-import type { ContextValue, HelmetServerState } from './types';
++import type { ContextValue, HelmetServerState } from './types.js';
+ export declare const Context: import("react").Context<ContextValue | undefined>;
+ type ProviderProps = {
+     children?: ReactNode;
+diff --git a/build/types/client.d.ts b/build/types/client.d.ts
+index 8338f3dc91451674afeee656e96fa0f004df77ae..104cc4ac9a072ee199314ec846d76286832f7e09 100644
+--- a/build/types/client.d.ts
++++ b/build/types/client.d.ts
+@@ -1,2 +1,2 @@
+-import type { AggregatedState } from './types';
++import type { AggregatedState } from './types.js';
+ export declare function commitTagChanges(newState: AggregatedState, firstRender: boolean): void;
+diff --git a/build/types/index.d.ts b/build/types/index.d.ts
+index bc260a94cb5973fc75b904ad7a3761e4ae86defc..8e609c50d8b176d8897b007663fdd89b3baf517c 100644
+--- a/build/types/index.d.ts
++++ b/build/types/index.d.ts
+@@ -1,4 +1,4 @@
+-export type * from './types';
+-export { default as Helmet } from './Helmet';
+-export { default as MetaTags } from './MetaTags';
+-export { default as HelmetProvider } from './Provider';
++export type * from './types.js';
++export { default as Helmet } from './Helmet.js';
++export { default as MetaTags } from './MetaTags.js';
++export { default as HelmetProvider } from './Provider.js';
+diff --git a/build/types/server.d.ts b/build/types/server.d.ts
+index c47d631dab13248745dc712fb1acc6d248afd2ba..c2d0cbe2772cee536ca369038fd0c10e4793a7f5 100644
+--- a/build/types/server.d.ts
++++ b/build/types/server.d.ts
+@@ -1,2 +1,2 @@
+-import type { HelmetProviderHeap, HelmetServerState } from './types';
++import type { HelmetProviderHeap, HelmetServerState } from './types.js';
+ export declare function newServerState(heap: HelmetProviderHeap): HelmetServerState;
+diff --git a/build/types/utils.d.ts b/build/types/utils.d.ts
+index b6421a1784e040e8fd4e72cf422bd36fb8ec648a..f4a28f18585375a25c53758136ec7a910e9df425 100644
+--- a/build/types/utils.d.ts
++++ b/build/types/utils.d.ts
+@@ -1,4 +1,4 @@
+-import type { AggregatedState, BaseProps, HelmetPropArrays, HelmetPropObjects, HelmetProps, PropArrayItem, RegisteredHelmetPropsArray } from './types';
++import type { AggregatedState, BaseProps, HelmetPropArrays, HelmetPropObjects, HelmetProps, PropArrayItem, RegisteredHelmetPropsArray } from './types.js';
+ type PropList = Record<string, any>;
+ type AttributeList = string[];
+ type MatchProps = Record<string, AttributeList | string>;
