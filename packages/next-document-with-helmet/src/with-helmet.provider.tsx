@@ -1,45 +1,43 @@
-import { Head }       from 'next/document'
-import { Html }       from 'next/document'
-import { Main }       from 'next/document'
-import { NextScript } from 'next/document'
-import { Helmet }     from 'react-helmet'
-import Document       from 'next/document'
-import React          from 'react'
+/* eslint-disable @next/next/no-document-import-in-page */
 
-export const withHelmet = () => (TargetComponent) =>
+import type { DocumentContext, DocumentInitialProps } from 'next/document'
+import type { HelmetData }                            from 'react-helmet'
+import type Document                                  from 'next/document'
+
+import { Head }                                       from 'next/document'
+import { Html }                                       from 'next/document'
+import { Main }                                       from 'next/document'
+import { NextScript }                                 from 'next/document'
+import { Helmet }                                     from 'react-helmet'
+import React                                          from 'react'
+
+export const withHelmet = () => (TargetComponent: typeof Document) =>
   class WithHelmet extends TargetComponent {
-    static async getInitialProps(context) {
-      const props = await TargetComponent.getInitialProps(context)
+    static override async getInitialProps(
+      context: DocumentContext
+    ): Promise<DocumentInitialProps & { helmet: HelmetData }> {
+      const props = await super.getInitialProps(context)
 
       const helmet = Helmet.renderStatic()
-      const helmetHead = Object.keys(helmet)
-        .filter((el) => el !== 'htmlAttributes' && el !== 'bodyAttributes')
-        .map((el) => helmet[el].toComponent())
-        .flat()
+      const helmetHead = (Object.keys(helmet) as Array<keyof HelmetData>)
+        .filter(
+          (key): key is Exclude<keyof HelmetData, 'bodyAttributes' | 'htmlAttributes'> =>
+            key !== 'htmlAttributes' && key !== 'bodyAttributes'
+        )
+        .map((key) => helmet[key].toComponent())
 
-      props.head = [...props.head, ...helmetHead]
+      props.head = [...(props.head ?? []), ...helmetHead]
 
       return { ...props, helmet }
     }
 
-    static renderDocument(...args) {
-      // @ts-expect-error
-      return Document.renderDocument(...args)
-    }
-
-    get helmetHtmlAttrComponents() {
-      return this.props.helmet.htmlAttributes.toComponent()
-    }
-
-    get helmetBodyAttrComponents() {
-      return this.props.helmet.bodyAttributes.toComponent()
-    }
-
     render() {
+      const { helmet } = this.props as typeof this.props & { helmet: HelmetData }
+
       return (
-        <Html {...this.helmetHtmlAttrComponents}>
+        <Html {...helmet.htmlAttributes.toComponent()}>
           <Head />
-          <body {...this.helmetBodyAttrComponents}>
+          <body {...helmet.bodyAttributes.toComponent()}>
             <Main />
             <NextScript />
           </body>

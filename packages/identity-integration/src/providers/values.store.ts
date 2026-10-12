@@ -33,7 +33,7 @@ export class ValuesStore extends EventEmitter {
   }
 
   setFromFlow(flow: Flow): void {
-    flow?.ui?.nodes?.forEach(({ attributes }) => {
+    flow.ui.nodes.forEach(({ attributes }) => {
       const { name, type, value = '' } = attributes as UiNodeInputAttributes
 
       if (isUiNodeInputAttributes(attributes)) {

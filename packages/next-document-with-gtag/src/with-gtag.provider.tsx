@@ -1,12 +1,18 @@
-import Document from 'next/document'
-import React    from 'react'
+/* eslint-disable @next/next/no-document-import-in-page, @next/next/next-script-for-ga */
 
-export const withGtag = (gaTrackingId?: string) => (TargetComponent) =>
+import type { DocumentContext, DocumentInitialProps } from 'next/document'
+
+import type Document                                  from 'next/document'
+
+import React                                          from 'react'
+
+export const withGtag = (gaTrackingId?: string) => (TargetComponent: typeof Document) =>
   class WithGtag extends TargetComponent {
-    static async getInitialProps(context) {
+    static override async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps> {
       const props = await super.getInitialProps(context)
 
       if (gaTrackingId) {
+        props.head ??= []
         props.head.push(
           <script
             dangerouslySetInnerHTML={{
@@ -23,10 +29,5 @@ export const withGtag = (gaTrackingId?: string) => (TargetComponent) =>
       }
 
       return props
-    }
-
-    static renderDocument(...args) {
-      // @ts-expect-error
-      return Document.renderDocument(...args)
     }
   }

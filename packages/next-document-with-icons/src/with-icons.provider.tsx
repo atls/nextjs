@@ -1,11 +1,17 @@
-import Document from 'next/document'
-import React    from 'react'
+/* eslint-disable @next/next/no-document-import-in-page */
 
-export const withIcons = () => (TargetComponent) =>
+import type { DocumentContext, DocumentInitialProps } from 'next/document'
+
+import type Document                                  from 'next/document'
+
+import React                                          from 'react'
+
+export const withIcons = () => (TargetComponent: typeof Document) =>
   class WithIcons extends TargetComponent {
-    static async getInitialProps(context) {
+    static override async getInitialProps(context: DocumentContext): Promise<DocumentInitialProps> {
       const props = await super.getInitialProps(context)
 
+      props.head ??= []
       props.head.push(
         <link rel='apple-touch-icon' sizes='57x57' href='/apple-icon-57x57.png' />,
         <link rel='apple-touch-icon' sizes='60x60' href='/apple-icon-60x60.png' />,
@@ -23,10 +29,5 @@ export const withIcons = () => (TargetComponent) =>
       )
 
       return props
-    }
-
-    static renderDocument(...args) {
-      // @ts-expect-error
-      return Document.renderDocument(...args)
     }
   }

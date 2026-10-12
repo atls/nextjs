@@ -67,7 +67,7 @@ export const RecoveryFlow: FC<PropsWithChildren<RecoveryFlowProps>> = ({
       .catch(handleFlowError(router, 'recovery', setFlow, returnToSettingsUrl, onError))
       .catch(async (error: AxiosError<KratosRecoveryFlow>) => {
         if (error.response?.status === 400) {
-          setFlow(error.response?.data)
+          setFlow(error.response.data)
 
           return
         }
@@ -106,7 +106,7 @@ export const RecoveryFlow: FC<PropsWithChildren<RecoveryFlowProps>> = ({
         .catch(handleFlowError(router, 'recovery', setFlow, returnToSettingsUrl))
         .catch(async (error: AxiosError<KratosRecoveryFlow>) => {
           if (error.response?.status === 400) {
-            setFlow(error.response?.data)
+            setFlow(error.response.data)
 
             return
           }

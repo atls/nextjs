@@ -125,7 +125,7 @@ export const VerificationFlow: FC<PropsWithChildren<VerificationFlowProps>> = ({
         .catch((error: AxiosError<KratosVerificationFlow>) => {
           switch (error.response?.status) {
             case 400:
-              setFlow(error.response?.data)
+              setFlow(error.response.data)
               return
           }
 

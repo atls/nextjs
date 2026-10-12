@@ -133,12 +133,12 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
           )
 
           if (flow?.return_to) {
-            window.location.href = flow?.return_to
+            window.location.href = flow.return_to
           } else if (shouldRedirect) {
             if (returnToUrl) {
               router.push(returnToUrl)
             }
-            if (continueWithAction?.flow?.url) {
+            if (continueWithAction?.flow.url) {
               if (passEmail) {
                 const url = new URL(continueWithAction.flow.url)
                 const params = url.searchParams
@@ -158,7 +158,7 @@ export const RegistrationFlow: FC<PropsWithChildren<RegistrationFlowProps>> = ({
         .catch(handleFlowError(router, 'registration', setFlow, returnToSettingsUrl))
         .catch(async (error: AxiosError<KratosRegistrationFlow>) => {
           if (error.response?.status === 400) {
-            setFlow(error.response?.data)
+            setFlow(error.response.data)
 
             return
           }

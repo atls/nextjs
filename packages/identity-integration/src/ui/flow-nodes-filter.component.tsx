@@ -18,7 +18,7 @@ export const FlowNodesFilter: FC<FlowNodesFilterProps> = ({ predicate, children 
   const { flow } = useFlow()
 
   const nodes = useMemo(
-    () => (flow?.ui?.nodes as Array<ActualUiNode>)?.filter(predicate),
+    () => (flow ? (flow.ui.nodes as Array<ActualUiNode>).filter(predicate) : undefined),
     [flow, predicate]
   )
 

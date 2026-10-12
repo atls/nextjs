@@ -21,11 +21,11 @@ export const handleFlowError = <S>(
 
     switch (error.response?.data.error?.id) {
       case 'session_aal2_required':
-        window.location.href = error.response?.data.redirect_browser_to
+        window.location.href = error.response.data.redirect_browser_to
 
         return
       case 'session_already_available':
-        if (error.response?.data?.redirect_browser_to) {
+        if (error.response.data.redirect_browser_to) {
           window.location.href = error.response.data.redirect_browser_to
         } else {
           await router.push(redirectToSettings)
@@ -33,7 +33,7 @@ export const handleFlowError = <S>(
 
         return
       case 'session_refresh_required':
-        window.location.href = error.response?.data.redirect_browser_to
+        window.location.href = error.response.data.redirect_browser_to
 
         return
       case 'self_service_flow_return_to_forbidden':

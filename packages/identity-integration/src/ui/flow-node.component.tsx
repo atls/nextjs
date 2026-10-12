@@ -24,10 +24,8 @@ export const FlowNode: FC<FlowNodeProps> = ({ name, children }) => {
     (event: ChangeEvent<HTMLInputElement> | string) => {
       if (typeof event === 'string') {
         setValue(event)
-      } else if (event?.target) {
-        setValue(event.target.value)
       } else {
-        setValue(event as never)
+        setValue(event.target.value)
       }
     },
     [setValue]

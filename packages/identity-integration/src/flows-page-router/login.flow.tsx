@@ -94,7 +94,7 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
         )
         .then(() => {
           if (flow?.return_to) {
-            window.location.href = flow?.return_to
+            window.location.href = flow.return_to
           } else {
             router.push(returnToUrl ?? '/')
           }
@@ -102,7 +102,7 @@ export const LoginFlow: FC<PropsWithChildren<LoginFlowProps>> = ({
         .catch(handleFlowError(router, 'login', setFlow, returnToSettingsUrl))
         .catch(async (error: AxiosError<KratosLoginFlow>) => {
           if (error.response?.status === 400) {
-            setFlow(error.response?.data)
+            setFlow(error.response.data)
 
             return
           }
