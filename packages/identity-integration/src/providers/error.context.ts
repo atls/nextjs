@@ -7,7 +7,7 @@ export interface ContextError {
   loading: boolean
 }
 
-const Context = createContext<ContextError>({ loading: false })
+const Context = createContext<ContextError | undefined>(undefined)
 
 const { Provider, Consumer } = Context
 

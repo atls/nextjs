@@ -11,7 +11,7 @@ export interface ContextFlow {
   isValid?: boolean
 }
 
-const Context = createContext<ContextFlow>({ loading: false })
+const Context = createContext<ContextFlow | undefined>(undefined)
 
 const { Provider, Consumer } = Context
 

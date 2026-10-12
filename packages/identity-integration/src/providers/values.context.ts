@@ -1,8 +1,8 @@
-import { createContext } from 'react'
+import type { ValuesStore } from './values.store.js'
 
-import { ValuesStore }   from './values.store.js'
+import { createContext }    from 'react'
 
-const Context = createContext<ValuesStore>(new ValuesStore())
+const Context = createContext<ValuesStore | undefined>(undefined)
 
 const { Provider, Consumer } = Context
 

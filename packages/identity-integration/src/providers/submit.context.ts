@@ -7,7 +7,7 @@ export interface ContextSubmit {
   submitting: boolean
 }
 
-const Context = createContext<ContextSubmit>({ submitting: false, onSubmit: () => ({}) })
+const Context = createContext<ContextSubmit | undefined>(undefined)
 
 const { Provider, Consumer } = Context
 
