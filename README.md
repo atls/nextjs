@@ -21,5 +21,3 @@
 ### 🗺️&nbsp;&nbsp;`next-sitemap-generator`
 
 Генератор карты сайта для Next.js приложений, обеспечивающий индексацию и оптимизацию SEO.
-
-Для метатегов и иконок в Pages Router используйте [`next/head`](https://nextjs.org/docs/pages/api-reference/components/head), для сторонних скриптов — [`next/script`](https://nextjs.org/docs/pages/api-reference/components/script). Атрибуты `html` задавайте в [Custom Document](https://nextjs.org/docs/pages/building-your-application/routing/custom-document).
