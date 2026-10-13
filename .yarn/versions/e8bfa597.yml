@@ -1,6 +1,5 @@
 releases:
   "@atls/next-document-with-gtag": major
-  "@atls/next-document-with-helmet": major
   "@atls/next-document-with-icons": major
   "@atls/next-document-with-opengraph": major
   "@atls/next-identity-integration": patch

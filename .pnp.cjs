@@ -23,10 +23,6 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/next-document-with-gtag"\
     },\
     {\
-      "name": "@atls/next-document-with-helmet",\
-      "reference": "workspace:packages/next-document-with-helmet"\
-    },\
-    {\
       "name": "@atls/next-document-with-icons",\
       "reference": "workspace:packages/next-document-with-icons"\
     },\
@@ -44,7 +40,6 @@ const RAW_RUNTIME_STATE =
   "pnpZipBackend": "libzip",\
   "fallbackExclusionList": [\
     ["@atls/next-document-with-gtag", ["workspace:packages/next-document-with-gtag"]],\
-    ["@atls/next-document-with-helmet", ["workspace:packages/next-document-with-helmet"]],\
     ["@atls/next-document-with-icons", ["workspace:packages/next-document-with-icons"]],\
     ["@atls/next-document-with-opengraph", ["workspace:packages/next-document-with-opengraph"]],\
     ["@atls/next-identity-integration", ["workspace:packages/identity-integration"]],\
@@ -142,22 +137,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./packages/next-document-with-gtag/",\
         "packageDependencies": [\
           ["@atls/next-document-with-gtag", "workspace:packages/next-document-with-gtag"],\
-          ["@types/node", "npm:24.19.1"],\
-          ["@types/react", "npm:19.3.0"],\
-          ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"],\
-          ["next", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:16.4.0"],\
-          ["react", "npm:19.3.0"],\
-          ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }]\
-    ]],\
-    ["@atls/next-document-with-helmet", [\
-      ["workspace:packages/next-document-with-helmet", {\
-        "packageLocation": "./packages/next-document-with-helmet/",\
-        "packageDependencies": [\
-          ["@atls/next-document-with-helmet", "workspace:packages/next-document-with-helmet"],\
-          ["@dr.pogodin/react-helmet", "virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b"],\
           ["@types/node", "npm:24.19.1"],\
           ["@types/react", "npm:19.3.0"],\
           ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"],\
@@ -620,28 +599,6 @@ const RAW_RUNTIME_STATE =
           ["@babel/helper-string-parser", "npm:7.27.1"],\
           ["@babel/helper-validator-identifier", "npm:7.27.1"],\
           ["@babel/types", "npm:7.28.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@dr.pogodin/react-helmet", [\
-      ["patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b", {\
-        "packageLocation": "../.yarn/berry/cache/@dr.pogodin-react-helmet-patch-fecd1f971f-10.zip/node_modules/@dr.pogodin/react-helmet/",\
-        "packageDependencies": [\
-          ["@dr.pogodin/react-helmet", "patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b", {\
-        "packageLocation": "./.yarn/__virtual__/@dr.pogodin-react-helmet-virtual-6ba2383e91/2/.yarn/berry/cache/@dr.pogodin-react-helmet-patch-fecd1f971f-10.zip/node_modules/@dr.pogodin/react-helmet/",\
-        "packageDependencies": [\
-          ["@dr.pogodin/react-helmet", "virtual:bf8a1598fa6a66838edf04cd1858984042966b4dcd6467a6373e96df1c74a52c69bba5507bf11b15cc923202e7da164deec40286571ad0c3340926914fe509d0#patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b"],\
-          ["@types/react", "npm:19.3.0"],\
-          ["react", "npm:19.3.0"]\
-        ],\
-        "packagePeers": [\
-          "@types/react",\
-          "react"\
         ],\
         "linkType": "HARD"\
       }]\

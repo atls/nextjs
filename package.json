@@ -13,9 +13,6 @@
     ],
     "*.{test,spec}.{ts,tsx}": "yarn test unit"
   },
-  "resolutions": {
-    "@dr.pogodin/react-helmet": "patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch"
-  },
   "devDependencies": {
     "@atls/raijin": "latest",
     "@types/node": "24.19.1"
