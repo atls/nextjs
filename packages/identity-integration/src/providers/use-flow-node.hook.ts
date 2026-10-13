@@ -11,7 +11,7 @@ export const useFlowNode = (nameOrId: string): UiNode | undefined => {
 
   const node = useMemo(
     () =>
-      flow?.ui?.nodes?.find(({ attributes }) => {
+      flow?.ui.nodes.find(({ attributes }) => {
         if ((attributes as UiNodeInputAttributes).name) {
           return (attributes as UiNodeInputAttributes).name === nameOrId
         }

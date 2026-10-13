@@ -106,7 +106,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
         .then(({ data }) => {
           setFlow(data)
           if (flow?.return_to) {
-            window.location.href = flow?.return_to
+            window.location.href = flow.return_to
           } else if (returnToUrl) {
             router.push(returnToUrl)
           } else {
@@ -116,7 +116,7 @@ export const SettingsFlow: FC<PropsWithChildren<SettingsFlowProps>> = ({
         .catch(handleFlowError(router, 'settings', setFlow, returnToSettingsUrl))
         .catch(async (error: AxiosError<KratosSettingsFlow>) => {
           if (error.response?.status === 400) {
-            setFlow(error.response?.data)
+            setFlow(error.response.data)
 
             return
           }

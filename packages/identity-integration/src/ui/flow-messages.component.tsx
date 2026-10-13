@@ -13,12 +13,8 @@ export interface FlowMessagesProps {
 
 export const FlowMessages: FC<FlowMessagesProps> = ({ children }) => {
   const { flow } = useFlow()
-  const messages = useMemo(() => flow?.ui?.messages || [], [flow])
-  const ruMessages = useMemo(() => localizedMessages(messages) || [], [messages])
+  const messages = useMemo(() => flow?.ui.messages || [], [flow])
+  const ruMessages = useMemo(() => localizedMessages(messages), [messages])
 
-  if (typeof children === 'function' && messages) {
-    return children(messages, ruMessages)
-  }
-
-  return null
+  return children(messages, ruMessages)
 }

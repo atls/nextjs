@@ -1,8 +1,8 @@
 import type { LocalizedMessagesProps } from './localized-messages.interfaces.js'
 
-import ruFields                        from '../locales/ru/ru-fields.json'
-import ruMessages                      from '../locales/ru/ru-messages.json'
-import ruReasons                       from '../locales/ru/ru-reasons.json'
+import ruFields from '../locales/ru/ru-fields.json' with { type: 'json' }
+import ruMessages from '../locales/ru/ru-messages.json' with { type: 'json' }
+import ruReasons from '../locales/ru/ru-reasons.json' with { type: 'json' }
 
 export const localizedMessages: LocalizedMessagesProps = (messages) =>
   messages.map(
@@ -31,4 +31,4 @@ export const localizedMessages: LocalizedMessagesProps = (messages) =>
             message.context?.property ??
             ''
         ) ?? message.text
-  ) ?? []
+  )

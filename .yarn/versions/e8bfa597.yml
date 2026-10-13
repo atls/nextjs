@@ -1,0 +1,3 @@
+releases:
+  "@atls/next-identity-integration": patch
+  "@atls/next-sitemap-generator": patch

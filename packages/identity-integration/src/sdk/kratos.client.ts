@@ -8,13 +8,13 @@ export class KratosClient extends FrontendApi {
       const { hostname, protocol } = window.location
 
       if (hostname === 'localhost') {
-        basePath = 'http://localhost:4433' // eslint-disable-line no-param-reassign
+        basePath = 'http://localhost:4433'
       } else if (hostname === '127.0.0.1') {
-        basePath = 'http://127.0.0.1:4433' // eslint-disable-line no-param-reassign
+        basePath = 'http://127.0.0.1:4433'
       } else if (hostname.startsWith('accounts.')) {
-        basePath = origin.replace('accounts.', 'identity.') // eslint-disable-line no-param-reassign
+        basePath = origin.replace('accounts.', 'identity.')
       } else {
-        basePath = `${protocol}//identity.${getDomain(hostname)}` // eslint-disable-line no-param-reassign
+        basePath = `${protocol}//identity.${getDomain(hostname)}`
       }
     }
 

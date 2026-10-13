@@ -1,14 +1,14 @@
-import * as process      from 'process'
-import { readdirSync }   from 'fs'
-import { writeFileSync } from 'fs'
-import { existsSync }    from 'fs'
-import { mkdirSync }     from 'fs'
-import { js2xml }        from 'xml-js'
+import { mkdir }     from 'node:fs/promises'
+import { readdir }   from 'node:fs/promises'
+import { writeFile } from 'node:fs/promises'
+import { join }      from 'node:path'
 
-const bootstrap = () => {
+import { js2xml }    from 'xml-js'
+
+const bootstrap = async (): Promise<void> => {
   const cwd = process.cwd()
-  const pages = readdirSync(`${cwd}/src/pages`)
-  const pageUrls: Array<any> = []
+  const pages = await readdir(join(cwd, 'src/pages'))
+  const pageUrls: Array<{ loc: string; lastmod: string; priority: string }> = []
   const struct = {
     urlset: {
       _attributes: {
@@ -23,7 +23,7 @@ const bootstrap = () => {
 
   const host = process.argv.slice(2)[0]
 
-  if (host.charAt(host.length - 1) === '/') {
+  if (host.endsWith('/')) {
     throw new Error(`Host name should not end with '/'`)
   }
 
@@ -43,8 +43,13 @@ const bootstrap = () => {
 
   const xml = js2xml(struct, { compact: true })
 
-  if (!existsSync(`${cwd}/src/public/`)) mkdirSync(`${cwd}/src/public/`)
-  writeFileSync(`${cwd}/src/public/sitemap_index.xml`, xml)
+  await mkdir(join(cwd, 'src/public'), { recursive: true })
+  await writeFile(join(cwd, 'src/public/sitemap_index.xml'), xml)
 }
 
-bootstrap()
+bootstrap().catch((error: unknown) => {
+  process.stderr.write(
+    `${error instanceof Error ? (error.stack ?? error.message) : String(error)}\n`
+  )
+  process.exitCode = 1
+})

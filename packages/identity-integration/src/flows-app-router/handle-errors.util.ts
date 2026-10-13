@@ -2,13 +2,13 @@
 /* eslint-disable prefer-template */
 /* eslint-disable default-case */
 
-import type { AxiosError }        from 'axios'
-import type { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime.js'
-import type { Dispatch }          from 'react'
-import type { SetStateAction }    from 'react'
+import type { AxiosError }     from 'axios'
+import type { Dispatch }       from 'react'
+import type { SetStateAction } from 'react'
+import type { useRouter }      from 'next/navigation.js'
 
 export const handleFlowError = <S>(
-    router: AppRouterInstance,
+    router: ReturnType<typeof useRouter>,
     flowType: 'login' | 'recovery' | 'registration' | 'settings' | 'verification',
     onResetFlow: Dispatch<SetStateAction<S | undefined>>,
     onErrorRedirectUrl: string,
@@ -21,11 +21,11 @@ export const handleFlowError = <S>(
 
     switch (error.response?.data.error?.id) {
       case 'session_aal2_required':
-        window.location.href = error.response?.data.redirect_browser_to
+        window.location.href = error.response.data.redirect_browser_to
 
         return
       case 'session_already_available':
-        if (error.response?.data?.redirect_browser_to) {
+        if (error.response.data.redirect_browser_to) {
           window.location.href = error.response.data.redirect_browser_to
         } else {
           router.push(redirectToSettings)
@@ -33,7 +33,7 @@ export const handleFlowError = <S>(
 
         return
       case 'session_refresh_required':
-        window.location.href = error.response?.data.redirect_browser_to
+        window.location.href = error.response.data.redirect_browser_to
 
         return
       case 'self_service_flow_return_to_forbidden':

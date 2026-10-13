@@ -19,7 +19,7 @@ export const FlowNodesGroup: FC<FlowNodesGroupProps> = ({ name, children }) => {
   const { flow } = useFlow()
 
   const nodes = useMemo(
-    () => flow?.ui?.nodes?.filter((node: UiNode) => node.group === name),
+    () => flow?.ui.nodes.filter((node: UiNode) => node.group === name),
     [flow, name]
   )
 
