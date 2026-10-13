@@ -19,18 +19,6 @@ const RAW_RUNTIME_STATE =
       "reference": "workspace:packages/identity-integration"\
     },\
     {\
-      "name": "@atls/next-document-with-gtag",\
-      "reference": "workspace:packages/next-document-with-gtag"\
-    },\
-    {\
-      "name": "@atls/next-document-with-icons",\
-      "reference": "workspace:packages/next-document-with-icons"\
-    },\
-    {\
-      "name": "@atls/next-document-with-opengraph",\
-      "reference": "workspace:packages/next-document-with-opengraph"\
-    },\
-    {\
       "name": "@atls/next-sitemap-generator",\
       "reference": "workspace:packages/next-sitemap-generator"\
     }\
@@ -39,9 +27,6 @@ const RAW_RUNTIME_STATE =
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "pnpZipBackend": "libzip",\
   "fallbackExclusionList": [\
-    ["@atls/next-document-with-gtag", ["workspace:packages/next-document-with-gtag"]],\
-    ["@atls/next-document-with-icons", ["workspace:packages/next-document-with-icons"]],\
-    ["@atls/next-document-with-opengraph", ["workspace:packages/next-document-with-opengraph"]],\
     ["@atls/next-identity-integration", ["workspace:packages/identity-integration"]],\
     ["@atls/next-sitemap-generator", ["workspace:packages/next-sitemap-generator"]],\
     ["nextjs", ["workspace:."]]\
@@ -130,51 +115,6 @@ const RAW_RUNTIME_STATE =
           ["grapheme-splitter", "npm:1.0.4"]\
         ],\
         "linkType": "HARD"\
-      }]\
-    ]],\
-    ["@atls/next-document-with-gtag", [\
-      ["workspace:packages/next-document-with-gtag", {\
-        "packageLocation": "./packages/next-document-with-gtag/",\
-        "packageDependencies": [\
-          ["@atls/next-document-with-gtag", "workspace:packages/next-document-with-gtag"],\
-          ["@types/node", "npm:24.19.1"],\
-          ["@types/react", "npm:19.3.0"],\
-          ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"],\
-          ["next", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:16.4.0"],\
-          ["react", "npm:19.3.0"],\
-          ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }]\
-    ]],\
-    ["@atls/next-document-with-icons", [\
-      ["workspace:packages/next-document-with-icons", {\
-        "packageLocation": "./packages/next-document-with-icons/",\
-        "packageDependencies": [\
-          ["@atls/next-document-with-icons", "workspace:packages/next-document-with-icons"],\
-          ["@types/node", "npm:24.19.1"],\
-          ["@types/react", "npm:19.3.0"],\
-          ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"],\
-          ["next", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:16.4.0"],\
-          ["react", "npm:19.3.0"],\
-          ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"]\
-        ],\
-        "linkType": "SOFT"\
-      }]\
-    ]],\
-    ["@atls/next-document-with-opengraph", [\
-      ["workspace:packages/next-document-with-opengraph", {\
-        "packageLocation": "./packages/next-document-with-opengraph/",\
-        "packageDependencies": [\
-          ["@atls/next-document-with-opengraph", "workspace:packages/next-document-with-opengraph"],\
-          ["@types/node", "npm:24.19.1"],\
-          ["@types/react", "npm:19.3.0"],\
-          ["@types/react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"],\
-          ["next", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:16.4.0"],\
-          ["react", "npm:19.3.0"],\
-          ["react-dom", "virtual:a29650b7eaad3692d1139d6ca50163f9c611de4f12c1b46473850e285251c23b9c7999b6fe9d59b5db61d9d37958f2e8c07243c0c5bbcd15ae669fb338f0d523#npm:19.3.0"]\
-        ],\
-        "linkType": "SOFT"\
       }]\
     ]],\
     ["@atls/next-identity-integration", [\
