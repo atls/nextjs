@@ -63,73 +63,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@atls/next-document-with-gtag@workspace:packages/next-document-with-gtag":
-  version: 0.0.0-use.local
-  resolution: "@atls/next-document-with-gtag@workspace:packages/next-document-with-gtag"
-  dependencies:
-    "@types/node": "npm:24.19.1"
-    "@types/react": "npm:19.3.0"
-    "@types/react-dom": "npm:19.3.0"
-    next: "npm:16.4.0"
-    react: "npm:19.3.0"
-    react-dom: "npm:19.3.0"
-  peerDependencies:
-    next: ^16.0.0
-    react: ^19.0.0
-    react-dom: ^19.0.0
-  languageName: unknown
-  linkType: soft
-
-"@atls/next-document-with-helmet@workspace:packages/next-document-with-helmet":
-  version: 0.0.0-use.local
-  resolution: "@atls/next-document-with-helmet@workspace:packages/next-document-with-helmet"
-  dependencies:
-    "@dr.pogodin/react-helmet": "npm:3.3.2"
-    "@types/node": "npm:24.19.1"
-    "@types/react": "npm:19.3.0"
-    "@types/react-dom": "npm:19.3.0"
-    next: "npm:16.4.0"
-    react: "npm:19.3.0"
-    react-dom: "npm:19.3.0"
-  peerDependencies:
-    "@dr.pogodin/react-helmet": ^3.3.2
-    next: ^16.0.0
-    react: ^19.0.0
-  languageName: unknown
-  linkType: soft
-
-"@atls/next-document-with-icons@workspace:packages/next-document-with-icons":
-  version: 0.0.0-use.local
-  resolution: "@atls/next-document-with-icons@workspace:packages/next-document-with-icons"
-  dependencies:
-    "@types/node": "npm:24.19.1"
-    "@types/react": "npm:19.3.0"
-    "@types/react-dom": "npm:19.3.0"
-    next: "npm:16.4.0"
-    react: "npm:19.3.0"
-    react-dom: "npm:19.3.0"
-  peerDependencies:
-    next: ^16.0.0
-    react: ^19.0.0
-  languageName: unknown
-  linkType: soft
-
-"@atls/next-document-with-opengraph@workspace:packages/next-document-with-opengraph":
-  version: 0.0.0-use.local
-  resolution: "@atls/next-document-with-opengraph@workspace:packages/next-document-with-opengraph"
-  dependencies:
-    "@types/node": "npm:24.19.1"
-    "@types/react": "npm:19.3.0"
-    "@types/react-dom": "npm:19.3.0"
-    next: "npm:16.4.0"
-    react: "npm:19.3.0"
-    react-dom: "npm:19.3.0"
-  peerDependencies:
-    next: ^16.0.0
-    react: ^19.0.0
-  languageName: unknown
-  linkType: soft
-
 "@atls/next-identity-integration@workspace:packages/identity-integration":
   version: 0.0.0-use.local
   resolution: "@atls/next-identity-integration@workspace:packages/identity-integration"
@@ -485,24 +418,6 @@ __metadata:
     "@babel/helper-string-parser": "npm:^7.27.1"
     "@babel/helper-validator-identifier": "npm:^7.27.1"
   checksum: 10/b35b0c030326e45efd4ebd87f30a7e5463f0c78617661ff12e8deb3fe983c53c48696374434ffd3664681cbc5b1495ebc69043753b232193e8dc02d1ae7d0ff5
-  languageName: node
-  linkType: hard
-
-"@dr.pogodin/react-helmet@npm:3.3.2":
-  version: 3.3.2
-  resolution: "@dr.pogodin/react-helmet@npm:3.3.2"
-  peerDependencies:
-    react: 19
-  checksum: 10/00209b8270cfa13022078a778385438c9eb76d748df75ac296a52b4fc29bd54d8fd10ef215d1d2b0a1ce44aef33a85282a95673a71a1f52ea795aa634f5a3413
-  languageName: node
-  linkType: hard
-
-"@dr.pogodin/react-helmet@patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch":
-  version: 3.3.2
-  resolution: "@dr.pogodin/react-helmet@patch:@dr.pogodin/react-helmet@npm%3A3.3.2#~/.yarn/patches/@dr.pogodin-react-helmet-npm-3.3.2-c27db9f3f4.patch::version=3.3.2&hash=b2334b"
-  peerDependencies:
-    react: 19
-  checksum: 10/3efcbcc0eb208ca5bfbf102e751515b1c730f3c4857e772ce2aa2b290dd63305930d8c53b6203bcb368266fa18d0482504a6acda90cc2d39ca0df7e9fae56ad5
   languageName: node
   linkType: hard
 
